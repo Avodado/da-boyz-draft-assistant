@@ -8,8 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_BUILD = "v0.12.4"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.4-github-3"
+EXPECTED_BUILD = "v0.12.5"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.5-github-1"
 EXPECTED_DATA_SHA256 = "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
@@ -49,7 +49,7 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.manifest["short_name"], f"DA BOYZ {EXPECTED_BUILD}")
         self.assertIn(EXPECTED_BUILD, self.manifest["description"])
 
-    def test_stale_release_labels_are_not_advertised_by_current_artifacts(self) -> None:
+    def test_pre_v0124_release_labels_are_not_advertised_by_current_artifacts(self) -> None:
         for artifact in (self.html, self.index, self.manifest["name"], self.manifest["short_name"], self.manifest["description"], self.worker):
             self.assertNotIn("v0.12.3", artifact)
 
@@ -101,7 +101,16 @@ class PwaAcceptanceTests(unittest.TestCase):
         offsets = [load_source.index(token) for token in expected_order]
         self.assertEqual(offsets, sorted(offsets))
         self.assertIn("normalizeLoadedState", load_source)
-        self.assertIn('save("recovered")', load_source)
+        self.assertIn("needsIdentityMigration", load_source)
+        self.assertIn('save(c.key===KEY?"identity-migration":"recovered")', load_source)
+
+    def test_v0125_identity_schema_and_v0124_migration_are_explicit(self) -> None:
+        self.assertIn("const IDENTITY_VERSION=2", self.html)
+        self.assertIn("ownerName,teamName,name:teamName,profileId", self.html)
+        self.assertIn("x.teams=normalizeTeamIdentities(x.teams||defaultTeams)", self.html)
+        self.assertIn("x.identityVersion=IDENTITY_VERSION", self.html)
+        self.assertIn("profileId?profileOwnerName(profileId):legacyName", self.html)
+        self.assertIn("profileId:team.profileId&&!profileMatchesOwner", self.html)
 
     def test_required_draft_controls_and_filters_are_present(self) -> None:
         for element_id in (
@@ -113,12 +122,35 @@ class PwaAcceptanceTests(unittest.TestCase):
             "setupRows",
         ):
             self.assertIn(f'id="{element_id}"', self.html)
-        setup_filter = segment(self.html, "function refreshSetupAvailability", "function renderSetup")
+        setup_start = self.html.rindex("function refreshSetupAvailability")
+        setup_end = self.html.index("function renderSetup", setup_start)
+        setup_filter = self.html[setup_start:setup_end]
         self.assertIn("usedProfiles", setup_filter)
         self.assertIn("!usedProfiles.includes(k)", setup_filter)
         self.assertIn("usedCards", setup_filter)
         self.assertIn("!usedCards.includes(card)", setup_filter)
+        self.assertIn("usedOwners", setup_filter)
+        for label in ("Owner", "Team", "Historical Profile", "Card"):
+            self.assertIn(f"<label>{label}</label>", self.html)
+        self.assertIn('data-team-owner=', self.html)
+        self.assertIn('data-team-name=', self.html)
+        self.assertIn('No History / Neutral', self.html)
         self.assertIn('document.getElementById("manualDraft").onclick', self.html)
+        self.assertIn('document.getElementById("undoPick").onclick=undo', self.html)
+
+    def test_android_portrait_and_landscape_setup_layouts_are_covered(self) -> None:
+        self.assertIn("@media(max-width:900px)", self.html)
+        self.assertIn(".teamrow{grid-template-columns:28px minmax(0,1fr) minmax(0,1fr)}", self.html)
+        self.assertIn("@media(max-width:1150px){.setup-grid{grid-template-columns:1fr}}", self.html)
+
+    def test_draft_undo_and_emergency_pick_paths_remain_connected(self) -> None:
+        record = segment(self.html, "function recordPick", "function makePick")
+        undo = segment(self.html, "function undo", "function renderHistory")
+        self.assertIn("state.picks.push(pick)", record)
+        self.assertIn('source==="unlisted"', record)
+        self.assertIn("state.picks.pop()", undo)
+        self.assertIn("original.drafted=false", undo)
+        self.assertIn('recordPick(p,"unlisted",true)', self.html)
         self.assertIn('document.getElementById("undoPick").onclick=undo', self.html)
 
     def test_update_handler_preserves_the_working_cache(self) -> None:
