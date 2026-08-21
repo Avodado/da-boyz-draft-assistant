@@ -112,12 +112,12 @@ function makeWorkerHarness() {
 }
 
 
-test("install precaches the complete v0.12.3-github-2 release", async () => {
+test("install precaches the complete v0.12.4-github-3 release", async () => {
   const harness = makeWorkerHarness();
   let installed;
   harness.listeners.install({ waitUntil(promise) { installed = promise; } });
   await installed;
-  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.12.3-github-2");
+  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.12.4-github-3");
   assert.deepEqual(harness.added, [
     "./",
     "./index.html",
@@ -187,6 +187,28 @@ test("activate removes only obsolete DA BOYZ caches", async () => {
 });
 
 
+test("v0.12.3 cache upgrades to v0.12.4 and remains offline-usable", async () => {
+  const harness = makeWorkerHarness();
+  const current = vm.runInContext("CACHE", harness.context);
+  const old = "daboyz-draft-assistant-v0.12.3-github-2";
+  harness.stores.set(old, new Map([["https://example.test/draft/index.html", new FakeResponse(200, "old-index")]]));
+  let installed;
+  harness.listeners.install({ waitUntil(promise) { installed = promise; } });
+  await installed;
+  assert.equal(harness.stores.has(current), true);
+  await (await harness.caches.open(current)).put("https://example.test/draft/index.html", new FakeResponse(200, "v0.12.4-index"));
+  let activated;
+  harness.listeners.activate({ waitUntil(promise) { activated = promise; } });
+  await activated;
+  assert.deepEqual(harness.deleted, [old]);
+  assert.equal(harness.stores.has(current), true);
+  harness.setFetch(async () => { throw new Error("offline"); });
+  const networkFirst = vm.runInContext("networkFirst", harness.context);
+  const response = await networkFirst({ url: "https://example.test/draft/index.html" }, { url: "https://example.test/draft/index.html" });
+  assert.equal(response.body, "v0.12.4-index");
+});
+
+
 test("hosted update comparison accepts only a newer semantic build", () => {
   const start = appHtml.indexOf("function parseBuild");
   const end = appHtml.indexOf("async function checkHostedUpdate", start);
@@ -194,12 +216,52 @@ test("hosted update comparison accepts only a newer semantic build", () => {
   const context = vm.createContext({});
   vm.runInContext(source, context);
   const isNewerBuild = vm.runInContext("isNewerBuild", context);
-  assert.equal(isNewerBuild("v0.12.4", "v0.12.3"), true);
-  assert.equal(isNewerBuild("v0.13.0", "v0.12.3"), true);
-  assert.equal(isNewerBuild("v1.0.0", "v0.12.3"), true);
-  assert.equal(isNewerBuild("v0.12.3", "v0.12.3"), false);
-  assert.equal(isNewerBuild("v0.12.2", "v0.12.3"), false);
-  assert.equal(isNewerBuild("latest", "v0.12.3"), false);
+  assert.equal(isNewerBuild("v0.12.5", "v0.12.4"), true);
+  assert.equal(isNewerBuild("v0.13.0", "v0.12.4"), true);
+  assert.equal(isNewerBuild("v1.0.0", "v0.12.4"), true);
+  assert.equal(isNewerBuild("v0.12.4", "v0.12.4"), false);
+  assert.equal(isNewerBuild("v0.12.3", "v0.12.4"), false);
+  assert.equal(isNewerBuild("v0.12.2", "v0.12.4"), false);
+  assert.equal(isNewerBuild("latest", "v0.12.4"), false);
+});
+
+
+function hostedUpdateHarness(meta, currentBuild = "v0.12.3") {
+  const start = appHtml.indexOf("const CURRENT_BUILD");
+  const end = appHtml.indexOf("async function applyHostedUpdate", start);
+  const boxes = {
+    updateNotice: { style: { display: "none" } },
+    updateNoticeTitle: { textContent: "" },
+    updateNoticeText: { textContent: "" },
+  };
+  const context = vm.createContext({
+    location: { protocol: "https:" },
+    navigator: { onLine: true },
+    async fetch() { return { ok: true, async json() { return meta; } }; },
+    document: { getElementById(id) { return boxes[id] || null; } },
+  });
+  const source = appHtml.slice(start, end).replace('const CURRENT_BUILD="v0.12.4"', `const CURRENT_BUILD="${currentBuild}"`);
+  vm.runInContext(source, context);
+  return { checkHostedUpdate: vm.runInContext("checkHostedUpdate", context), boxes };
+}
+
+
+test("hosted v0.12.4 metadata visibly announces an update from v0.12.3", async () => {
+  const harness = hostedUpdateHarness({ build: "v0.12.4" });
+  await harness.checkHostedUpdate();
+  assert.equal(harness.boxes.updateNotice.style.display, "block");
+  assert.equal(harness.boxes.updateNoticeTitle.textContent, "Update available • v0.12.4");
+  assert.match(harness.boxes.updateNoticeText.textContent, /Running v0\.12\.3/);
+});
+
+
+test("older or malformed hosted metadata stays hidden", async () => {
+  for (const meta of [{ build: "v0.12.3" }, { build: "latest" }, {}, { build: "0.12.4" }]) {
+    const harness = hostedUpdateHarness(meta);
+    harness.boxes.updateNotice.style.display = "block";
+    await harness.checkHostedUpdate();
+    assert.equal(harness.boxes.updateNotice.style.display, "none");
+  }
 });
 
 
@@ -215,11 +277,11 @@ test("update handler never deletes the working cache or updates unrelated scopes
 });
 
 
-function updateHandlerHarness({ updateRejects = false } = {}) {
+function updateHandlerHarness({ updateRejects = false, draftState = null } = {}) {
   const start = appHtml.indexOf("async function applyHostedUpdate");
   const end = appHtml.indexOf("function renderReadiness", start);
   const source = appHtml.slice(start, end);
-  const calls = { alert: [], cacheDelete: 0, getRegistration: 0, reload: 0, save: [] , update: 0 };
+  const calls = { alert: [], cacheDelete: 0, getRegistration: 0, reload: 0, save: [] , update: 0, savedDraft: null };
   const registration = {
     installing: null,
     waiting: null,
@@ -244,7 +306,11 @@ function updateHandlerHarness({ updateRejects = false } = {}) {
       },
     },
     renderReadiness() {},
-    save(reason) { calls.save.push(reason); return true; },
+    save(reason) {
+      calls.save.push(reason);
+      if (reason === "pre-update" && draftState) calls.savedDraft = JSON.parse(JSON.stringify(draftState));
+      return true;
+    },
   });
   vm.runInContext(source, context);
   return { applyHostedUpdate: vm.runInContext("applyHostedUpdate", context), calls };
@@ -260,6 +326,20 @@ test("update handler saves, updates only its registration, and reloads without d
   assert.equal(calls.cacheDelete, 0);
   assert.equal(calls.reload, 1);
   assert.deepEqual(calls.alert, []);
+});
+
+
+test("v0.12.3 draft state is saved intact before the v0.12.4 reload", async () => {
+  const draftState = {
+    teams: [{ name: "No Chumps", card: 6, my: true }],
+    picks: [{ overall: 1, player: { name: "Jahmyr Gibbs", position: "RB" } }],
+    settings: { preset: "daboyz", ownerModel: true, profileStrength: 1, mockSeed: 10001 },
+  };
+  const { applyHostedUpdate, calls } = updateHandlerHarness({ draftState });
+  await applyHostedUpdate();
+  assert.deepEqual(calls.savedDraft, draftState);
+  assert.deepEqual(calls.save, ["pre-update"]);
+  assert.equal(calls.reload, 1);
 });
 
 
