@@ -1,12 +1,12 @@
 const CACHE_PREFIX='daboyz-draft-assistant-';
-const CACHE='daboyz-draft-assistant-v0.12.3-github-1';
+const CACHE='daboyz-draft-assistant-v0.12.3-github-2';
 const INDEX=new URL('./index.html',self.registration.scope).href;
-const ASSETS=['./','./index.html','./app.html.gz','./version.json','./manifest.webmanifest','./icon-192.svg','./icon-512.svg'];
+const ASSETS=['./','./index.html','./app.html.gz','./version.json','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-192.svg','./icon-512.svg'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(CACHE_PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('message',event=>{if(event.data==='SKIP_WAITING')self.skipWaiting()});
 async function networkFirst(req,fallback){
-  try{const resp=await fetch(req,{cache:'no-store'});if(resp&&resp.ok){const copy=resp.clone();const c=await caches.open(CACHE);await c.put(fallback||req,copy)}return resp}
+  try{const resp=await fetch(req,{cache:'no-store'});if(resp&&resp.ok){const copy=resp.clone();const c=await caches.open(CACHE);await c.put(fallback||req,copy);return resp}return (await caches.match(fallback||req))||resp}
   catch(e){return (await caches.match(fallback||req))||(fallback?await caches.match(INDEX):undefined)}
 }
 self.addEventListener('fetch',event=>{
