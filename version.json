@@ -1,5 +1,5 @@
 {
   "build": "v0.12.3",
   "published": "2026-08-20",
-  "notes": "Safe hosted update detection and reload; preserves draft state. No football-model changes."
+  "notes": "Safe hosted update and cache fallback; aligned PWA metadata and install icons. No football-model changes."
 }
