@@ -8,8 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_BUILD = "v0.12.3"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.3-github-2"
+EXPECTED_BUILD = "v0.12.4"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.4-github-3"
 EXPECTED_DATA_SHA256 = "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
@@ -48,6 +48,10 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertEqual(self.manifest["name"], f"DA BOYZ Draft Assistant {EXPECTED_BUILD}")
         self.assertEqual(self.manifest["short_name"], f"DA BOYZ {EXPECTED_BUILD}")
         self.assertIn(EXPECTED_BUILD, self.manifest["description"])
+
+    def test_stale_release_labels_are_not_advertised_by_current_artifacts(self) -> None:
+        for artifact in (self.html, self.index, self.manifest["name"], self.manifest["short_name"], self.manifest["description"], self.worker):
+            self.assertNotIn("v0.12.3", artifact)
 
     def test_football_data_and_recommendation_logic_are_byte_bound(self) -> None:
         data_span = segment(self.html, "const ROUND_ORDER=", "function freshMasterPool")
