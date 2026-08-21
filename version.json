@@ -1,5 +1,5 @@
 {
-  "build": "v0.12.4",
-  "published": "2026-08-20",
-  "notes": "Soft RB-WR balance calibration; safe hosted update and cache fallback; aligned PWA metadata and install icons."
+  "build": "v0.12.5",
+  "published": "2026-08-21",
+  "notes": "Editable current owner/team identity with explicit historical-profile links; neutral new-owner defaults; v0.12.4 state migration; unchanged football model and player pool."
 }
