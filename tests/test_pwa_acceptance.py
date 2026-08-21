@@ -8,8 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_BUILD = "v0.12.5"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.5-github-1"
+EXPECTED_BUILD = "v0.12.6"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.6-github-1"
 EXPECTED_DATA_SHA256 = "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
@@ -112,6 +112,18 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertIn("profileId?profileOwnerName(profileId):legacyName", self.html)
         self.assertIn("profileId:team.profileId&&!profileMatchesOwner", self.html)
 
+    def test_v0126_known_team_presets_are_derived_and_non_authoritative(self) -> None:
+        self.assertIn(
+            "const TEAM_PRESETS=Object.fromEntries(PROFILE_KEYS.map(profileId=>[profileId,{presetId:profileId,ownerName:profileOwnerName(profileId),teamName:profileId,profileId}]))",
+            self.html,
+        )
+        self.assertIn("function applyTeamPreset", self.html)
+        self.assertIn("function availableTeamPresetIds", self.html)
+        self.assertIn("presetId=t.presetId&&TEAM_PRESETS[t.presetId]?t.presetId:null", self.html)
+        read_start = self.html.rindex("function readSetup")
+        read_end = self.html.index("function renderRosterIntel", read_start)
+        self.assertNotIn("applyTeamPreset(state.teams[i]", self.html[read_start:read_end])
+
     def test_required_draft_controls_and_filters_are_present(self) -> None:
         for element_id in (
             "playerList",
@@ -130,10 +142,12 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertIn("usedCards", setup_filter)
         self.assertIn("!usedCards.includes(card)", setup_filter)
         self.assertIn("usedOwners", setup_filter)
-        for label in ("Owner", "Team", "Historical Profile", "Card"):
+        for label in ("Known Team / Preset", "Owner", "Team", "Historical Profile", "Card"):
             self.assertIn(f"<label>{label}</label>", self.html)
+        self.assertIn('data-team-preset=', self.html)
         self.assertIn('data-team-owner=', self.html)
         self.assertIn('data-team-name=', self.html)
+        self.assertIn('Custom / New Team', self.html)
         self.assertIn('No History / Neutral', self.html)
         self.assertIn('document.getElementById("manualDraft").onclick', self.html)
         self.assertIn('document.getElementById("undoPick").onclick=undo', self.html)
@@ -141,6 +155,9 @@ class PwaAcceptanceTests(unittest.TestCase):
     def test_android_portrait_and_landscape_setup_layouts_are_covered(self) -> None:
         self.assertIn("@media(max-width:900px)", self.html)
         self.assertIn(".teamrow{grid-template-columns:28px minmax(0,1fr) minmax(0,1fr)}", self.html)
+        self.assertIn(".teamrow .setupfield.preset-field,.teamrow .setupfield.profile-field{grid-column:2/4}", self.html)
+        self.assertIn(".teamrow .setupfield.owner-field{grid-column:2/3}", self.html)
+        self.assertIn(".teamrow .setupfield.team-field{grid-column:3/4}", self.html)
         self.assertIn("@media(max-width:1150px){.setup-grid{grid-template-columns:1fr}}", self.html)
 
     def test_draft_undo_and_emergency_pick_paths_remain_connected(self) -> None:
