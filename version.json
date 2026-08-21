@@ -1,5 +1,5 @@
 {
-  "build": "v0.12.5",
+  "build": "v0.12.6",
   "published": "2026-08-21",
-  "notes": "Editable current owner/team identity with explicit historical-profile links; neutral new-owner defaults; v0.12.4 state migration; unchanged football model and player pool."
+  "notes": "Known-team Setup presets derived from existing profiles; independent editable v0.12.5 identity preserved; unchanged football model, player pool, persistence, and update safety."
 }
