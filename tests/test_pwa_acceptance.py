@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_BUILD = "v0.12.3"
 EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.3-github-2"
 EXPECTED_DATA_SHA256 = "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a"
-EXPECTED_MODEL_SHA256 = "a4ccc98562bcbc84ca8fa3e1f0b7c77c744f5abcf286653cba9dab3317dc5ec1"
+EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
 
 
@@ -73,6 +73,15 @@ class PwaAcceptanceTests(unittest.TestCase):
             coverage[key] = coverage.get(key, 0) + 1
         self.assertEqual(coverage["DRAFTED_ROOKIE_LOOKUP_ONLY"], 55)
         self.assertEqual(sum(count for key, count in coverage.items() if key != "DRAFTED_ROOKIE_LOOKUP_ONLY"), 276)
+
+    def test_soft_rb_wr_balance_is_a_soft_imbalance_adjustment(self) -> None:
+        model = segment(self.html, "function teamForCard", "function renderHistory")
+        self.assertIn(
+            'const imbalance=Math.max(0,n-(c.WR||0)-1);u-=6*imbalance',
+            model,
+        )
+        self.assertNotIn("CANNOT DRAFT", model[model.index("function rosterUtility"):model.index("function tierInfo")])
+        self.assertIn("contingent_score", model[model.index("function rosterUtility"):model.index("function tierInfo")])
 
     def test_state_keys_and_migration_order_remain_compatible(self) -> None:
         self.assertIn(

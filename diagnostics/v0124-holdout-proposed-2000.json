@@ -1,0 +1,2337 @@
+{
+  "build": "v0.12.3",
+  "variant": "baseline",
+  "sampleSize": 2000,
+  "baseline": {
+    "averageRb": {
+      "R4": 1.885,
+      "R6": 2.4915,
+      "R8": 2.857,
+      "R17": 5.08
+    },
+    "averagePositionCounts": {
+      "R4": {
+        "QB": 0.1545,
+        "RB": 1.885,
+        "WR": 1.518,
+        "TE": 0.4425,
+        "K": 0,
+        "D/ST": 0
+      },
+      "R6": {
+        "QB": 0.2825,
+        "RB": 2.4915,
+        "WR": 2.5075,
+        "TE": 0.7185,
+        "K": 0,
+        "D/ST": 0
+      },
+      "R8": {
+        "QB": 0.802,
+        "RB": 2.857,
+        "WR": 3.3295,
+        "TE": 1.0115,
+        "K": 0,
+        "D/ST": 0
+      },
+      "R17": {
+        "QB": 1.9195,
+        "RB": 5.08,
+        "WR": 6.156,
+        "TE": 1.796,
+        "K": 1.0375,
+        "D/ST": 1.011
+      }
+    },
+    "averageFinalCounts": {
+      "QB": 1.9195,
+      "RB": 5.08,
+      "WR": 6.156,
+      "TE": 1.796,
+      "K": 1.0375,
+      "D/ST": 1.011
+    },
+    "fourPlusRbByR6Pct": 8,
+    "firstTeRoundDistribution": {
+      "2": 0.8,
+      "3": 40.6,
+      "4": 2.25,
+      "5": 10.65,
+      "6": 14.1,
+      "7": 11.05,
+      "8": 6.6,
+      "9": 3.35,
+      "10": 5.65,
+      "11": 3.75,
+      "12": 1,
+      "13": 0.15,
+      "17": 0.05
+    },
+    "firstQbRoundDistribution": {
+      "3": 8.8,
+      "4": 6.65,
+      "5": 0.4,
+      "6": 12,
+      "7": 15.85,
+      "8": 28.1,
+      "9": 4.55,
+      "10": 17.6,
+      "11": 2.1,
+      "12": 1.7,
+      "13": 1.85,
+      "14": 0.15,
+      "15": 0.1,
+      "16": 0.05,
+      "17": 0.1
+    },
+    "contingentRbCaptureRatePct": 100,
+    "averageMaxByeLoad": 4.05,
+    "finalRostersWithBye3PlusPct": 99.9,
+    "starterCompletionFailures": 0,
+    "recommendationSelectionCounts": {
+      "TAKE NOW": 18820,
+      "LEAN TAKE": 6706,
+      "WAIT LIKELY": 2045,
+      "VALUE CHECK": 1770,
+      "WATCH": 0,
+      "REQUIRED": 2907,
+      "LAST FLEX PICK": 1752,
+      "CANNOT DRAFT": 0
+    },
+    "recommendationSelectionPct": {
+      "TAKE NOW": 55.35294117647059,
+      "LEAN TAKE": 19.723529411764705,
+      "WAIT LIKELY": 6.014705882352941,
+      "VALUE CHECK": 5.205882352941177,
+      "WATCH": 0,
+      "REQUIRED": 8.55,
+      "LAST FLEX PICK": 5.152941176470589,
+      "CANNOT DRAFT": 0
+    },
+    "firstSixSequences": [
+      {
+        "sequence": "RB-RB-TE-WR-WR-WR",
+        "count": 54,
+        "pct": 2.7
+      },
+      {
+        "sequence": "RB-RB-TE-WR-WR-RB",
+        "count": 47,
+        "pct": 2.35
+      },
+      {
+        "sequence": "WR-RB-TE-RB-WR-WR",
+        "count": 42,
+        "pct": 2.1
+      },
+      {
+        "sequence": "RB-WR-TE-RB-WR-WR",
+        "count": 37,
+        "pct": 1.85
+      },
+      {
+        "sequence": "WR-RB-TE-WR-WR-RB",
+        "count": 35,
+        "pct": 1.75
+      },
+      {
+        "sequence": "WR-RB-TE-RB-WR-RB",
+        "count": 35,
+        "pct": 1.75
+      },
+      {
+        "sequence": "RB-RB-TE-WR-RB-WR",
+        "count": 33,
+        "pct": 1.65
+      },
+      {
+        "sequence": "WR-RB-TE-WR-RB-WR",
+        "count": 31,
+        "pct": 1.55
+      },
+      {
+        "sequence": "WR-RB-TE-RB-RB-WR",
+        "count": 29,
+        "pct": 1.45
+      },
+      {
+        "sequence": "RB-WR-TE-RB-WR-RB",
+        "count": 25,
+        "pct": 1.25
+      },
+      {
+        "sequence": "WR-RB-TE-WR-WR-WR",
+        "count": 24,
+        "pct": 1.2
+      },
+      {
+        "sequence": "WR-RB-TE-WR-RB-RB",
+        "count": 22,
+        "pct": 1.1
+      },
+      {
+        "sequence": "RB-WR-RB-RB-WR-WR",
+        "count": 21,
+        "pct": 1.05
+      },
+      {
+        "sequence": "WR-RB-RB-RB-WR-TE",
+        "count": 21,
+        "pct": 1.05
+      },
+      {
+        "sequence": "WR-RB-RB-WR-WR-WR",
+        "count": 21,
+        "pct": 1.05
+      },
+      {
+        "sequence": "RB-RB-TE-RB-WR-WR",
+        "count": 21,
+        "pct": 1.05
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-TE",
+        "count": 20,
+        "pct": 1
+      },
+      {
+        "sequence": "WR-RB-RB-RB-WR-WR",
+        "count": 19,
+        "pct": 0.95
+      },
+      {
+        "sequence": "RB-WR-TE-WR-WR-RB",
+        "count": 18,
+        "pct": 0.9
+      },
+      {
+        "sequence": "WR-RB-RB-WR-WR-TE",
+        "count": 18,
+        "pct": 0.9
+      },
+      {
+        "sequence": "WR-RB-RB-WR-RB-WR",
+        "count": 18,
+        "pct": 0.9
+      },
+      {
+        "sequence": "WR-RB-RB-WR-WR-RB",
+        "count": 18,
+        "pct": 0.9
+      },
+      {
+        "sequence": "RB-WR-RB-WR-WR-TE",
+        "count": 17,
+        "pct": 0.85
+      },
+      {
+        "sequence": "RB-RB-TE-WR-WR-QB",
+        "count": 17,
+        "pct": 0.85
+      },
+      {
+        "sequence": "WR-RB-WR-RB-WR-WR",
+        "count": 17,
+        "pct": 0.85
+      },
+      {
+        "sequence": "RB-WR-RB-WR-WR-RB",
+        "count": 17,
+        "pct": 0.85
+      },
+      {
+        "sequence": "RB-RB-WR-RB-WR-TE",
+        "count": 16,
+        "pct": 0.8
+      },
+      {
+        "sequence": "WR-RB-WR-RB-WR-TE",
+        "count": 16,
+        "pct": 0.8
+      },
+      {
+        "sequence": "RB-WR-TE-WR-RB-RB",
+        "count": 15,
+        "pct": 0.75
+      },
+      {
+        "sequence": "RB-RB-TE-WR-RB-RB",
+        "count": 15,
+        "pct": 0.75
+      },
+      {
+        "sequence": "WR-RB-RB-RB-TE-WR",
+        "count": 15,
+        "pct": 0.75
+      },
+      {
+        "sequence": "RB-WR-RB-WR-WR-WR",
+        "count": 14,
+        "pct": 0.7
+      },
+      {
+        "sequence": "RB-WR-RB-RB-WR-TE",
+        "count": 14,
+        "pct": 0.7
+      },
+      {
+        "sequence": "RB-WR-RB-WR-RB-WR",
+        "count": 14,
+        "pct": 0.7
+      },
+      {
+        "sequence": "RB-WR-TE-RB-WR-QB",
+        "count": 13,
+        "pct": 0.65
+      },
+      {
+        "sequence": "RB-WR-RB-RB-TE-WR",
+        "count": 13,
+        "pct": 0.65
+      },
+      {
+        "sequence": "RB-WR-TE-WR-WR-WR",
+        "count": 13,
+        "pct": 0.65
+      },
+      {
+        "sequence": "RB-RB-WR-RB-WR-WR",
+        "count": 13,
+        "pct": 0.65
+      },
+      {
+        "sequence": "RB-RB-TE-RB-WR-RB",
+        "count": 12,
+        "pct": 0.6
+      },
+      {
+        "sequence": "RB-RB-RB-WR-WR-RB",
+        "count": 12,
+        "pct": 0.6
+      },
+      {
+        "sequence": "RB-RB-WR-WR-RB-WR",
+        "count": 12,
+        "pct": 0.6
+      },
+      {
+        "sequence": "WR-RB-TE-QB-WR-RB",
+        "count": 12,
+        "pct": 0.6
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-WR",
+        "count": 12,
+        "pct": 0.6
+      },
+      {
+        "sequence": "RB-WR-RB-WR-TE-WR",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "RB-RB-TE-RB-WR-QB",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "WR-RB-TE-WR-WR-QB",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "WR-RB-RB-WR-WR-QB",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "WR-RB-TE-RB-WR-QB",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "WR-RB-RB-WR-RB-RB",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "WR-RB-WR-RB-WR-RB",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "WR-RB-WR-WR-RB-TE",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "RB-WR-TE-WR-RB-WR",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "RB-RB-TE-QB-WR-WR",
+        "count": 11,
+        "pct": 0.55
+      },
+      {
+        "sequence": "WR-RB-TE-WR-RB-QB",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "RB-WR-RB-RB-WR-RB",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "WR-RB-RB-WR-TE-RB",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "RB-RB-RB-WR-WR-WR",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "RB-RB-RB-WR-WR-TE",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "WR-RB-WR-RB-RB-TE",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "RB-RB-TE-WR-WR-TE",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "WR-RB-WR-WR-RB-WR",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "RB-WR-WR-RB-WR-WR",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "WR-RB-RB-RB-WR-QB",
+        "count": 10,
+        "pct": 0.5
+      },
+      {
+        "sequence": "RB-RB-WR-WR-TE-RB",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "RB-RB-WR-WR-RB-TE",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "RB-RB-WR-RB-WR-RB",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-RB",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "WR-WR-TE-RB-WR-RB",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "RB-WR-TE-RB-RB-WR",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "WR-RB-WR-RB-WR-QB",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "RB-WR-RB-WR-TE-RB",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "WR-RB-RB-WR-RB-TE",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "RB-RB-WR-WR-TE-WR",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "WR-RB-WR-WR-WR-RB",
+        "count": 9,
+        "pct": 0.45
+      },
+      {
+        "sequence": "RB-WR-RB-WR-RB-QB",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "RB-WR-RB-WR-RB-RB",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "WR-RB-QB-WR-RB-WR",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "WR-RB-QB-WR-WR-WR",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "WR-RB-WR-RB-RB-WR",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "WR-RB-RB-RB-WR-RB",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "WR-RB-TE-RB-RB-QB",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "WR-RB-QB-WR-RB-TE",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "RB-WR-RB-WR-RB-TE",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "RB-RB-TE-WR-RB-QB",
+        "count": 8,
+        "pct": 0.4
+      },
+      {
+        "sequence": "WR-RB-RB-TE-WR-WR",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "WR-RB-TE-QB-WR-WR",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "WR-RB-RB-WR-TE-WR",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "WR-RB-WR-RB-TE-WR",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-WR-TE-RB-WR-TE",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "WR-RB-TE-RB-WR-TE",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-WR-TE-QB-RB-WR",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-RB-WR-RB-TE-WR",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-WR-RB-WR-WR-QB",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-RB-WR-RB-TE-RB",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-WR-WR-RB-WR-TE",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-RB-QB-WR-WR-RB",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-WR-RB-RB-WR-QB",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "WR-RB-RB-TE-WR-RB",
+        "count": 7,
+        "pct": 0.35
+      },
+      {
+        "sequence": "RB-RB-QB-WR-WR-WR",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "WR-WR-TE-RB-RB-RB",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "RB-RB-QB-WR-WR-TE",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "WR-WR-TE-RB-WR-WR",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "RB-WR-QB-RB-WR-WR",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-QB",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "RB-WR-RB-RB-TE-RB",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "WR-RB-WR-WR-WR-TE",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "RB-WR-TE-RB-RB-RB",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "RB-RB-RB-WR-TE-WR",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "WR-RB-RB-WR-RB-QB",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "RB-WR-QB-RB-RB-WR",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "WR-WR-TE-WR-RB-RB",
+        "count": 6,
+        "pct": 0.3
+      },
+      {
+        "sequence": "RB-WR-WR-RB-WR-RB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "RB-WR-QB-WR-WR-WR",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-RB-RB-RB-TE-RB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-WR-RB-WR-RB-TE",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "RB-WR-QB-WR-RB-WR",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-RB-WR-WR-WR-WR",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-RB-TE-RB-RB-RB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "RB-WR-TE-WR-WR-QB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-RB-TE-QB-RB-RB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-WR-RB-RB-WR-QB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "RB-RB-RB-WR-WR-QB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-WR-RB-RB-WR-WR",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "RB-RB-QB-WR-TE-RB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "RB-RB-TE-QB-WR-RB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "RB-RB-QB-WR-RB-TE",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-RB-QB-RB-WR-TE",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-RB-TE-QB-RB-TE",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-WR-RB-WR-WR-RB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "RB-WR-TE-WR-RB-QB",
+        "count": 5,
+        "pct": 0.25
+      },
+      {
+        "sequence": "WR-RB-RB-QB-WR-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-WR-RB-RB-WR-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-TE-QB-WR-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-WR-WR-RB-QB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-RB-QB-RB-WR-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-RB-QB-WR-WR-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-QB-RB-WR-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-RB-QB-RB-WR-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-QB-WR-RB-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-QB-WR-WR-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-RB-WR-WR-TE-QB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-RB-QB-RB-TE-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-RB-TE-QB-RB-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-RB-TE-RB-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-RB-RB-TE-QB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-RB-WR-RB-WR-QB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-RB-RB-WR-TE-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-RB-RB-QB-WR-TE",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-WR-WR-RB-TE",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-WR-TE-WR-RB-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-WR-RB-RB-RB-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-WR-RB-TE-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-RB-QB-WR-RB-WR",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-WR-WR-RB-RB",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "WR-RB-TE-RB-RB-TE",
+        "count": 4,
+        "pct": 0.2
+      },
+      {
+        "sequence": "RB-WR-RB-QB-WR-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-RB-WR-RB-RB-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-WR-RB-RB-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-TE-QB-WR-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-QB-WR-RB-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-RB-WR-RB-TE-QB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-RB-WR-WR-RB-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-QB-RB-RB-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-WR-WR-WR-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-RB-TE-RB-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-QB-RB-TE-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-WR-QB-RB-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-WR-WR-RB-QB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-RB-TE-RB-WR-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-WR-TE-RB-WR-QB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-WR-RB-WR-TE-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-RB-WR-TE-RB-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-RB-RB-RB-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-WR-RB-RB-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-WR-WR-WR-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-WR-QB-RB-WR-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-WR-RB-WR-WR-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-WR-QB-RB-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-WR-WR-RB-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-WR-WR-TE-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-WR-QB-RB-WR-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-RB-QB-RB-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-WR-WR-RB-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-WR-RB-TE-QB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-RB-QB-WR-TE-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-WR-RB-TE-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-RB-TE-WR-WR",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-WR-WR-WR-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-QB-WR-RB-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-QB-RB-RB-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "WR-RB-WR-RB-RB-QB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-RB-QB-WR-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-RB-RB-WR-RB-TE",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-WR-TE-QB-RB-RB",
+        "count": 3,
+        "pct": 0.15
+      },
+      {
+        "sequence": "RB-RB-RB-RB-WR-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-RB-WR-TE-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-QB-RB-RB-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-QB-WR-RB-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-QB-RB-TE-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-RB-WR-WR-RB-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-RB-QB-RB-WR-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-RB-RB-WR-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-RB-WR-TE-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-QB-WR-TE-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-QB-WR-RB-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-RB-RB-QB-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-RB-TE-WR-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-TE-QB-RB-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-QB-WR-TE-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-TE-TE-RB-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-WR-RB-WR-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-QB-RB-RB-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-RB-QB-TE-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-RB-QB-RB-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-RB-TE-WR-RB-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-RB-RB-TE-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-WR-RB-TE-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-RB-WR-QB-RB-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-TE-WR-WR-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-RB-WR-RB-TE-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-WR-WR-TE-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-TE-WR-WR-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-TE-RB-RB-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-TE-TE-WR-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-RB-QB-RB-WR-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-RB-RB-RB-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-QB-WR-WR-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-WR-QB-WR-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-TE-RB-RB-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-RB-WR-RB-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-TE-QB-WR-RB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-WR-RB-RB-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-WR-QB-WR-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-TE-QB-RB-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-RB-WR-QB-WR-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-RB-RB-RB-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-RB-RB-WR-TE-QB",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-RB-RB-QB-RB-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "RB-WR-TE-WR-RB-TE",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-RB-WR-WR-WR",
+        "count": 2,
+        "pct": 0.1
+      },
+      {
+        "sequence": "WR-WR-WR-RB-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-WR-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-WR-RB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-QB-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-QB-RB-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-QB-WR-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-RB-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-RB-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-QB-WR-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-RB-QB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-RB-TE-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-QB-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-WR-TE-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-WR-WR-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-TE-WR-WR-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-RB-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-QB-WR-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-WR-TE-WR-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-WR-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-WR-WR-TE-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-WR-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-RB-RB-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-QB-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-QB-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-QB-WR-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-RB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-QB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-TE-WR-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-TE-RB-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-WR-QB-RB-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-RB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-TE-QB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-WR-QB-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-WR-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-RB-QB-TE-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-QB-RB-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-QB-WR-WR-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-RB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-QB-RB-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-TE-TE-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-RB-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-RB-RB-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-TE-QB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-WR-QB-RB-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-TE-WR-QB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-TE-WR-QB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-TE-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-TE-WR-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-QB-WR-WR-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-TE-RB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-QB-RB-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-RB-TE-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-WR-TE-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-TE-TE-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-TE-QB-WR-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-WR-QB-TE-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-TE-TE-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-TE-TE-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-WR-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-RB-RB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-TE-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-TE-QB-RB-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-QB-WR-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-RB-QB-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-WR-QB-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-QB-WR-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-WR-TE-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-WR-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-QB-WR-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-TE-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-QB-WR-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-TE-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-TE-TE-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-WR-TE-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-WR-QB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-WR-TE-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-WR-TE-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-WR-QB-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-TE-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-QB-RB-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-QB-TE-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-QB-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-TE-RB-WR-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-RB-WR-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-QB-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-QB-RB-WR-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-TE-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-TE-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-WR-TE-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-WR-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-TE-TE-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-RB-RB-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-WR-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-TE-WR-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-RB-QB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-TE-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-TE-TE-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-QB-WR-WR-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-RB-RB-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-WR-WR-TE-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-TE-RB-RB-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-QB-WR-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-TE-WR-RB-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-RB-WR-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-RB-WR-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-WR-RB-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-RB-RB-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-RB-QB-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-RB-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-QB-WR-TE-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-WR-WR-TE-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-QB-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-WR-RB-WR-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-QB-RB-TE-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-QB-WR-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-WR-RB-RB-TE-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-QB-WR-WR-RB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-WR-WR-WR-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-TE-WR-WR-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-WR-RB-QB-WR-WR",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-RB-RB-RB-TE-TE",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "RB-RB-RB-TE-RB-QB",
+        "count": 1,
+        "pct": 0.05
+      },
+      {
+        "sequence": "WR-TE-WR-WR-RB-WR",
+        "count": 1,
+        "pct": 0.05
+      }
+    ],
+    "positionAtPick": [
+      {
+        "pick": 1,
+        "counts": {
+          "QB": 0,
+          "RB": 1075,
+          "WR": 925,
+          "TE": 0,
+          "K": 0,
+          "D/ST": 0
+        },
+        "pct": {
+          "QB": 0,
+          "RB": 53.75,
+          "WR": 46.25,
+          "TE": 0,
+          "K": 0,
+          "D/ST": 0
+        }
+      },
+      {
+        "pick": 2,
+        "counts": {
+          "QB": 0,
+          "RB": 1318,
+          "WR": 666,
+          "TE": 16,
+          "K": 0,
+          "D/ST": 0
+        },
+        "pct": {
+          "QB": 0,
+          "RB": 65.9,
+          "WR": 33.3,
+          "TE": 0.8,
+          "K": 0,
+          "D/ST": 0
+        }
+      },
+      {
+        "pick": 3,
+        "counts": {
+          "QB": 176,
+          "RB": 597,
+          "WR": 415,
+          "TE": 812,
+          "K": 0,
+          "D/ST": 0
+        },
+        "pct": {
+          "QB": 8.8,
+          "RB": 29.85,
+          "WR": 20.75,
+          "TE": 40.6,
+          "K": 0,
+          "D/ST": 0
+        }
+      },
+      {
+        "pick": 4,
+        "counts": {
+          "QB": 133,
+          "RB": 780,
+          "WR": 1030,
+          "TE": 57,
+          "K": 0,
+          "D/ST": 0
+        },
+        "pct": {
+          "QB": 6.65,
+          "RB": 39,
+          "WR": 51.5,
+          "TE": 2.85,
+          "K": 0,
+          "D/ST": 0
+        }
+      },
+      {
+        "pick": 5,
+        "counts": {
+          "QB": 8,
+          "RB": 603,
+          "WR": 1175,
+          "TE": 214,
+          "K": 0,
+          "D/ST": 0
+        },
+        "pct": {
+          "QB": 0.4,
+          "RB": 30.15,
+          "WR": 58.75,
+          "TE": 10.7,
+          "K": 0,
+          "D/ST": 0
+        }
+      },
+      {
+        "pick": 6,
+        "counts": {
+          "QB": 248,
+          "RB": 610,
+          "WR": 804,
+          "TE": 338,
+          "K": 0,
+          "D/ST": 0
+        },
+        "pct": {
+          "QB": 12.4,
+          "RB": 30.5,
+          "WR": 40.2,
+          "TE": 16.9,
+          "K": 0,
+          "D/ST": 0
+        }
+      }
+    ],
+    "byCard": {
+      "1": {
+        "n": 195,
+        "avgR6": 2.230769230769231,
+        "avgFinal": 4.994871794871795,
+        "fourPlusR6Pct": 4.102564102564102
+      },
+      "2": {
+        "n": 195,
+        "avgR6": 2.5076923076923077,
+        "avgFinal": 5.046153846153846,
+        "fourPlusR6Pct": 9.743589743589743
+      },
+      "3": {
+        "n": 205,
+        "avgR6": 2.3853658536585365,
+        "avgFinal": 5.034146341463415,
+        "fourPlusR6Pct": 5.365853658536586
+      },
+      "4": {
+        "n": 197,
+        "avgR6": 2.416243654822335,
+        "avgFinal": 5.020304568527918,
+        "fourPlusR6Pct": 7.106598984771574
+      },
+      "5": {
+        "n": 227,
+        "avgR6": 2.6519823788546257,
+        "avgFinal": 5.0176211453744495,
+        "fourPlusR6Pct": 11.013215859030836
+      },
+      "6": {
+        "n": 194,
+        "avgR6": 2.6391752577319587,
+        "avgFinal": 5.11340206185567,
+        "fourPlusR6Pct": 9.793814432989691
+      },
+      "7": {
+        "n": 192,
+        "avgR6": 2.5520833333333335,
+        "avgFinal": 4.963541666666667,
+        "fourPlusR6Pct": 11.458333333333334
+      },
+      "8": {
+        "n": 193,
+        "avgR6": 2.476683937823834,
+        "avgFinal": 5.020725388601036,
+        "fourPlusR6Pct": 6.7357512953367875
+      },
+      "9": {
+        "n": 218,
+        "avgR6": 2.555045871559633,
+        "avgFinal": 5.298165137614679,
+        "fourPlusR6Pct": 8.256880733944953
+      },
+      "10": {
+        "n": 184,
+        "avgR6": 2.472826086956522,
+        "avgFinal": 5.288043478260869,
+        "fourPlusR6Pct": 5.978260869565218
+      }
+    }
+  },
+  "fixture": {
+    "trial": 10010,
+    "myCard": 6,
+    "overallOnClock": 70,
+    "roundOnClock": 7,
+    "roster": [
+      {
+        "round": 1,
+        "name": "Jahmyr Gibbs",
+        "position": "RB"
+      },
+      {
+        "round": 2,
+        "name": "Ashton Jeanty",
+        "position": "RB"
+      },
+      {
+        "round": 3,
+        "name": "Omarion Hampton",
+        "position": "RB"
+      },
+      {
+        "round": 4,
+        "name": "Cam Skattebo",
+        "position": "RB"
+      },
+      {
+        "round": 5,
+        "name": "Tetairoa McMillan",
+        "position": "WR"
+      },
+      {
+        "round": 6,
+        "name": "Tyler Warren",
+        "position": "TE"
+      }
+    ],
+    "counts": {
+      "QB": 0,
+      "RB": 4,
+      "WR": 1,
+      "TE": 1,
+      "K": 0,
+      "D/ST": 0,
+      "OTHER": 0
+    },
+    "top": {
+      "RB": {
+        "id": "master_73",
+        "name": "Tony Pollard",
+        "position": "RB",
+        "rank": 73,
+        "planningAdp": 73.13,
+        "contingentScore": 42,
+        "bye": 9,
+        "scarcity": 50,
+        "byeAdjustment": 0,
+        "intrinsic": 49.539475,
+        "situation": 68.7,
+        "roster": 37.72,
+        "survival": 96.90978835120181,
+        "tierUrgency": 14,
+        "urgency": 6.363148154158732,
+        "tierRemaining": 4,
+        "expectedBeforeNext": 0,
+        "ownerHazardRatio": 1,
+        "weighted": {
+          "intrinsic": 28.23750075,
+          "situation": 6.870000000000001,
+          "roster": 8.298399999999999,
+          "urgency": 0.6999462969574605
+        },
+        "strength": 44.105847046957464,
+        "ablations": {
+          "baseline": 44.105847046957464,
+          "noContingent": 44.38744704695746,
+          "noRbRedundancyPenalty": 44.105847046957464,
+          "neutralRosterMarginalValue": 46.80744704695746,
+          "noByeLogic": 44.105847046957464,
+          "noPositionalScarcity": 44.105847046957464,
+          "neutralSituation": 42.23584704695746,
+          "noRbCountPremium": 43.885847046957466,
+          "neutralUrgency": 48.90590075,
+          "details": {
+            "contingent": -1.28,
+            "bye": 0,
+            "scarcity": 0,
+            "rbCountPremium": 1,
+            "redundancyPenalty": 0
+          }
+        }
+      },
+      "WR": {
+        "id": "master_68",
+        "name": "Christian Watson",
+        "position": "WR",
+        "rank": 68,
+        "planningAdp": 71.62,
+        "contingentScore": null,
+        "bye": 11,
+        "scarcity": 50,
+        "byeAdjustment": 0,
+        "intrinsic": 53.259100000000004,
+        "situation": 79.92,
+        "roster": 62,
+        "survival": 96.74345027460912,
+        "tierUrgency": 0,
+        "urgency": 2.279584807773618,
+        "tierRemaining": 8,
+        "expectedBeforeNext": 0,
+        "ownerHazardRatio": 1,
+        "weighted": {
+          "intrinsic": 30.357687,
+          "situation": 7.992000000000001,
+          "roster": 13.64,
+          "urgency": 0.25075432885509796
+        },
+        "strength": 52.2404413288551,
+        "ablations": {
+          "baseline": 52.2404413288551,
+          "noContingent": 52.2404413288551,
+          "noRbRedundancyPenalty": 52.2404413288551,
+          "neutralRosterMarginalValue": 49.6004413288551,
+          "noByeLogic": 52.2404413288551,
+          "noPositionalScarcity": 52.2404413288551,
+          "neutralSituation": 49.248441328855094,
+          "noRbCountPremium": 52.2404413288551,
+          "neutralUrgency": 57.489687,
+          "details": {
+            "contingent": 0,
+            "bye": 0,
+            "scarcity": 0,
+            "rbCountPremium": 0,
+            "redundancyPenalty": 0
+          }
+        }
+      },
+      "TE": {
+        "id": "master_85",
+        "name": "Kyle Pitts",
+        "position": "TE",
+        "rank": 85,
+        "planningAdp": 85.34,
+        "contingentScore": null,
+        "bye": 11,
+        "scarcity": 48,
+        "byeAdjustment": 7,
+        "intrinsic": 40.612375,
+        "situation": 72.44,
+        "roster": 52,
+        "survival": 99.01913418888435,
+        "tierUrgency": 2,
+        "urgency": 1.286606067780954,
+        "tierRemaining": 5,
+        "expectedBeforeNext": 0,
+        "ownerHazardRatio": 1,
+        "weighted": {
+          "intrinsic": 23.149053749999997,
+          "situation": 7.244,
+          "roster": 11.44,
+          "urgency": 0.14152666745590495
+        },
+        "strength": 41.974580417455904,
+        "ablations": {
+          "baseline": 41.974580417455904,
+          "noContingent": 41.974580417455904,
+          "noRbRedundancyPenalty": 41.974580417455904,
+          "neutralRosterMarginalValue": 41.5345804174559,
+          "noByeLogic": 40.434580417455905,
+          "noPositionalScarcity": 41.974580417455904,
+          "neutralSituation": 39.730580417455904,
+          "noRbCountPremium": 41.974580417455904,
+          "neutralUrgency": 47.33305375,
+          "details": {
+            "contingent": 0,
+            "bye": 7,
+            "scarcity": 0,
+            "rbCountPremium": 0,
+            "redundancyPenalty": 0
+          }
+        }
+      },
+      "QB": {
+        "id": "master_76",
+        "name": "Jalen Hurts",
+        "position": "QB",
+        "rank": 76,
+        "planningAdp": 76.93,
+        "contingentScore": null,
+        "bye": 10,
+        "scarcity": 50,
+        "byeAdjustment": 0,
+        "intrinsic": 47.307700000000004,
+        "situation": 87.4,
+        "roster": 68,
+        "survival": 97.91661530811895,
+        "tierUrgency": 60,
+        "urgency": 19.458369284316735,
+        "tierRemaining": 1,
+        "expectedBeforeNext": 0,
+        "ownerHazardRatio": 1,
+        "weighted": {
+          "intrinsic": 26.965389,
+          "situation": 8.74,
+          "roster": 14.96,
+          "urgency": 2.1404206212748407
+        },
+        "strength": 52.80580962127484,
+        "ablations": {
+          "baseline": 52.80580962127484,
+          "noContingent": 52.80580962127484,
+          "noRbRedundancyPenalty": 52.80580962127484,
+          "neutralRosterMarginalValue": 48.84580962127484,
+          "noByeLogic": 52.80580962127484,
+          "noPositionalScarcity": 52.80580962127484,
+          "neutralSituation": 49.06580962127484,
+          "noRbCountPremium": 52.80580962127484,
+          "neutralUrgency": 56.165389,
+          "details": {
+            "contingent": 0,
+            "bye": 0,
+            "scarcity": 0,
+            "rbCountPremium": 0,
+            "redundancyPenalty": 0
+          }
+        }
+      }
+    },
+    "rjHarvey": null
+  }
+}
