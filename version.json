@@ -1,5 +1,5 @@
 {
-  "build": "v0.12.9",
-  "published": "2026-08-21",
-  "notes": "Hardens completed-draft export preparation and adds machine-readable runtime/schema provenance; diagnostics, grades, football logic, Setup, and player data remain unchanged."
+  "build": "v0.13.0",
+  "published": "2026-08-22",
+  "notes": "Refreshes current 2026 PPR market, injury, availability, and situation data while preserving all validated football coefficients, grading logic, owner models, and tier architecture."
 }
