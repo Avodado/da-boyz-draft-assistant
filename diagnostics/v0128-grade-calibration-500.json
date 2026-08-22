@@ -1,0 +1,765 @@
+{
+  "generatedAt": "2026-08-22T03:39:41.613Z",
+  "sampleSizePerArm": 500,
+  "seeds": {
+    "first": 16001,
+    "last": 16500
+  },
+  "baseline": {
+    "sampleSize": 500,
+    "first6Average": {
+      "QB": 0.406,
+      "RB": 2.414,
+      "WR": 2.518,
+      "TE": 0.662,
+      "K": 0,
+      "D/ST": 0
+    },
+    "first8Average": {
+      "QB": 0.914,
+      "RB": 2.792,
+      "WR": 3.308,
+      "TE": 0.986,
+      "K": 0,
+      "D/ST": 0
+    },
+    "finalAverage": {
+      "QB": 1.938,
+      "RB": 5.136,
+      "WR": 6.068,
+      "TE": 1.814,
+      "K": 1.02,
+      "D/ST": 1.024
+    },
+    "firstQbRoundDistribution": {
+      "3": 77,
+      "4": 58,
+      "6": 61,
+      "7": 88,
+      "8": 100,
+      "9": 23,
+      "10": 54,
+      "11": 1,
+      "12": 15,
+      "13": 21,
+      "15": 1,
+      "16": 1
+    },
+    "firstTeRoundDistribution": {
+      "2": 8,
+      "3": 163,
+      "4": 8,
+      "5": 51,
+      "6": 85,
+      "7": 72,
+      "8": 30,
+      "9": 13,
+      "10": 25,
+      "11": 37,
+      "12": 5,
+      "13": 3
+    },
+    "secondQb": {
+      "frequency": 0.916,
+      "averageRound": 11.312227074235809
+    },
+    "secondTe": {
+      "frequency": 0.814,
+      "averageRound": 11.022113022113022
+    },
+    "rb4ByRound6": 0.066,
+    "wrAfterR6": 2.518,
+    "wrAfterR8": 3.308,
+    "starterLegality": 1,
+    "averageLargestByeLoad": 4.12,
+    "byeLoadAtLeast3": 1,
+    "recommendationLabels": {
+      "TAKE NOW": 0.5612941176470588,
+      "VALUE CHECK": 0.07023529411764706,
+      "LEAN TAKE": 0.23694117647058824,
+      "LAST FLEX PICK": 0.046941176470588236,
+      "REQUIRED": 0.07764705882352942,
+      "WAIT LIKELY": 0.006941176470588235
+    },
+    "valueProxies": {
+      "averageSelectedDraftStrength": 61.03385338136298,
+      "averageSelectedIntrinsic": 55.962849110294094,
+      "averageSelectedSituation": 74.95701223529416,
+      "averageSelectedRosterUtility": 59.72184694117643,
+      "averageSelectedSurvival": 20.90788862171689
+    },
+    "topFirst8Sequences": [
+      {
+        "sequence": "RB-RB-TE-WR-WR-RB-WR-QB",
+        "count": 5,
+        "rate": 0.01
+      },
+      {
+        "sequence": "RB-RB-TE-WR-WR-WR-WR-QB",
+        "count": 5,
+        "rate": 0.01
+      },
+      {
+        "sequence": "RB-WR-TE-WR-WR-RB-WR-RB",
+        "count": 3,
+        "rate": 0.006
+      },
+      {
+        "sequence": "RB-RB-RB-WR-WR-TE-WR-QB",
+        "count": 3,
+        "rate": 0.006
+      },
+      {
+        "sequence": "RB-WR-WR-WR-WR-TE-QB-RB",
+        "count": 3,
+        "rate": 0.006
+      },
+      {
+        "sequence": "RB-WR-TE-RB-WR-RB-WR-QB",
+        "count": 3,
+        "rate": 0.006
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-TE-WR-QB",
+        "count": 3,
+        "rate": 0.006
+      },
+      {
+        "sequence": "RB-WR-WR-WR-RB-TE-WR-QB",
+        "count": 3,
+        "rate": 0.006
+      },
+      {
+        "sequence": "WR-RB-TE-WR-RB-RB-WR-QB",
+        "count": 3,
+        "rate": 0.006
+      },
+      {
+        "sequence": "WR-WR-RB-WR-WR-RB-TE-WR",
+        "count": 2,
+        "rate": 0.004
+      },
+      {
+        "sequence": "RB-RB-TE-WR-RB-WR-WR-QB",
+        "count": 2,
+        "rate": 0.004
+      },
+      {
+        "sequence": "RB-WR-RB-WR-WR-TE-QB-RB",
+        "count": 2,
+        "rate": 0.004
+      }
+    ]
+  },
+  "selfProfileNeutral": null,
+  "pairedSelectionMismatches": null,
+  "firstTrialPerformance": {
+    "baseline": {
+      "myChooseMs": 403,
+      "opponentChooseMs": 295,
+      "recordMs": 62
+    },
+    "selfProfileNeutral": null
+  },
+  "scenario": null,
+  "gradeCalibration": {
+    "completedProfileDrivenMocks": 500,
+    "teamGradeRecords": 5000,
+    "overallScore": {
+      "mean": 80.2336754575572,
+      "median": 80.76774999529412,
+      "standardDeviation": 5.722966065351968,
+      "minimum": 57.25215115294117,
+      "maximum": 95.6499275764706
+    },
+    "letterDistribution": {
+      "A": 21,
+      "A-": 115,
+      "B+": 400,
+      "B": 1160,
+      "B-": 1065,
+      "C+": 887,
+      "C": 808,
+      "C-": 290,
+      "D+": 171,
+      "D": 58,
+      "D-": 16,
+      "F": 9
+    },
+    "componentAverages": {
+      "starterStrength": 77.09388466488873,
+      "positionalBalance": 93.5464,
+      "benchDepth": 69.58603808666669,
+      "valueVsAdp": 53.397780658823464,
+      "scarcityCaptured": 60.78607340339045,
+      "upside": 51.16564705882428,
+      "byeManagement": 64.9304,
+      "rosterEfficiency": 74.7328,
+      "lineupLegality": 100,
+      "waiverReadiness": 61.962
+    },
+    "scoreCorrelations": {
+      "components": {
+        "starterStrength": 0.489057062225366,
+        "positionalBalance": 0.6627555278440871,
+        "benchDepth": -0.35530772177932635,
+        "valueVsAdp": -0.2534278740214125,
+        "scarcityCaptured": 0.3391580080511391,
+        "upside": 0.047403946866978915,
+        "byeManagement": 0.5966326717043956,
+        "rosterEfficiency": 0.7415066111587566,
+        "lineupLegality": 0,
+        "waiverReadiness": 0.39242768945879675
+      },
+      "waiverPressure": -0.39242768945879,
+      "QB": 0.1285205427100708,
+      "RB": -0.10781006749862426,
+      "WR": -0.047345025943131225,
+      "TE": 0.1365638414062414
+    },
+    "ownerAverages": {
+      "profile:Cam + Guy": {
+        "mocks": 500,
+        "averageScore": 79.65927592792467,
+        "averageRank": 5.856
+      },
+      "profile:DA BRONCOS": {
+        "mocks": 500,
+        "averageScore": 79.86971429468399,
+        "averageRank": 5.668
+      },
+      "profile:El Pacifesta": {
+        "mocks": 500,
+        "averageScore": 80.71859919458419,
+        "averageRank": 5.366
+      },
+      "profile:Jerry-Rigged": {
+        "mocks": 500,
+        "averageScore": 77.55418956943217,
+        "averageRank": 6.848
+      },
+      "profile:Kickers Are People Too": {
+        "mocks": 500,
+        "averageScore": 79.47121781974316,
+        "averageRank": 5.882
+      },
+      "profile:No Chumps": {
+        "mocks": 500,
+        "averageScore": 86.50823529906064,
+        "averageRank": 2.232
+      },
+      "profile:Pelota Negro": {
+        "mocks": 500,
+        "averageScore": 80.85523885022874,
+        "averageRank": 5.262
+      },
+      "profile:Pimpin since '99": {
+        "mocks": 500,
+        "averageScore": 78.22504169741173,
+        "averageRank": 6.556
+      },
+      "profile:R Kelly's Golden Showers": {
+        "mocks": 500,
+        "averageScore": 80.63353967654353,
+        "averageRank": 5.232
+      },
+      "profile:URINE TROUBLE": {
+        "mocks": 500,
+        "averageScore": 78.8417022459595,
+        "averageRank": 6.098
+      }
+    },
+    "sampleCompletedDraft": [
+      {
+        "gradesVersion": 1,
+        "ownerName": "Guy/Cam",
+        "teamName": "Cam + Guy",
+        "profileId": "Cam + Guy",
+        "presetId": "Cam + Guy",
+        "aggregationKey": "profile:Cam + Guy",
+        "card": 4,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 87.56400894117645,
+        "letterGrade": "B+",
+        "overallRank": 1,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 77.60277777777777,
+          "positionalBalance": 100,
+          "benchDepth": 66.19028,
+          "valueVsAdp": 57.86705882352941,
+          "scarcityCaptured": 62.73648,
+          "upside": 51.294117647058826,
+          "byeManagement": 72,
+          "rosterEfficiency": 86,
+          "lineupLegality": 100,
+          "waiverReadiness": 58
+        },
+        "estimatedScheduledWaiverPressure": 3,
+        "rosterPositionalCounts": {
+          "QB": 2,
+          "RB": 6,
+          "WR": 6,
+          "TE": 1,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Tyler Bass",
+          "delta": 46.72
+        },
+        "biggestReach": {
+          "name": "Derrick Henry",
+          "delta": -9.280000000000001
+        },
+        "explanation": "Best: positionalBalance. Improve: upside.",
+        "complete": true,
+        "rawWeightedScore": 73.87133631372548
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Rick Dauven",
+        "teamName": "No Chumps",
+        "profileId": "No Chumps",
+        "presetId": "No Chumps",
+        "aggregationKey": "profile:No Chumps",
+        "card": 3,
+        "my": true,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 87.50087312941176,
+        "letterGrade": "B+",
+        "overallRank": 2,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 80.78691111111111,
+          "positionalBalance": 97,
+          "benchDepth": 69.61798666666667,
+          "valueVsAdp": 45.139294117647054,
+          "scarcityCaptured": 65.34716,
+          "upside": 50,
+          "byeManagement": 72,
+          "rosterEfficiency": 100,
+          "lineupLegality": 100,
+          "waiverReadiness": 58
+        },
+        "estimatedScheduledWaiverPressure": 3,
+        "rosterPositionalCounts": {
+          "QB": 2,
+          "RB": 5,
+          "WR": 6,
+          "TE": 2,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Jacksonville Jaguars",
+          "delta": 11.430000000000007
+        },
+        "biggestReach": {
+          "name": "Jonah Coleman",
+          "delta": -10.360000000000014
+        },
+        "explanation": "Best: rosterEfficiency. Improve: valueVsAdp.",
+        "complete": true,
+        "rawWeightedScore": 73.85029104313725
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Jesse Herrera",
+        "teamName": "El Pacifesta",
+        "profileId": "El Pacifesta",
+        "presetId": "El Pacifesta",
+        "aggregationKey": "profile:El Pacifesta",
+        "card": 6,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 84.44292687058825,
+        "letterGrade": "B",
+        "overallRank": 3,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 79.39363111111112,
+          "positionalBalance": 94,
+          "benchDepth": 66.26022666666667,
+          "valueVsAdp": 55.68870588235294,
+          "scarcityCaptured": 58.360726666666665,
+          "upside": 50,
+          "byeManagement": 72,
+          "rosterEfficiency": 86,
+          "lineupLegality": 100,
+          "waiverReadiness": 58
+        },
+        "estimatedScheduledWaiverPressure": 3,
+        "rosterPositionalCounts": {
+          "QB": 1,
+          "RB": 5,
+          "WR": 7,
+          "TE": 2,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Cameron Dicker",
+          "delta": 22.77000000000001
+        },
+        "biggestReach": {
+          "name": "D.K. Metcalf",
+          "delta": -10.450000000000003
+        },
+        "explanation": "Best: lineupLegality. Improve: upside.",
+        "complete": true,
+        "rawWeightedScore": 72.83097562352941
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Andrew Morales",
+        "teamName": "Jerry-Rigged",
+        "profileId": "Jerry-Rigged",
+        "presetId": "Jerry-Rigged",
+        "aggregationKey": "profile:Jerry-Rigged",
+        "card": 2,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 82.32093797647062,
+        "letterGrade": "B-",
+        "overallRank": 4,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 77.48015555555554,
+          "positionalBalance": 97,
+          "benchDepth": 64.38932,
+          "valueVsAdp": 59.09670588235294,
+          "scarcityCaptured": 67.21954000000001,
+          "upside": 50.88235294117647,
+          "byeManagement": 62,
+          "rosterEfficiency": 72,
+          "lineupLegality": 100,
+          "waiverReadiness": 58
+        },
+        "estimatedScheduledWaiverPressure": 3,
+        "rosterPositionalCounts": {
+          "QB": 3,
+          "RB": 6,
+          "WR": 5,
+          "TE": 1,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Green Bay Packers",
+          "delta": 24.120000000000005
+        },
+        "biggestReach": {
+          "name": "Breece Hall",
+          "delta": -10.909999999999997
+        },
+        "explanation": "Best: lineupLegality. Improve: upside.",
+        "complete": true,
+        "rawWeightedScore": 72.12364599215687
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Todd Lopezi",
+        "teamName": "URINE TROUBLE",
+        "profileId": "URINE TROUBLE",
+        "presetId": "URINE TROUBLE",
+        "aggregationKey": "profile:URINE TROUBLE",
+        "card": 10,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 80.45839058823532,
+        "letterGrade": "B-",
+        "overallRank": 5,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 78.84148888888889,
+          "positionalBalance": 100,
+          "benchDepth": 67.23648,
+          "valueVsAdp": 53.410117647058826,
+          "scarcityCaptured": 63.46747999999999,
+          "upside": 51.470588235294116,
+          "byeManagement": 44,
+          "rosterEfficiency": 86,
+          "lineupLegality": 100,
+          "waiverReadiness": 58
+        },
+        "estimatedScheduledWaiverPressure": 3,
+        "rosterPositionalCounts": {
+          "QB": 1,
+          "RB": 6,
+          "WR": 6,
+          "TE": 2,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Alvin Kamara",
+          "delta": 35.83
+        },
+        "biggestReach": {
+          "name": "Carnell Tate",
+          "delta": -14.430000000000007
+        },
+        "explanation": "Best: positionalBalance. Improve: byeManagement.",
+        "complete": true,
+        "rawWeightedScore": 71.5027968627451
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Lane Ewton",
+        "teamName": "Kickers Are People Too",
+        "profileId": "Kickers Are People Too",
+        "presetId": "Kickers Are People Too",
+        "aggregationKey": "profile:Kickers Are People Too",
+        "card": 1,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 79.80989896470587,
+        "letterGrade": "C+",
+        "overallRank": 6,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 84.03224,
+          "positionalBalance": 91,
+          "benchDepth": 64.39643333333333,
+          "valueVsAdp": 49.923764705882355,
+          "scarcityCaptured": 64.78966000000001,
+          "upside": 52.23529411764706,
+          "byeManagement": 72,
+          "rosterEfficiency": 44,
+          "lineupLegality": 100,
+          "waiverReadiness": 86
+        },
+        "estimatedScheduledWaiverPressure": 1,
+        "rosterPositionalCounts": {
+          "QB": 3,
+          "RB": 6,
+          "WR": 3,
+          "TE": 1,
+          "K": 2,
+          "D/ST": 2,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Brandon Aubrey",
+          "delta": 12.680000000000007
+        },
+        "biggestReach": {
+          "name": "Brock Purdy",
+          "delta": -11.97999999999999
+        },
+        "explanation": "Best: lineupLegality. Improve: rosterEfficiency.",
+        "complete": true,
+        "rawWeightedScore": 71.28663298823528
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Al McGirl",
+        "teamName": "DA BRONCOS",
+        "profileId": "DA BRONCOS",
+        "presetId": "DA BRONCOS",
+        "aggregationKey": "profile:DA BRONCOS",
+        "card": 5,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 76.15949779764708,
+        "letterGrade": "C",
+        "overallRank": 7,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 77.33719555555555,
+          "positionalBalance": 85,
+          "benchDepth": 66.73508666666667,
+          "valueVsAdp": 53.76517647058824,
+          "scarcityCaptured": 63.16963200000001,
+          "upside": 50,
+          "byeManagement": 62,
+          "rosterEfficiency": 72,
+          "lineupLegality": 100,
+          "waiverReadiness": 72
+        },
+        "estimatedScheduledWaiverPressure": 2,
+        "rosterPositionalCounts": {
+          "QB": 2,
+          "RB": 3,
+          "WR": 8,
+          "TE": 2,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Harrison Mevis",
+          "delta": 19.360000000000014
+        },
+        "biggestReach": {
+          "name": "Ja'Marr Chase",
+          "delta": -12.75
+        },
+        "explanation": "Best: lineupLegality. Improve: upside.",
+        "complete": true,
+        "rawWeightedScore": 70.06983259921569
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Kelly Hoffman",
+        "teamName": "R Kelly's Golden Showers",
+        "profileId": "R Kelly's Golden Showers",
+        "presetId": "R Kelly's Golden Showers",
+        "aggregationKey": "profile:R Kelly's Golden Showers",
+        "card": 9,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 74.60759021176472,
+        "letterGrade": "C",
+        "overallRank": 8,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 77.14255555555555,
+          "positionalBalance": 88,
+          "benchDepth": 72.91568,
+          "valueVsAdp": 50.734117647058824,
+          "scarcityCaptured": 56.32073333333333,
+          "upside": 50,
+          "byeManagement": 58,
+          "rosterEfficiency": 72,
+          "lineupLegality": 100,
+          "waiverReadiness": 58
+        },
+        "estimatedScheduledWaiverPressure": 3,
+        "rosterPositionalCounts": {
+          "QB": 1,
+          "RB": 4,
+          "WR": 8,
+          "TE": 2,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Tyler Loop",
+          "delta": 18.03
+        },
+        "biggestReach": {
+          "name": "Kyle Pitts",
+          "delta": -8.659999999999997
+        },
+        "explanation": "Best: lineupLegality. Improve: upside.",
+        "complete": true,
+        "rawWeightedScore": 69.55253007058823
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Daniel",
+        "teamName": "Pelota Negro",
+        "profileId": "Pelota Negro",
+        "presetId": "Pelota Negro",
+        "aggregationKey": "profile:Pelota Negro",
+        "card": 8,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 74.29984287058825,
+        "letterGrade": "C",
+        "overallRank": 9,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 74.43902222222222,
+          "positionalBalance": 88,
+          "benchDepth": 73.40178,
+          "valueVsAdp": 50.72282352941176,
+          "scarcityCaptured": 56.204373333333336,
+          "upside": 52.23529411764706,
+          "byeManagement": 62,
+          "rosterEfficiency": 72,
+          "lineupLegality": 100,
+          "waiverReadiness": 58
+        },
+        "estimatedScheduledWaiverPressure": 3,
+        "rosterPositionalCounts": {
+          "QB": 2,
+          "RB": 4,
+          "WR": 8,
+          "TE": 1,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Will Reichard",
+          "delta": 32.44
+        },
+        "biggestReach": {
+          "name": "Zach Charbonnet",
+          "delta": -15.219999999999999
+        },
+        "explanation": "Best: lineupLegality. Improve: valueVsAdp.",
+        "complete": true,
+        "rawWeightedScore": 69.44994762352941
+      },
+      {
+        "gradesVersion": 1,
+        "ownerName": "Dylan Walker",
+        "teamName": "Pimpin since '99",
+        "profileId": "Pimpin since '99",
+        "presetId": "Pimpin since '99",
+        "aggregationKey": "profile:Pimpin since '99",
+        "card": 7,
+        "my": false,
+        "draftId": "draft-16001-24084-1787369603415",
+        "completedAt": "2026-08-22T03:33:23.415Z",
+        "overallScore": 69.33213071058822,
+        "letterGrade": "D+",
+        "overallRank": 10,
+        "confidence": 100,
+        "components": {
+          "starterStrength": 75.34811111111111,
+          "positionalBalance": 85,
+          "benchDepth": 67.44997333333332,
+          "valueVsAdp": 57.8684705882353,
+          "scarcityCaptured": 57.407016000000006,
+          "upside": 53.529411764705884,
+          "byeManagement": 44,
+          "rosterEfficiency": 58,
+          "lineupLegality": 100,
+          "waiverReadiness": 72
+        },
+        "estimatedScheduledWaiverPressure": 2,
+        "rosterPositionalCounts": {
+          "QB": 2,
+          "RB": 8,
+          "WR": 3,
+          "TE": 2,
+          "K": 1,
+          "D/ST": 1,
+          "OTHER": 0
+        },
+        "bestValue": {
+          "name": "Eddy Pineiro",
+          "delta": 21.22
+        },
+        "biggestReach": {
+          "name": "Matthew Golden",
+          "delta": -4.069999999999993
+        },
+        "explanation": "Best: lineupLegality. Improve: byeManagement.",
+        "complete": true,
+        "rawWeightedScore": 67.79404357019607
+      }
+    ]
+  }
+}

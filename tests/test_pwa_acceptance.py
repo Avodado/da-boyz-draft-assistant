@@ -8,8 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_BUILD = "v0.12.7"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.7-github-1"
+EXPECTED_BUILD = "v0.12.8"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.8-github-1"
 EXPECTED_DATA_SHA256 = "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
@@ -141,6 +141,33 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertIn("round_phase_model", opponent)
         adaptive = segment(self.html, "function liveOwnerStats", "function profilePredictionSnapshot")
         self.assertIn("livePositionMultiplier", adaptive)
+
+    def test_v0128_reporting_layers_are_explicit_and_strategy_independent(self) -> None:
+        self.assertIn("const DIAGNOSTICS_VERSION=1,GRADES_VERSION=1", self.html)
+        self.assertIn("DEFAULT_2026_ROOM_PRESET_IDS=PROFILE_KEYS.slice(0,10)", self.html)
+        self.assertIn("function randomizeSetup", self.html)
+        self.assertIn("function buildDecisionSnapshot", self.html)
+        self.assertIn("function calculateDraftGrades", self.html)
+        self.assertIn('id="grades"', self.html)
+        self.assertIn('id="randomizeSetup"', self.html)
+        self.assertIn("gradeGrid", self.html)
+        self.assertIn("No Chumps report:", self.html)
+        self.assertIn("grid-template-columns:repeat(6,1fr)", self.html)
+        strategy = segment(self.html, "function teamForCard", "function renderHistory")
+        for token in ("calculateDraftGrades", "GRADE_WEIGHTS", "decisionSnapshots", "randomizeSetup"):
+            self.assertNotIn(token, strategy)
+
+    def test_v0128_export_and_offline_aggregation_are_machine_readable(self) -> None:
+        for token in (
+            "aggregationKey", "completedAt", "overallScore", "letterGrade", "overallRank",
+            "estimatedScheduledWaiverPressure", "rosterPositionalCounts",
+        ):
+            self.assertIn(token, self.html)
+        utility = (ROOT / "diagnostics" / "aggregate_mock_grades.mjs").read_text(encoding="utf-8")
+        self.assertIn("function stableIdentity", utility)
+        self.assertIn("function aggregateExports", utility)
+        self.assertIn("function compareActual", utility)
+        self.assertNotIn("app.html.gz", utility)
 
     def test_required_draft_controls_and_filters_are_present(self) -> None:
         for element_id in (

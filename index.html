@@ -11,7 +11,7 @@
 <style>html,body{margin:0;background:#0e1118;color:#f4f6fb;font-family:Arial,sans-serif}.load{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center}.load b{font-size:22px}.load small{display:block;color:#9ba8bd;margin-top:8px;line-height:1.4}</style>
 </head>
 <body>
-<div class="load" id="load"><div><b>DA BOYZ Draft Assistant</b><small>Loading v0.12.7…</small></div></div>
+<div class="load" id="load"><div><b>DA BOYZ Draft Assistant</b><small>Loading v0.12.8…</small></div></div>
 <script>
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js').catch(()=>{})}
 (async()=>{try{if(typeof DecompressionStream==='undefined')throw new Error('Use current Chrome.');const r=await fetch('./app.html.gz');if(!r.ok)throw new Error('app.html.gz: '+r.status);const text=await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).text();document.open();document.write(text);document.close()}catch(err){document.getElementById('load').innerHTML='<div><b>Could not load the draft assistant.</b><small>'+String(err)+'</small><small>Reload once online. After the PWA cache is installed it will work offline.</small></div>'}})();
