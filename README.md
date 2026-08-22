@@ -1,8 +1,8 @@
 # DA BOYZ Draft Assistant
 
-GitHub Pages deployment candidate for **DA BOYZ Draft Assistant v0.12.6**.
+GitHub Pages deployment candidate for **DA BOYZ Draft Assistant v0.12.7**.
 
-This release restores known historical team presets as an optional one-time Setup shortcut while retaining v0.12.5's independent owner, team, and profile fields. Preset mappings come directly from the existing profile IDs and owner data; edits remain authoritative afterward. Existing v0.12.5 states load without preset inference or identity changes. The validated football model and 331-player pool remain byte-bound to v0.12.4.
+This release makes the existing strategy boundary explicit: historical profiles and live adaptation continue to predict opponents, while No Chumps recommendations and simulated selections cannot consume the No Chumps historical profile. Historical self predictions remain diagnostic, and the new tier-cliff/denial report is diagnostic-only. The validated football coefficients, owner data, Setup identity, PWA safety, and 331-player pool remain unchanged.
 
 Expected Pages URL: `https://avodado.github.io/da-boyz-draft-assistant/`
 

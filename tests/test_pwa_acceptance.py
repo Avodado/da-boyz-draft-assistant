@@ -8,8 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_BUILD = "v0.12.6"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.6-github-1"
+EXPECTED_BUILD = "v0.12.7"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.7-github-1"
 EXPECTED_DATA_SHA256 = "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
@@ -124,6 +124,24 @@ class PwaAcceptanceTests(unittest.TestCase):
         read_end = self.html.index("function renderRosterIntel", read_start)
         self.assertNotIn("applyTeamPreset(state.teams[i]", self.html[read_start:read_end])
 
+    def test_v0127_self_profile_strategy_boundary_is_explicit(self) -> None:
+        self.assertIn("const historicalOwnerPickDistribution=ownerPickDistribution", self.html)
+        self.assertIn(
+            "Number(sp?.card)===Number(myTeam()?.card)?genericPickDistribution(sp.round):historicalOwnerPickDistribution(sp)",
+            self.html,
+        )
+        self.assertIn("function tierCliffDiagnostic", self.html)
+        self.assertIn("affectsDraftStrength:false", self.html)
+        strength = segment(self.html, "function draftStrength", "function recommendation")
+        self.assertNotIn("profileForCard", strength)
+        self.assertNotIn("profilePrediction", strength)
+        self.assertNotIn("tierCliffDiagnostic", strength)
+        opponent = segment(self.html, "function ownerPickDistributionBase", "function liveOwnerStats")
+        self.assertIn("profileForCard(sp.card)", opponent)
+        self.assertIn("round_phase_model", opponent)
+        adaptive = segment(self.html, "function liveOwnerStats", "function profilePredictionSnapshot")
+        self.assertIn("livePositionMultiplier", adaptive)
+
     def test_required_draft_controls_and_filters_are_present(self) -> None:
         for element_id in (
             "playerList",
@@ -159,6 +177,8 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertIn(".teamrow .setupfield.owner-field{grid-column:2/3}", self.html)
         self.assertIn(".teamrow .setupfield.team-field{grid-column:3/4}", self.html)
         self.assertIn("@media(max-width:1150px){.setup-grid{grid-template-columns:1fr}}", self.html)
+        self.assertIn(".draft-grid,.draft-grid>.card{min-width:0;max-width:100%}", self.html)
+        self.assertIn(".playerrow{grid-template-columns:minmax(0,1fr) 46px 52px 68px", self.html)
 
     def test_draft_undo_and_emergency_pick_paths_remain_connected(self) -> None:
         record = segment(self.html, "function recordPick", "function makePick")
