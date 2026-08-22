@@ -25,6 +25,8 @@ function harness() {
 
 test("Randomize Setup uses ten unique default 2026 presets and cards while preserving No Chumps as My Team", () => {
   const c = harness();
+  assert.deepEqual([...vm.runInContext("DEFAULT_2026_ROOM_PRESET_IDS", c)], ["No Chumps","Kickers Are People Too","Jerry-Rigged","Cam + Guy","DA BRONCOS","El Pacifesta","Pimpin since '99","Pelota Negro","R Kelly's Golden Showers","URINE TROUBLE"]);
+  assert.equal(vm.runInContext("Object.isFrozen(DEFAULT_2026_ROOM_PRESET_IDS)", c), true);
   vm.runInContext("v128Reset(); randomizeSetup(()=>.314159)", c);
   const result = vm.runInContext("({presets:state.teams.map(t=>t.presetId),cards:state.teams.map(t=>t.card),my:state.teams.filter(t=>t.my).map(t=>t.presetId)})", c);
   assert.equal(new Set(result.presets).size, 10);
@@ -73,7 +75,16 @@ test("completed grades are deterministic, ranked, and export every machine-reada
     assert.ok(team.completedAt);
     assert.equal(Object.keys(team.components).length, Object.keys(vm.runInContext("GRADE_WEIGHTS", c)).length);
     assert.equal(Object.values(team.rosterPositionalCounts).reduce((a,b)=>a+b,0), 17);
+    assert.ok(team.bestValueAllPositions === null || Number.isFinite(team.bestValueAllPositions.delta));
+    assert.ok(team.biggestReachAllPositions === null || Number.isFinite(team.biggestReachAllPositions.delta));
+    assert.ok(team.bestValue === null || (["QB","RB","WR","TE"].includes(team.bestValue.position) && team.bestValue.delta >= 5));
+    assert.ok(team.biggestReach === null || (["QB","RB","WR","TE"].includes(team.biggestReach.position) && team.biggestReach.delta <= -8));
   }
+  const valueCheck = vm.runInContext(`(() => {const g=state.draftGrades.teams[0],ps=state.picks.filter(x=>x.card===g.card&&planningAdp(x.player)!=null),expected=clamp(50+ps.reduce((a,x)=>a+planningAdp(x.player)-x.overall,0)/ps.length*1.2);return {actual:g.components.valueVsAdp,expected}})()`, c);
+  assert.equal(valueCheck.actual, valueCheck.expected, "all-position valueVsAdp component remains unchanged");
+  const specialTeamsArtifact = vm.runInContext(`(() => {const pick=state.picks.find(x=>["K","D/ST"].includes(x.player.position)),team=state.teams.find(t=>Number(t.card)===Number(pick.card));pick.player.planning_adp=1;const g=gradeTeam(team);return {raw:g.bestValueAllPositions,headline:g.bestValue}})()`, c);
+  assert.ok(["K","D/ST"].includes(specialTeamsArtifact.raw.position), "synthetic raw all-position value is special teams");
+  assert.ok(specialTeamsArtifact.headline === null || ["QB","RB","WR","TE"].includes(specialTeamsArtifact.headline.position));
 });
 
 test("v0.12.4 migration adds optional diagnostics safely without changing picks", () => {

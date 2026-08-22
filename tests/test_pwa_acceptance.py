@@ -144,7 +144,11 @@ class PwaAcceptanceTests(unittest.TestCase):
 
     def test_v0128_reporting_layers_are_explicit_and_strategy_independent(self) -> None:
         self.assertIn("const DIAGNOSTICS_VERSION=1,GRADES_VERSION=1", self.html)
-        self.assertIn("DEFAULT_2026_ROOM_PRESET_IDS=PROFILE_KEYS.slice(0,10)", self.html)
+        self.assertIn(
+            'DEFAULT_2026_ROOM_PRESET_IDS=Object.freeze(["No Chumps","Kickers Are People Too","Jerry-Rigged","Cam + Guy","DA BRONCOS","El Pacifesta","Pimpin since \'99","Pelota Negro","R Kelly\'s Golden Showers","URINE TROUBLE"])',
+            self.html,
+        )
+        self.assertNotIn("DEFAULT_2026_ROOM_PRESET_IDS=PROFILE_KEYS.slice", self.html)
         self.assertIn("function randomizeSetup", self.html)
         self.assertIn("function buildDecisionSnapshot", self.html)
         self.assertIn("function calculateDraftGrades", self.html)
@@ -152,6 +156,8 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertIn('id="randomizeSetup"', self.html)
         self.assertIn("gradeGrid", self.html)
         self.assertIn("No Chumps report:", self.html)
+        self.assertIn("Best Value Skill Pick:", self.html)
+        self.assertIn("GRADE_HEADLINE_POLICY", self.html)
         self.assertIn("grid-template-columns:repeat(6,1fr)", self.html)
         strategy = segment(self.html, "function teamForCard", "function renderHistory")
         for token in ("calculateDraftGrades", "GRADE_WEIGHTS", "decisionSnapshots", "randomizeSetup"):

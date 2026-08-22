@@ -279,8 +279,8 @@
         "aggregationKey": "profile:Cam + Guy",
         "card": 4,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 87.56400894117645,
         "letterGrade": "B+",
         "overallRank": 1,
@@ -308,16 +308,50 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Tyler Bass",
-          "delta": 46.72
+          "name": "Derrick Henry",
+          "position": "RB",
+          "overall": 31,
+          "planningAdp": 21.72,
+          "delta": 9.280000000000001,
+          "planningAdpMinusOverall": -9.280000000000001
         },
         "biggestReach": {
-          "name": "Derrick Henry",
-          "delta": -9.280000000000001
+          "name": "Jordan Love",
+          "position": "QB",
+          "overall": 150,
+          "planningAdp": 165.41,
+          "delta": -15.409999999999997,
+          "planningAdpMinusOverall": 15.409999999999997
         },
         "explanation": "Best: positionalBalance. Improve: upside.",
         "complete": true,
-        "rawWeightedScore": 73.87133631372548
+        "rawWeightedScore": 73.87133631372548,
+        "bestValueAllPositions": {
+          "name": "Derrick Henry",
+          "position": "RB",
+          "overall": 31,
+          "planningAdp": 21.72,
+          "delta": 9.280000000000001,
+          "planningAdpMinusOverall": -9.280000000000001
+        },
+        "biggestReachAllPositions": {
+          "name": "Tyler Bass",
+          "position": "K",
+          "overall": 166,
+          "planningAdp": 212.72,
+          "delta": -46.72,
+          "planningAdpMinusOverall": 46.72
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -328,8 +362,8 @@
         "aggregationKey": "profile:No Chumps",
         "card": 3,
         "my": true,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 87.50087312941176,
         "letterGrade": "B+",
         "overallRank": 2,
@@ -357,16 +391,43 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Jacksonville Jaguars",
-          "delta": 11.430000000000007
-        },
-        "biggestReach": {
           "name": "Jonah Coleman",
-          "delta": -10.360000000000014
+          "position": "RB",
+          "overall": 149,
+          "planningAdp": 138.64,
+          "delta": 10.360000000000014,
+          "planningAdpMinusOverall": -10.360000000000014
         },
+        "biggestReach": null,
         "explanation": "Best: rosterEfficiency. Improve: valueVsAdp.",
         "complete": true,
-        "rawWeightedScore": 73.85029104313725
+        "rawWeightedScore": 73.85029104313725,
+        "bestValueAllPositions": {
+          "name": "Jonah Coleman",
+          "position": "RB",
+          "overall": 149,
+          "planningAdp": 138.64,
+          "delta": 10.360000000000014,
+          "planningAdpMinusOverall": -10.360000000000014
+        },
+        "biggestReachAllPositions": {
+          "name": "Jacksonville Jaguars",
+          "position": "D/ST",
+          "overall": 165,
+          "planningAdp": 176.43,
+          "delta": -11.430000000000007,
+          "planningAdpMinusOverall": 11.430000000000007
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -377,8 +438,8 @@
         "aggregationKey": "profile:El Pacifesta",
         "card": 6,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 84.44292687058825,
         "letterGrade": "B",
         "overallRank": 3,
@@ -406,16 +467,50 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Cameron Dicker",
-          "delta": 22.77000000000001
+          "name": "D.K. Metcalf",
+          "position": "WR",
+          "overall": 97,
+          "planningAdp": 86.55,
+          "delta": 10.450000000000003,
+          "planningAdpMinusOverall": -10.450000000000003
         },
         "biggestReach": {
-          "name": "D.K. Metcalf",
-          "delta": -10.450000000000003
+          "name": "Dak Prescott",
+          "position": "QB",
+          "overall": 71,
+          "planningAdp": 92.16,
+          "delta": -21.159999999999997,
+          "planningAdpMinusOverall": 21.159999999999997
         },
         "explanation": "Best: lineupLegality. Improve: upside.",
         "complete": true,
-        "rawWeightedScore": 72.83097562352941
+        "rawWeightedScore": 72.83097562352941,
+        "bestValueAllPositions": {
+          "name": "D.K. Metcalf",
+          "position": "WR",
+          "overall": 97,
+          "planningAdp": 86.55,
+          "delta": 10.450000000000003,
+          "planningAdpMinusOverall": -10.450000000000003
+        },
+        "biggestReachAllPositions": {
+          "name": "Cameron Dicker",
+          "position": "K",
+          "overall": 126,
+          "planningAdp": 148.77,
+          "delta": -22.77000000000001,
+          "planningAdpMinusOverall": 22.77000000000001
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -426,8 +521,8 @@
         "aggregationKey": "profile:Jerry-Rigged",
         "card": 2,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 82.32093797647062,
         "letterGrade": "B-",
         "overallRank": 4,
@@ -455,16 +550,50 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Green Bay Packers",
-          "delta": 24.120000000000005
+          "name": "Breece Hall",
+          "position": "RB",
+          "overall": 44,
+          "planningAdp": 33.09,
+          "delta": 10.909999999999997,
+          "planningAdpMinusOverall": -10.909999999999997
         },
         "biggestReach": {
-          "name": "Breece Hall",
-          "delta": -10.909999999999997
+          "name": "Josh Allen",
+          "position": "QB",
+          "overall": 2,
+          "planningAdp": 25.89,
+          "delta": -23.89,
+          "planningAdpMinusOverall": 23.89
         },
         "explanation": "Best: lineupLegality. Improve: upside.",
         "complete": true,
-        "rawWeightedScore": 72.12364599215687
+        "rawWeightedScore": 72.12364599215687,
+        "bestValueAllPositions": {
+          "name": "Breece Hall",
+          "position": "RB",
+          "overall": 44,
+          "planningAdp": 33.09,
+          "delta": 10.909999999999997,
+          "planningAdpMinusOverall": -10.909999999999997
+        },
+        "biggestReachAllPositions": {
+          "name": "Green Bay Packers",
+          "position": "D/ST",
+          "overall": 164,
+          "planningAdp": 188.12,
+          "delta": -24.120000000000005,
+          "planningAdpMinusOverall": 24.120000000000005
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -475,8 +604,8 @@
         "aggregationKey": "profile:URINE TROUBLE",
         "card": 10,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 80.45839058823532,
         "letterGrade": "B-",
         "overallRank": 5,
@@ -504,16 +633,50 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Alvin Kamara",
-          "delta": 35.83
+          "name": "Carnell Tate",
+          "position": "WR",
+          "overall": 93,
+          "planningAdp": 78.57,
+          "delta": 14.430000000000007,
+          "planningAdpMinusOverall": -14.430000000000007
         },
         "biggestReach": {
-          "name": "Carnell Tate",
-          "delta": -14.430000000000007
+          "name": "Alvin Kamara",
+          "position": "RB",
+          "overall": 88,
+          "planningAdp": 123.83,
+          "delta": -35.83,
+          "planningAdpMinusOverall": 35.83
         },
         "explanation": "Best: positionalBalance. Improve: byeManagement.",
         "complete": true,
-        "rawWeightedScore": 71.5027968627451
+        "rawWeightedScore": 71.5027968627451,
+        "bestValueAllPositions": {
+          "name": "Carnell Tate",
+          "position": "WR",
+          "overall": 93,
+          "planningAdp": 78.57,
+          "delta": 14.430000000000007,
+          "planningAdpMinusOverall": -14.430000000000007
+        },
+        "biggestReachAllPositions": {
+          "name": "Alvin Kamara",
+          "position": "RB",
+          "overall": 88,
+          "planningAdp": 123.83,
+          "delta": -35.83,
+          "planningAdpMinusOverall": 35.83
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -524,8 +687,8 @@
         "aggregationKey": "profile:Kickers Are People Too",
         "card": 1,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 79.80989896470587,
         "letterGrade": "C+",
         "overallRank": 6,
@@ -553,16 +716,50 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Brandon Aubrey",
-          "delta": 12.680000000000007
+          "name": "Brock Purdy",
+          "position": "QB",
+          "overall": 140,
+          "planningAdp": 128.02,
+          "delta": 11.97999999999999,
+          "planningAdpMinusOverall": -11.97999999999999
         },
         "biggestReach": {
-          "name": "Brock Purdy",
-          "delta": -11.97999999999999
+          "name": "D.J. Moore",
+          "position": "WR",
+          "overall": 27,
+          "planningAdp": 38.39,
+          "delta": -11.39,
+          "planningAdpMinusOverall": 11.39
         },
         "explanation": "Best: lineupLegality. Improve: rosterEfficiency.",
         "complete": true,
-        "rawWeightedScore": 71.28663298823528
+        "rawWeightedScore": 71.28663298823528,
+        "bestValueAllPositions": {
+          "name": "Brock Purdy",
+          "position": "QB",
+          "overall": 140,
+          "planningAdp": 128.02,
+          "delta": 11.97999999999999,
+          "planningAdpMinusOverall": -11.97999999999999
+        },
+        "biggestReachAllPositions": {
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "overall": 103,
+          "planningAdp": 115.68,
+          "delta": -12.680000000000007,
+          "planningAdpMinusOverall": 12.680000000000007
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -573,8 +770,8 @@
         "aggregationKey": "profile:DA BRONCOS",
         "card": 5,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 76.15949779764708,
         "letterGrade": "C",
         "overallRank": 7,
@@ -602,16 +799,50 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Harrison Mevis",
-          "delta": 19.360000000000014
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "overall": 16,
+          "planningAdp": 3.25,
+          "delta": 12.75,
+          "planningAdpMinusOverall": -12.75
         },
         "biggestReach": {
-          "name": "Ja'Marr Chase",
-          "delta": -12.75
+          "name": "Terry McLaurin",
+          "position": "WR",
+          "overall": 47,
+          "planningAdp": 57.5,
+          "delta": -10.5,
+          "planningAdpMinusOverall": 10.5
         },
         "explanation": "Best: lineupLegality. Improve: upside.",
         "complete": true,
-        "rawWeightedScore": 70.06983259921569
+        "rawWeightedScore": 70.06983259921569,
+        "bestValueAllPositions": {
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "overall": 16,
+          "planningAdp": 3.25,
+          "delta": 12.75,
+          "planningAdpMinusOverall": -12.75
+        },
+        "biggestReachAllPositions": {
+          "name": "Harrison Mevis",
+          "position": "K",
+          "overall": 160,
+          "planningAdp": 179.36,
+          "delta": -19.360000000000014,
+          "planningAdpMinusOverall": 19.360000000000014
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -622,8 +853,8 @@
         "aggregationKey": "profile:R Kelly's Golden Showers",
         "card": 9,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 74.60759021176472,
         "letterGrade": "C",
         "overallRank": 8,
@@ -651,16 +882,50 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Tyler Loop",
-          "delta": 18.03
+          "name": "Kyle Pitts",
+          "position": "TE",
+          "overall": 94,
+          "planningAdp": 85.34,
+          "delta": 8.659999999999997,
+          "planningAdpMinusOverall": -8.659999999999997
         },
         "biggestReach": {
-          "name": "Kyle Pitts",
-          "delta": -8.659999999999997
+          "name": "Juwan Johnson",
+          "position": "TE",
+          "overall": 120,
+          "planningAdp": 133.8,
+          "delta": -13.800000000000011,
+          "planningAdpMinusOverall": 13.800000000000011
         },
         "explanation": "Best: lineupLegality. Improve: upside.",
         "complete": true,
-        "rawWeightedScore": 69.55253007058823
+        "rawWeightedScore": 69.55253007058823,
+        "bestValueAllPositions": {
+          "name": "Kyle Pitts",
+          "position": "TE",
+          "overall": 94,
+          "planningAdp": 85.34,
+          "delta": 8.659999999999997,
+          "planningAdpMinusOverall": -8.659999999999997
+        },
+        "biggestReachAllPositions": {
+          "name": "Tyler Loop",
+          "position": "K",
+          "overall": 161,
+          "planningAdp": 179.03,
+          "delta": -18.03,
+          "planningAdpMinusOverall": 18.03
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -671,8 +936,8 @@
         "aggregationKey": "profile:Pelota Negro",
         "card": 8,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 74.29984287058825,
         "letterGrade": "C",
         "overallRank": 9,
@@ -700,16 +965,50 @@
           "OTHER": 0
         },
         "bestValue": {
-          "name": "Will Reichard",
-          "delta": 32.44
+          "name": "Zach Charbonnet",
+          "position": "RB",
+          "overall": 133,
+          "planningAdp": 117.78,
+          "delta": 15.219999999999999,
+          "planningAdpMinusOverall": -15.219999999999999
         },
         "biggestReach": {
-          "name": "Zach Charbonnet",
-          "delta": -15.219999999999999
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "overall": 37,
+          "planningAdp": 53.92,
+          "delta": -16.92,
+          "planningAdpMinusOverall": 16.92
         },
         "explanation": "Best: lineupLegality. Improve: valueVsAdp.",
         "complete": true,
-        "rawWeightedScore": 69.44994762352941
+        "rawWeightedScore": 69.44994762352941,
+        "bestValueAllPositions": {
+          "name": "Zach Charbonnet",
+          "position": "RB",
+          "overall": 133,
+          "planningAdp": 117.78,
+          "delta": 15.219999999999999,
+          "planningAdpMinusOverall": -15.219999999999999
+        },
+        "biggestReachAllPositions": {
+          "name": "Will Reichard",
+          "position": "K",
+          "overall": 170,
+          "planningAdp": 202.44,
+          "delta": -32.44,
+          "planningAdpMinusOverall": 32.44
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       },
       {
         "gradesVersion": 1,
@@ -720,8 +1019,8 @@
         "aggregationKey": "profile:Pimpin since '99",
         "card": 7,
         "my": false,
-        "draftId": "draft-16001-24084-1787369603415",
-        "completedAt": "2026-08-22T03:33:23.415Z",
+        "draftId": "draft-16001-24084-1787370768149",
+        "completedAt": "diagnostic-seed-16001",
         "overallScore": 69.33213071058822,
         "letterGrade": "D+",
         "overallRank": 10,
@@ -748,17 +1047,44 @@
           "D/ST": 1,
           "OTHER": 0
         },
-        "bestValue": {
-          "name": "Eddy Pineiro",
-          "delta": 21.22
-        },
+        "bestValue": null,
         "biggestReach": {
-          "name": "Matthew Golden",
-          "delta": -4.069999999999993
+          "name": "Tyler Warren",
+          "position": "TE",
+          "overall": 38,
+          "planningAdp": 56.28,
+          "delta": -18.28,
+          "planningAdpMinusOverall": 18.28
         },
         "explanation": "Best: lineupLegality. Improve: byeManagement.",
         "complete": true,
-        "rawWeightedScore": 67.79404357019607
+        "rawWeightedScore": 67.79404357019607,
+        "bestValueAllPositions": {
+          "name": "Matthew Golden",
+          "position": "WR",
+          "overall": 134,
+          "planningAdp": 129.93,
+          "delta": 4.069999999999993,
+          "planningAdpMinusOverall": -4.069999999999993
+        },
+        "biggestReachAllPositions": {
+          "name": "Eddy Pineiro",
+          "position": "K",
+          "overall": 169,
+          "planningAdp": 190.22,
+          "delta": -21.22,
+          "planningAdpMinusOverall": 21.22
+        },
+        "headlinePolicy": {
+          "positions": [
+            "QB",
+            "RB",
+            "WR",
+            "TE"
+          ],
+          "minimumValueDelta": 5,
+          "minimumReachDelta": 8
+        }
       }
     ]
   }

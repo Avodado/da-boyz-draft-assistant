@@ -12,7 +12,7 @@ Frozen SHA-256 values:
 
 ## Randomize Setup
 
-The explicit Setup action shuffles the ten default active 2026 room presets and independently shuffles Cards 1–10. It applies the existing preset function, saves immediately, keeps No Chumps as the sole `my: true` team even when its row moves, and leaves every field editable. It fails visibly when the default pool is not exactly ten usable presets or when a draft already has picks.
+The explicit Setup action shuffles an immutable, explicitly named list of the ten default active 2026 room presets and independently shuffles Cards 1–10. It never depends on full-catalog ordering. It applies the existing preset function, saves immediately, keeps No Chumps as the sole `my: true` team even when its row moves, and leaves every field editable. It fails visibly when the default pool is not exactly ten usable presets or when a draft already has picks.
 
 Default 2026 room:
 
@@ -65,6 +65,8 @@ Component weights:
 The raw weighted score is retained in every record. The displayed numeric score uses the fixed calibration `80 + (raw - 71.35) × 3`, clamped to 0–100. This calibration changes neither component values nor team ordering. Conventional plus/minus letters use 97/93/90, 87/83/80, 77/73/70, 67/63/60 thresholds.
 
 Every completed team record includes owner/team/profile/preset identity, a stable aggregation key, card, My Team flag, draft ID, completion timestamp, numeric and letter grades, league rank, all component scores, waiver pressure, positional counts, confidence, best value, biggest reach, and a deterministic explanation.
+
+The numeric `valueVsAdp` component continues to use every position and its existing planning-ADP-minus-overall formula exactly as calibrated. Display headlines are separate and use the conventional human interpretation, `pick overall - planning ADP`: Best Value Skill Pick and Biggest Skill Reach consider only QB/RB/WR/TE, require at least +5 or -8 picks respectively, and retain conventional all-position extrema as `bestValueAllPositions` and `biggestReachAllPositions` in exports. Each headline row also exports the legacy-sign `planningAdpMinusOverall` value. This prevents routine late K/D/ST ADP artifacts and small early differences from dominating the headline without changing any score or recommendation.
 
 ## External aggregation
 
