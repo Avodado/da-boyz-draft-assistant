@@ -8,8 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_BUILD = "v0.12.8"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.8-github-1"
+EXPECTED_BUILD = "v0.12.9"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.9-github-1"
 EXPECTED_DATA_SHA256 = "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
@@ -174,6 +174,17 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertIn("function aggregateExports", utility)
         self.assertIn("function compareActual", utility)
         self.assertNotIn("app.html.gz", utility)
+
+    def test_v0129_export_builder_prepares_reporting_and_identifies_runtime(self) -> None:
+        self.assertIn("const EXPORT_SCHEMA_VERSION=1", self.html)
+        self.assertIn("function buildDraftStateExport", self.html)
+        self.assertIn("function serializeDraftStateExport", self.html)
+        export_source = segment(self.html, "function buildDraftStateExport", "const renderSelectedIntelBase")
+        self.assertIn("ensureReportingState()", export_source)
+        self.assertIn("if(state.picks.length===170)finalizeDraftGrades()", export_source)
+        self.assertIn("exportedByBuild:CURRENT_BUILD", export_source)
+        self.assertIn("diagnosticsVersion:state.diagnosticsVersion", export_source)
+        self.assertIn("gradesVersion:state.draftGrades?.gradesVersion??null", export_source)
 
     def test_required_draft_controls_and_filters_are_present(self) -> None:
         for element_id in (
