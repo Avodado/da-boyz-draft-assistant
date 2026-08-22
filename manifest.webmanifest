@@ -1,14 +1,14 @@
 {
   "id": "./",
-  "name": "DA BOYZ Draft Assistant v0.12.8",
-  "short_name": "DA BOYZ v0.12.8",
+  "name": "DA BOYZ Draft Assistant v0.12.9",
+  "short_name": "DA BOYZ v0.12.9",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#0e1118",
   "theme_color": "#0b0e14",
-  "description": "Phone-first DA BOYZ draft assistant v0.12.8 with setup randomization, decision diagnostics, deterministic draft grades, autosave recovery, and offline PWA support.",
+  "description": "Phone-first DA BOYZ draft assistant v0.12.9 with verified diagnostic and grade exports, autosave recovery, and offline PWA support.",
   "categories": ["sports", "utilities"],
   "icons": [
     {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},

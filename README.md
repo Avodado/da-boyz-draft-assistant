@@ -1,8 +1,8 @@
 # DA BOYZ Draft Assistant
 
-GitHub Pages deployment candidate for **DA BOYZ Draft Assistant v0.12.8**.
+GitHub Pages deployment candidate for **DA BOYZ Draft Assistant v0.12.9**.
 
-This release adds explicit randomization for the ten active 2026 room identities, pre-pick top-10 decision snapshots for No Chumps, and deterministic completed-draft grades for all ten teams. Completed exports include stable machine-readable grade records, and `diagnostics/aggregate_mock_grades.mjs` aggregates directories of exports or compares them with an optional actual draft. These layers are diagnostic-only; the validated football coefficients, full owner-profile catalog, Setup identity, PWA safety, and 331-player pool remain unchanged.
+This focused release hardens completed-draft export preparation and adds machine-readable export-build/schema provenance. Completed exports reliably carry the existing decision snapshots and ten-team grade report, and `diagnostics/aggregate_mock_grades.mjs` continues to aggregate them offline. The validated football coefficients, grading weights, full owner-profile catalog, Setup/randomizer behavior, PWA safety, and 331-player pool remain unchanged.
 
 Expected Pages URL: `https://avodado.github.io/da-boyz-draft-assistant/`
 

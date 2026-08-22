@@ -1,5 +1,5 @@
 {
-  "build": "v0.12.8",
+  "build": "v0.12.9",
   "published": "2026-08-21",
-  "notes": "Adds explicit 2026-room Setup randomization, decision-time top-10 diagnostics, deterministic completed-draft grades, and export support for offline longitudinal aggregation; football coefficients and player pool unchanged."
+  "notes": "Hardens completed-draft export preparation and adds machine-readable runtime/schema provenance; diagnostics, grades, football logic, Setup, and player data remain unchanged."
 }
