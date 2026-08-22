@@ -9,6 +9,7 @@ Generated 2026-08-22T17:30:00Z. This is a data-only refresh. Draft Strength, RB/
 - Fantasy Football Calculator PPR (https://fantasyfootballcalculator.com/adp/ppr), retrieved Aug. 22; 266 public rows based on recent mocks.
 - Sleeper PPR via Hashtag Football (https://hashtagfootball.com/fantasy-football-adp-sleeper), page updated Aug. 22; stale/invalid 999 entries excluded.
 - CBS (https://www.cbssports.com/nfl/injuries/) and NFFC (https://nfc.shgn.com/sportinjuries/football) public injury pages, retrieved Aug. 22; official NFL sources override aggregators for named cases.
+- The first NFFC column is explicitly **Return Date**, not publication/update date. NFFC never creates a downgrade by itself; CBS must independently show a status with an Updated date no later than retrieval, or a named current source must corroborate the case. IR is retained as INJURED_RESERVE rather than inferred to mean out for the full season.
 
 Planning ADP is the median of currently matched PPR sources. Prior planning/rank/timestamp values are retained in explicit prior_* fields. A no-match player retains the v0.12.9 planning ADP and receives LOW confidence.
 
@@ -17,6 +18,7 @@ Planning ADP is the median of currently matched PPR sources. Prior planning/rank
 - Old/new size: 331 → 337.
 - Additions: 6; removals: 0. Season-ending/reserve players remain identifiable.
 - Duplicate names/IDs: 0 after validation.
+- Brandon Aiyuk is identity-only unavailable: RESERVE_LEFT_SQUAD is preserved and fresh pools mark him unavailable rather than treating him as a normal healthy WR.
 - Single-source/low-confidence candidates are documented in v0130-pool-watchlist.csv instead of being added automatically.
 
 | Player | Pos | Team | Planning ADP | Availability |
@@ -30,7 +32,7 @@ Planning ADP is the median of currently matched PPR sources. Prior planning/rank
 
 ## Top 50 absolute ADP movers
 
-Positive delta means earlier than v0.12.9; negative means later. Players without a genuine prior planning ADP are excluded.
+Positive delta means earlier than v0.12.9; negative means later.
 
 | Player | Pos | Old | New | Δ | Old rank | New rank |
 |---|---|---|---|---|---|---|
@@ -95,16 +97,23 @@ Positive delta means earlier than v0.12.9; negative means later. Players without
 | Jayden Higgins | OUT_SEASON | 5 | 14 | Confirmed torn ACL; out for the 2026 season and retained for identity/history. |
 | Keon Coleman | QUESTIONABLE | 68 | 73 | Foot injury remains listed as questionable for Week 1. |
 
+## Injury date-semantics audit
+
+- NFFC rows with Return Date after retrieval: 42.
+- Future-return rows independently corroborated by current CBS or named sources: 41.
+- Future-return rows ignored as uncorroborated: 1 (Tyreek Hill).
+- NFFC return dates, projected availability horizons, and sentinel dates are retained only as non-publication metadata.
+
 ## Injury and situation deltas
 
-- Availability/health changes: 23; full rows are in v0130-injury-changes.csv.
-- Material situation changes (absolute score delta ≥5): 19; full rows are in v0130-situation-changes.csv.
-- Players with no current listing are explicitly marked NO_CURRENT_INJURY_FLAG rather than medically declared healthy.
+- Availability/health changes: 22; full rows are in v0130-injury-changes.csv.
+- Material situation changes (absolute score delta ≥5): 18; full rows are in v0130-situation-changes.csv.
+- Players with no current independently corroborated listing are explicitly marked NO_CURRENT_INJURY_FLAG rather than medically declared healthy.
 
 ## Frozen hashes
 
 | Span | Before | After |
 |---|---|---|
-| Player pool JSON | c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06 | 650b3b6eb11f6fe5634cd9863778546f0d490f30985d1674724a65cad0399f0b |
+| Player pool JSON | c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06 | e3321e205d4a35df456d1d066848bf4cda0033ac91245f33b9b8af951ac18dcf |
 | Football model (teamForCard→renderHistory) | 4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b | 4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b |
 | Recommendation coefficients (draftStrength→recommendation) | b4dcff8e16c61870c49f36983a5dac929824494ad741f77b8f7d8c4c4af0e24f | b4dcff8e16c61870c49f36983a5dac929824494ad741f77b8f7d8c4c4af0e24f |

@@ -1,6 +1,6 @@
 # v0.13.0 No Chumps mock validation
 
-Run Aug. 22, 2026 with `v0127-self-profile-analysis.mjs`, seeds 10001–10200, 200 paired 170-pick drafts per arm. The retained v0.12.7 baseline uses the same runner over seeds 10001–12000 (2,000 drafts). The current paired self-profile and neutral arms had zero selection mismatches, confirming that the No Chumps historical profile remains diagnostic-only.
+Run Aug. 22, 2026 with `v0127-self-profile-analysis.mjs`, seeds 10001–10200, 200 paired 170-pick drafts per arm. Re-run after the NFFC Return Date correction and Brandon Aiyuk identity-only eligibility guard; aggregate values were unchanged. The retained v0.12.7 baseline uses the same runner over seeds 10001–12000 (2,000 drafts). The current paired self-profile and neutral arms had zero selection mismatches, confirming that the No Chumps historical profile remains diagnostic-only.
 
 The 170-pick export regression also completed successfully with 170 picks, 17 No Chumps decision snapshots, ten team grades, round-trip equality, and offline aggregation.
 

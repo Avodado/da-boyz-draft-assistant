@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import zlib from "node:zlib";
@@ -7,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIAGNOSTICS = path.join(ROOT, "diagnostics");
 const BUILD = "v0.13.0";
+const BASELINE_COMMIT = "c6576753f6848cf6031baf618cc8d3a6664aae3a";
 const AS_OF = "2026-08-22T17:30:00Z";
 const MARKET_DATE = "2026-08-22";
 const MARKET_FILE = path.join(DIAGNOSTICS, "v0130-market-snapshot.csv");
@@ -78,6 +80,7 @@ function extractArray(source, marker) {
 
 function sha(value) { return crypto.createHash("sha256").update(value).digest("hex"); }
 function segment(text, start, end) { const left = text.indexOf(start), right = text.indexOf(end, left); return text.slice(left, right); }
+function baselineApp() { return zlib.gunzipSync(execFileSync("git", ["show", `${BASELINE_COMMIT}:app.html.gz`], { cwd: ROOT })).toString("utf8"); }
 function median(values) { const sorted = values.filter(Number.isFinite).sort((a, b) => a - b); if (!sorted.length) return null; const middle = Math.floor(sorted.length / 2); return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2; }
 function round(value, places = 2) { const factor = 10 ** places; return Math.round((Number(value) + Number.EPSILON) * factor) / factor; }
 function byName(rows) { return new Map(rows.map(row => [normalize(row.name), row])); }
@@ -144,6 +147,31 @@ function parseNffc(html) {
   return rows;
 }
 
+function parseNffcReturnDate(value) {
+  const match = String(value || "").match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  return match ? new Date(Date.UTC(Number(match[3]), Number(match[1]) - 1, Number(match[2]))) : null;
+}
+
+function parseCbsUpdated(value) {
+  const match = String(value || "").match(/^(?:[A-Za-z]{3},\s*)?([A-Za-z]{3})\s+(\d{1,2})$/);
+  if (!match) return null;
+  const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].indexOf(match[1]);
+  return month < 0 ? null : new Date(Date.UTC(2026, month, Number(match[2])));
+}
+
+function atOrBeforeRetrieval(date) {
+  return date instanceof Date && Number.isFinite(date.valueOf()) && date <= new Date(`${AS_OF.slice(0, 10)}T23:59:59Z`);
+}
+
+function futureNffcReturnDate(nffc) {
+  const date = parseNffcReturnDate(nffc?.returnDate);
+  return Boolean(date && !atOrBeforeRetrieval(date));
+}
+
+function currentCbsRecord(cbs) {
+  return Boolean(cbs && atOrBeforeRetrieval(parseCbsUpdated(cbs.date)));
+}
+
 function parseCbs(html) {
   const rows = [];
   for (const match of html.matchAll(/<tr class="TableBase-bodyTr">([\s\S]*?)<\/tr>/g)) {
@@ -167,27 +195,29 @@ function importantInjury(name) {
 
 function classifyInjury(oldPlayer, nffc, cbs) {
   const important = importantInjury(oldPlayer.name);
-  if (important) return important;
-  if (!nffc && !cbs) return { availability: "NO_CURRENT_INJURY_FLAG", health: 92, injury: "", summary: "No current injury flag found in the public CBS or NFFC injury listings at retrieval.", source: `${SOURCE_URLS.cbs}; ${SOURCE_URLS.nffc}` };
-  const rawStatus = `${nffc?.status || ""} ${cbs?.status || ""}`.toUpperCase();
-  const injury = cbs?.injury || nffc?.injury || "Undisclosed";
+  if (important) return { ...important, nffcEvidenceUse: "NAMED_CASE_CURRENT_EXTERNAL_CORROBORATION" };
+  const cbsIsCurrent = currentCbsRecord(cbs);
+  const nffcEvidenceUse = !nffc ? "NONE" : cbsIsCurrent ? (futureNffcReturnDate(nffc) ? "FUTURE_RETURN_DATE_CORROBORATED_BY_CURRENT_CBS" : "NFFC_SECONDARY_CBS_PRIMARY") : "IGNORED_UNCORROBORATED_RETURN_DATE";
+  if (!cbsIsCurrent) return { availability: "NO_CURRENT_INJURY_FLAG", health: 92, injury: "", summary: nffc ? `No current independently corroborated injury flag at retrieval; NFFC ${nffc.returnDate || "blank"} is a Return Date, not a publication date.` : "No current injury flag found in the public CBS listing at retrieval.", source: SOURCE_URLS.cbs, nffcEvidenceUse };
+  const rawStatus = String(cbs.status || "").toUpperCase();
+  const injury = cbs.injury || "Undisclosed";
   let availability = "QUESTIONABLE", health = oldPlayer.availability_status && oldPlayer.availability_status !== "NO_CURRENT_INJURY_FLAG" ? Number(oldPlayer.health_score) : injury.toUpperCase() === "PERSONAL" ? 75 : 68;
-  if (/IR\.|INJURED RESERVE|\bIR\b/.test(rawStatus)) { availability = "OUT_SEASON"; health = 10; }
+  if (/IR\.|INJURED RESERVE|\bIR\b/.test(rawStatus)) { availability = "INJURED_RESERVE"; health = Number(oldPlayer.health_score) < 92 ? Number(oldPlayer.health_score) : 25; }
   else if (/PUP|PHYSICALLY UNABLE/.test(rawStatus)) { availability = /EXPECTED RETURN - WEEK 1/.test(rawStatus) ? "PUP_EXPECTED_WEEK1" : "PUP"; health = Number(oldPlayer.health_score) < 92 ? Number(oldPlayer.health_score) : 60; }
   else if (/DOUBTFUL/.test(rawStatus)) { availability = "DOUBTFUL"; health = Number(oldPlayer.health_score) < 92 ? Number(oldPlayer.health_score) : 40; }
   else if (/OUT/.test(rawStatus)) { availability = "OUT_MULTI_WEEK"; health = Number(oldPlayer.health_score) < 92 ? Number(oldPlayer.health_score) : 35; }
-  const summary = `${injury}; ${cbs?.status || nffc?.status || "questionable"}${nffc?.returnDate ? `; NFFC listed date ${nffc.returnDate}` : ""}.`;
-  return { availability, health, injury, summary, source: `${SOURCE_URLS.cbs}; ${SOURCE_URLS.nffc}` };
+  const summary = `${injury}; ${cbs.status}; CBS updated ${cbs.date}${nffc?.returnDate ? `; NFFC Return Date ${nffc.returnDate} is non-publication metadata` : ""}.`;
+  return { availability, health, injury, summary, source: SOURCE_URLS.cbs, nffcEvidenceUse };
 }
 
 function baseAddition(addition, id) {
   return {
-    name: addition.name, position: addition.position, nfl_team: addition.team, bye: addition.bye, rank: "", rank_source: "CURRENT_PPR_MARKET_MEDIAN_V0130", position_rank: "", prior_rank: "", prior_position_rank: "", prior_planning_adp: "", prior_market_as_of: "", adp: "", projected_points: "", projection_status: "PENDING_FROZEN_MODEL_PROJECTION_FEED", breakout_score: "", breakout_source: "PENDING_FROZEN_HISTORICAL_RERUN", bust_score: "", environment_score: "", intrinsic_source: "MARKET_FALLBACK", intrinsic_confidence: "25", model_coverage: "CURRENT_MARKET_LOOKUP_ONLY", situation_score: String(addition.situation), situation_confidence: String(addition.confidence), availability_status: addition.availability || "NO_CURRENT_INJURY_FLAG", situation_summary: addition.summary, depth_role: addition.depthRole, role_score: String(addition.role), health_score: String(addition.health), offense_context_score: String(addition.offense), competition_score: String(addition.competition), situation_as_of: AS_OF, situation_source: addition.source, consensus_adp: "", rtsports_adp: "", fp_mock_adp: "", fp_mock_drafted_pct: "", fantasydata_adp: "", planning_adp: "", market_confidence: "", market_summary: "", market_as_of: MARKET_DATE, tier: "", tier_method: "UNASSIGNED_NEW_MARKET_ADDITION", contingent_score: "", contingent_source: "", notes: "Added by v0.13.0 current-market audit; no historical projection or coefficient input inferred.", id, drafted: false,
+    name: addition.name, position: addition.position, nfl_team: addition.team, bye: addition.bye, rank: "", rank_source: "CURRENT_PPR_MARKET_MEDIAN_V0130", position_rank: "", prior_rank: "", prior_position_rank: "", prior_planning_adp: "", prior_market_as_of: "", adp: "", projected_points: "", projection_status: "PENDING_FROZEN_MODEL_PROJECTION_FEED", breakout_score: "", breakout_source: "PENDING_FROZEN_HISTORICAL_RERUN", bust_score: "", environment_score: "", intrinsic_source: "MARKET_FALLBACK", intrinsic_confidence: "25", model_coverage: "CURRENT_MARKET_LOOKUP_ONLY", situation_score: String(addition.situation), situation_confidence: String(addition.confidence), availability_status: addition.availability || "NO_CURRENT_INJURY_FLAG", draft_eligibility: addition.availability === "RESERVE_LEFT_SQUAD" ? "IDENTITY_ONLY_UNAVAILABLE" : "DRAFTABLE", situation_summary: addition.summary, depth_role: addition.depthRole, role_score: String(addition.role), health_score: String(addition.health), offense_context_score: String(addition.offense), competition_score: String(addition.competition), situation_as_of: AS_OF, situation_source: addition.source, consensus_adp: "", rtsports_adp: "", fp_mock_adp: "", fp_mock_drafted_pct: "", fantasydata_adp: "", planning_adp: "", market_confidence: "", market_summary: "", market_as_of: MARKET_DATE, tier: "", tier_method: "UNASSIGNED_NEW_MARKET_ADDITION", contingent_score: "", contingent_source: "", notes: "Added by v0.13.0 current-market audit; no historical projection or coefficient input inferred.", id, drafted: false,
   };
 }
 
 function createSnapshots(sourceDir) {
-  const app = zlib.gunzipSync(fs.readFileSync(path.join(ROOT, "app.html.gz"))).toString("utf8");
+  const app = baselineApp();
   if (!app.includes('const CURRENT_BUILD="v0.12.9"')) throw new Error("Snapshot generation must start from the v0.12.9 production baseline");
   const oldPool = extractArray(app, "const DEFAULT_MASTER_POOL=").rows;
   const pool = [...oldPool, ...ADDITIONS.map((row, index) => baseAddition(row, `master_${oldPool.length + index + 1}`))];
@@ -210,11 +240,11 @@ function createSnapshots(sourceDir) {
   const nffc = byName(parseNffc(fs.readFileSync(path.join(sourceDir, "nffc-injuries.html"), "utf8")));
   const cbs = byName(parseCbs(fs.readFileSync(path.join(sourceDir, "cbs-injuries.html"), "utf8")));
   const injuryRows = pool.map(player => {
-    if (player.name === "Brandon Aiyuk") return { name: player.name, availability_status: "RESERVE_LEFT_SQUAD", health_score: 35, injury: "Roster / prior ACL recovery", injury_summary: ADDITIONS.find(row => row.name === player.name).summary, injury_source: SOURCE_URLS.aiyuk, injury_as_of: AS_OF, nffc_status: "", cbs_status: "" };
+    if (player.name === "Brandon Aiyuk") return { name: player.name, availability_status: "RESERVE_LEFT_SQUAD", health_score: 35, injury: "Roster / prior ACL recovery", injury_summary: ADDITIONS.find(row => row.name === player.name).summary, injury_source: SOURCE_URLS.aiyuk, injury_as_of: AS_OF, nffc_return_date: "", nffc_date_semantics: "RETURN_DATE_NOT_PUBLICATION", nffc_evidence_use: "NOT_APPLICABLE_OFFICIAL_NFL_SOURCE", nffc_status: "", cbs_updated: "", cbs_status: "" };
     const key = normalize(player.name), nr = nffc.get(key), cr = cbs.get(key), result = classifyInjury(player, nr, cr);
-    return { name: player.name, availability_status: result.availability, health_score: result.health, injury: result.injury, injury_summary: result.summary, injury_source: result.source, injury_as_of: AS_OF, nffc_status: nr ? `${nr.status} ${nr.injury}`.trim() : "", cbs_status: cr ? `${cr.injury}; ${cr.status}` : "" };
+    return { name: player.name, availability_status: result.availability, health_score: result.health, injury: result.injury, injury_summary: result.summary, injury_source: result.source, injury_as_of: AS_OF, nffc_return_date: nr?.returnDate || "", nffc_date_semantics: "RETURN_DATE_NOT_PUBLICATION", nffc_evidence_use: result.nffcEvidenceUse, nffc_status: nr ? `${nr.status} ${nr.injury}`.trim() : "", cbs_updated: cr?.date || "", cbs_status: cr ? `${cr.injury}; ${cr.status}` : "" };
   });
-  writeCsv(INJURY_FILE, injuryRows, ["name", "availability_status", "health_score", "injury", "injury_summary", "injury_source", "injury_as_of", "nffc_status", "cbs_status"]);
+  writeCsv(INJURY_FILE, injuryRows, ["name", "availability_status", "health_score", "injury", "injury_summary", "injury_source", "injury_as_of", "nffc_return_date", "nffc_date_semantics", "nffc_evidence_use", "nffc_status", "cbs_updated", "cbs_status"]);
 
   const poolKeys = new Set(pool.map(player => normalize(player.name)));
   const watchlist = sleeperRows.filter(row => row.rank <= 300 && !poolKeys.has(normalize(row.name))).map(row => { const ffcRow = ffc.get(normalize(row.name)); return { name: row.name, position: row.position, team: row.team, sleeper_ppr: row.adp, sleeper_rank: row.rank, ffc_ppr: ffcRow?.adp || "", decision: "NOT_ADDED_SINGLE_SOURCE_OR_LOW_CONFIDENCE" }; });
@@ -229,7 +259,7 @@ function table(rows, columns) {
 
 function applyRefresh() {
   const appPath = path.join(ROOT, "app.html.gz");
-  const baseline = zlib.gunzipSync(fs.readFileSync(appPath)).toString("utf8");
+  const baseline = baselineApp();
   if (!baseline.includes('const CURRENT_BUILD="v0.12.9"')) throw new Error("Apply must start from the v0.12.9 production baseline");
   const extracted = extractArray(baseline, "const DEFAULT_MASTER_POOL=");
   const oldPool = extracted.rows;
@@ -276,6 +306,10 @@ function applyRefresh() {
     player.injury_summary = injury.injury_summary;
     player.injury_source = injury.injury_source;
     player.injury_as_of = injury.injury_as_of;
+    player.nffc_return_date = injury.nffc_return_date;
+    player.nffc_date_semantics = injury.nffc_date_semantics;
+    player.nffc_evidence_use = injury.nffc_evidence_use;
+    player.cbs_updated = injury.cbs_updated;
     const newHealth = Number(injury.health_score);
     if (old) {
       const delta = Math.max(-20, Math.min(20, Math.round((newHealth - oldHealth) * 0.25)));
@@ -307,7 +341,8 @@ function applyRefresh() {
     .replace("The football coefficients, 331-player pool, owner strategy boundary, Setup/randomizer behavior, bye/contingent logic, and grading weights remain unchanged.", "The football coefficients, owner strategy boundary, tier architecture, Setup/randomizer behavior, bye/contingent logic, and grading weights remain unchanged; the audited pool is now 337 players.")
     .replace("<b>Built-in Master Pool v1.2:</b> 331 players. The 276 core redraft candidates plus 55 lookup-only drafted rookies now carry Current Situation Overlay v2.0 across the full pool.", "<b>Built-in Master Pool v1.3:</b> 337 players. The refreshed pool retains 55 lookup-only drafted rookies and adds six conservative current-market entries; all rows carry explicit current market and injury provenance.")
     .replace("Overlay v2.0 covers the full 331-player pool", "Overlay v2.1 covers the full 337-player pool")
-    .replace("Loaded ${state.players.length} players from Master Pool v1.2 + Situation Overlay v2.0.", "Loaded ${state.players.length} players from Master Pool v1.3 + 2026 Market/Injury Refresh.");
+    .replace("Loaded ${state.players.length} players from Master Pool v1.2 + Situation Overlay v2.0.", "Loaded ${state.players.length} players from Master Pool v1.3 + 2026 Market/Injury Refresh.")
+    .replace("function freshMasterPool(){return DEFAULT_MASTER_POOL.map(p=>({...p,drafted:false}))}", "function freshMasterPool(){return DEFAULT_MASTER_POOL.map(p=>({...p,drafted:p.draft_eligibility===\"IDENTITY_ONLY_UNAVAILABLE\"}))}");
   const releaseExtracted = extractArray(releaseShell, "const DEFAULT_MASTER_POOL=");
   let html = `${releaseShell.slice(0, releaseExtracted.start)}${JSON.stringify(pool)}${releaseShell.slice(releaseExtracted.end)}`;
   const afterHashes = { player: sha(JSON.stringify(pool)), model: sha(segment(html, "function teamForCard", "function renderHistory")), recommendation: sha(segment(html, "function draftStrength", "function recommendation")) };
@@ -322,7 +357,9 @@ function applyRefresh() {
   writeCsv(path.join(DIAGNOSTICS, "v0130-pool-changes.csv"), additions, ["name", "position", "team", "planning_adp", "availability"]);
 
   const important = pool.filter(player => ["Jayden Higgins", "Tyler Warren", "Sam LaPorta", "Keon Coleman", "Breece Hall"].includes(player.name)).map(player => ({ name: player.name, availability: player.availability_status, health: player.health_score, situation: player.situation_score, summary: player.injury_summary }));
-  const report = `# v0.13.0 2026 market, injury, and situation refresh\n\nGenerated ${AS_OF}. This is a data-only refresh. Draft Strength, RB/WR balance, TE scarcity, bye, contingent-RB, owner hazard/profile, tier architecture, grading, and NFL-affinity code are byte-identical.\n\n## Source policy\n\n- FantasyPros PPR composite (${SOURCE_URLS.fantasyPros}), retrieved Aug. 22; public table exposed five rows and five current sources, so it is preferred only where actually available.\n- FantasyData PPR (${SOURCE_URLS.fantasyData}), retrieved Aug. 22; 100 public rows.\n- Fantasy Football Calculator PPR (${SOURCE_URLS.ffc}), retrieved Aug. 22; 266 public rows based on recent mocks.\n- Sleeper PPR via Hashtag Football (${SOURCE_URLS.sleeper}), page updated Aug. 22; stale/invalid 999 entries excluded.\n- CBS (${SOURCE_URLS.cbs}) and NFFC (${SOURCE_URLS.nffc}) public injury pages, retrieved Aug. 22; official NFL sources override aggregators for named cases.\n\nPlanning ADP is the median of currently matched PPR sources. Prior planning/rank/timestamp values are retained in explicit prior_* fields. A no-match player retains the v0.12.9 planning ADP and receives LOW confidence.\n\n## Pool audit\n\n- Old/new size: ${oldPool.length} → ${pool.length}.\n- Additions: ${additions.length}; removals: 0. Season-ending/reserve players remain identifiable.\n- Duplicate names/IDs: 0 after validation.\n- Single-source/low-confidence candidates are documented in v0130-pool-watchlist.csv instead of being added automatically.\n\n${table(additions, [["name", "Player"], ["position", "Pos"], ["team", "Team"], ["planning_adp", "Planning ADP"], ["availability", "Availability"]])}\n\n## Top 50 absolute ADP movers\n\nPositive delta means earlier than v0.12.9; negative means later.\n\n${table(topMovers, [["name", "Player"], ["position", "Pos"], ["old_adp", "Old"], ["new_adp", "New"], ["delta", "Δ"], ["old_rank", "Old rank"], ["new_rank", "New rank"]])}\n\n## Important current cases\n\n${table(important, [["name", "Player"], ["availability", "Availability"], ["health", "Health"], ["situation", "Situation"], ["summary", "Sourced summary"]])}\n\n## Injury and situation deltas\n\n- Availability/health changes: ${injuryChanges.length}; full rows are in v0130-injury-changes.csv.\n- Material situation changes (absolute score delta ≥5): ${situationChanges.length}; full rows are in v0130-situation-changes.csv.\n- Players with no current listing are explicitly marked NO_CURRENT_INJURY_FLAG rather than medically declared healthy.\n\n## Frozen hashes\n\n| Span | Before | After |\n|---|---|---|\n| Player pool JSON | ${beforeHashes.player} | ${afterHashes.player} |\n| Football model (teamForCard→renderHistory) | ${beforeHashes.model} | ${afterHashes.model} |\n| Recommendation coefficients (draftStrength→recommendation) | ${beforeHashes.recommendation} | ${afterHashes.recommendation} |\n`;
+  const futureReturnRows = [...injuries.values()].filter(row => futureNffcReturnDate({ returnDate: row.nffc_return_date }));
+  const ignoredFutureRows = futureReturnRows.filter(row => row.nffc_evidence_use === "IGNORED_UNCORROBORATED_RETURN_DATE");
+  const report = `# v0.13.0 2026 market, injury, and situation refresh\n\nGenerated ${AS_OF}. This is a data-only refresh. Draft Strength, RB/WR balance, TE scarcity, bye, contingent-RB, owner hazard/profile, tier architecture, grading, and NFL-affinity code are byte-identical.\n\n## Source policy\n\n- FantasyPros PPR composite (${SOURCE_URLS.fantasyPros}), retrieved Aug. 22; public table exposed five rows and five current sources, so it is preferred only where actually available.\n- FantasyData PPR (${SOURCE_URLS.fantasyData}), retrieved Aug. 22; 100 public rows.\n- Fantasy Football Calculator PPR (${SOURCE_URLS.ffc}), retrieved Aug. 22; 266 public rows based on recent mocks.\n- Sleeper PPR via Hashtag Football (${SOURCE_URLS.sleeper}), page updated Aug. 22; stale/invalid 999 entries excluded.\n- CBS (${SOURCE_URLS.cbs}) and NFFC (${SOURCE_URLS.nffc}) public injury pages, retrieved Aug. 22; official NFL sources override aggregators for named cases.\n- The first NFFC column is explicitly **Return Date**, not publication/update date. NFFC never creates a downgrade by itself; CBS must independently show a status with an Updated date no later than retrieval, or a named current source must corroborate the case. IR is retained as INJURED_RESERVE rather than inferred to mean out for the full season.\n\nPlanning ADP is the median of currently matched PPR sources. Prior planning/rank/timestamp values are retained in explicit prior_* fields. A no-match player retains the v0.12.9 planning ADP and receives LOW confidence.\n\n## Pool audit\n\n- Old/new size: ${oldPool.length} → ${pool.length}.\n- Additions: ${additions.length}; removals: 0. Season-ending/reserve players remain identifiable.\n- Duplicate names/IDs: 0 after validation.\n- Brandon Aiyuk is identity-only unavailable: RESERVE_LEFT_SQUAD is preserved and fresh pools mark him unavailable rather than treating him as a normal healthy WR.\n- Single-source/low-confidence candidates are documented in v0130-pool-watchlist.csv instead of being added automatically.\n\n${table(additions, [["name", "Player"], ["position", "Pos"], ["team", "Team"], ["planning_adp", "Planning ADP"], ["availability", "Availability"]])}\n\n## Top 50 absolute ADP movers\n\nPositive delta means earlier than v0.12.9; negative means later.\n\n${table(topMovers, [["name", "Player"], ["position", "Pos"], ["old_adp", "Old"], ["new_adp", "New"], ["delta", "Δ"], ["old_rank", "Old rank"], ["new_rank", "New rank"]])}\n\n## Important current cases\n\n${table(important, [["name", "Player"], ["availability", "Availability"], ["health", "Health"], ["situation", "Situation"], ["summary", "Sourced summary"]])}\n\n## Injury date-semantics audit\n\n- NFFC rows with Return Date after retrieval: ${futureReturnRows.length}.\n- Future-return rows independently corroborated by current CBS or named sources: ${futureReturnRows.length - ignoredFutureRows.length}.\n- Future-return rows ignored as uncorroborated: ${ignoredFutureRows.length} (${ignoredFutureRows.map(row => row.name).join(", ") || "none"}).\n- NFFC return dates, projected availability horizons, and sentinel dates are retained only as non-publication metadata.\n\n## Injury and situation deltas\n\n- Availability/health changes: ${injuryChanges.length}; full rows are in v0130-injury-changes.csv.\n- Material situation changes (absolute score delta ≥5): ${situationChanges.length}; full rows are in v0130-situation-changes.csv.\n- Players with no current independently corroborated listing are explicitly marked NO_CURRENT_INJURY_FLAG rather than medically declared healthy.\n\n## Frozen hashes\n\n| Span | Before | After |\n|---|---|---|\n| Player pool JSON | ${beforeHashes.player} | ${afterHashes.player} |\n| Football model (teamForCard→renderHistory) | ${beforeHashes.model} | ${afterHashes.model} |\n| Recommendation coefficients (draftStrength→recommendation) | ${beforeHashes.recommendation} | ${afterHashes.recommendation} |\n`;
   fs.writeFileSync(path.join(DIAGNOSTICS, "v0130-data-refresh.md"), report);
   console.log(JSON.stringify({ oldPool: oldPool.length, newPool: pool.length, additions: additions.length, injuryChanges: injuryChanges.length, situationChanges: situationChanges.length, beforeHashes, afterHashes }, null, 2));
 }
@@ -373,12 +410,17 @@ function normalizeCurrentAdditionHistory() {
   console.log(JSON.stringify({ normalizedFields: changed }, null, 2));
 }
 
-const command = process.argv[2];
-if (command === "snapshot") {
-  const sourceIndex = process.argv.indexOf("--source-dir");
-  if (sourceIndex < 0 || !process.argv[sourceIndex + 1]) throw new Error("Usage: node diagnostics/v0130-data-refresh.mjs snapshot --source-dir <directory>");
-  createSnapshots(path.resolve(process.argv[sourceIndex + 1]));
-} else if (command === "apply") applyRefresh();
-else if (command === "report") refreshMoverOutputs();
-else if (command === "normalize") normalizeCurrentAdditionHistory();
-else throw new Error("Usage: node diagnostics/v0130-data-refresh.mjs <snapshot --source-dir DIR | apply | report | normalize>");
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  const command = process.argv[2];
+  if (command === "snapshot") {
+    const sourceIndex = process.argv.indexOf("--source-dir");
+    if (sourceIndex < 0 || !process.argv[sourceIndex + 1]) throw new Error("Usage: node diagnostics/v0130-data-refresh.mjs snapshot --source-dir <directory>");
+    createSnapshots(path.resolve(process.argv[sourceIndex + 1]));
+  } else if (command === "apply") applyRefresh();
+  else if (command === "report") refreshMoverOutputs();
+  else if (command === "normalize") normalizeCurrentAdditionHistory();
+  else throw new Error("Usage: node diagnostics/v0130-data-refresh.mjs <snapshot --source-dir DIR | apply | report | normalize>");
+}
+
+export { classifyInjury, currentCbsRecord, futureNffcReturnDate, parseCbsUpdated, parseNffc, parseNffcReturnDate };

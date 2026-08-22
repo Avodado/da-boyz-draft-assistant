@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import zlib from "node:zlib";
+import { classifyInjury, currentCbsRecord, futureNffcReturnDate } from "../diagnostics/v0130-data-refresh.mjs";
 
 const html = zlib.gunzipSync(fs.readFileSync(new URL("../app.html.gz", import.meta.url))).toString("utf8");
 const pool = JSON.parse(html.match(/const DEFAULT_MASTER_POOL=(\[.*\]);\nfunction freshMasterPool/)[1]);
@@ -28,6 +29,30 @@ test("six conservative current-market additions are present and no production Be
   assert.doesNotMatch(html.slice(html.indexOf("function draftStrength"), html.indexOf("function recommendation")), /Berry|Fantasy Life|berry/i);
   assert.match(html, /Built-in Master Pool v1\.3:<\/b> 337 players/);
   assert.doesNotMatch(html, /331-player pool|<\/b> 331 players/);
+  const aiyuk = byName.get("Brandon Aiyuk");
+  assert.equal(aiyuk.draft_eligibility, "IDENTITY_ONLY_UNAVAILABLE");
+  assert.match(html, /drafted:p\.draft_eligibility==="IDENTITY_ONLY_UNAVAILABLE"/);
+});
+
+test("NFFC Return Date metadata cannot independently create a current downgrade", () => {
+  const old = { name:"Synthetic Player", availability_status:"NO_CURRENT_INJURY_FLAG", health_score:"92" };
+  const futureNffc = { returnDate:"2/15/2027", status:"IR", injury:"Knee" };
+  assert.equal(futureNffcReturnDate(futureNffc), true);
+  const unsupported = classifyInjury(old, futureNffc, null);
+  assert.equal(unsupported.availability, "NO_CURRENT_INJURY_FLAG");
+  assert.equal(unsupported.health, 92);
+  assert.equal(unsupported.nffcEvidenceUse, "IGNORED_UNCORROBORATED_RETURN_DATE");
+
+  const currentCbs = { date:"Sat, Aug 22", injury:"Knee", status:"IR. Injured Reserve" };
+  assert.equal(currentCbsRecord(currentCbs), true);
+  const corroborated = classifyInjury(old, futureNffc, currentCbs);
+  assert.equal(corroborated.availability, "INJURED_RESERVE");
+  assert.equal(corroborated.health, 25);
+  assert.equal(corroborated.nffcEvidenceUse, "FUTURE_RETURN_DATE_CORROBORATED_BY_CURRENT_CBS");
+
+  const futureCbs = { ...currentCbs, date:"Sun, Aug 23" };
+  assert.equal(currentCbsRecord(futureCbs), false);
+  assert.equal(classifyInjury(old, futureNffc, futureCbs).availability, "NO_CURRENT_INJURY_FLAG");
 });
 
 test("named injury cases retain explicit conservative availability", () => {
@@ -38,6 +63,8 @@ test("named injury cases retain explicit conservative availability", () => {
   assert.equal(byName.get("Keon Coleman").availability_status, "QUESTIONABLE");
   assert.equal(byName.get("Breece Hall").availability_status, "QUESTIONABLE");
   assert.equal(byName.get("Brandon Aiyuk").availability_status, "RESERVE_LEFT_SQUAD");
+  assert.equal(byName.get("Tyreek Hill").availability_status, "NO_CURRENT_INJURY_FLAG");
+  for (const name of ["Chris Brazzell II","Kendrick Law","Jaren Kanak"]) assert.equal(byName.get(name).availability_status, "INJURED_RESERVE");
 });
 
 test("compact diagnostic reports remain reproducible and analysis-only", () => {
@@ -45,7 +72,9 @@ test("compact diagnostic reports remain reproducible and analysis-only", () => {
   const berry = fs.readFileSync(new URL("../diagnostics/v0130-berry-analysis.md", import.meta.url), "utf8");
   const deltaRows = fs.readFileSync(new URL("../diagnostics/v0130-berry-rank-deltas.csv", import.meta.url), "utf8").trim().split(/\r?\n/);
   assert.match(refresh, /331 → 337/);
-  assert.match(refresh, /Players without a genuine prior planning ADP are excluded/);
+  assert.match(refresh, /Return Date.*, not publication\/update date/);
+  assert.match(refresh, /Future-return rows ignored as uncorroborated: 1 \(Tyreek Hill\)/);
+  assert.doesNotMatch(refresh, /\| Drew Allar \| QB \| 0 \|/);
   assert.match(berry, /matched to the app: 236/);
   assert.match(berry, /Pearson rank correlation.*0\.9226/);
   assert.equal(deltaRows.length, 51);

@@ -10,9 +10,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_BUILD = "v0.13.0"
 EXPECTED_CACHE = "daboyz-draft-assistant-v0.13.0-github-1"
-EXPECTED_DATA_SHA256 = "c025df9013e3a66a596c3b74541fb7ab599a002e0bc792f583b97475cbea2952"
+EXPECTED_DATA_SHA256 = "1c5e95623b0aed0ba266758928f6e87f65d6522b1b205dba2d6537f729d371a5"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
-EXPECTED_POOL_SHA256 = "650b3b6eb11f6fe5634cd9863778546f0d490f30985d1674724a65cad0399f0b"
+EXPECTED_POOL_SHA256 = "e3321e205d4a35df456d1d066848bf4cda0033ac91245f33b9b8af951ac18dcf"
 
 
 def sha256(text: str) -> str:
@@ -78,7 +78,7 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertEqual(coverage["DRAFTED_ROOKIE_LOOKUP_ONLY"], 55)
         self.assertEqual(coverage["CURRENT_MARKET_LOOKUP_ONLY"], 6)
         self.assertEqual(sum(count for key, count in coverage.items() if key != "DRAFTED_ROOKIE_LOOKUP_ONLY"), 282)
-        required = {"prior_rank", "prior_planning_adp", "prior_market_as_of", "market_refresh_version", "availability_status", "health_score", "injury_summary", "injury_source", "injury_as_of"}
+        required = {"prior_rank", "prior_planning_adp", "prior_market_as_of", "market_refresh_version", "availability_status", "health_score", "injury_summary", "injury_source", "injury_as_of", "nffc_return_date", "nffc_date_semantics", "nffc_evidence_use", "cbs_updated"}
         self.assertTrue(all(required.issubset(player) for player in pool))
         self.assertTrue(all(player["market_refresh_version"] == EXPECTED_BUILD for player in pool))
 
