@@ -1,0 +1,4 @@
+arm,drafts,seedFirst,seedLast,runtimeSeconds,gradeOutcomeCorrelation,gradeSkillCoreCorrelation,noChumpsAverageGrade,fieldAverageGrade,noChumpsRealizedOptimal,fieldRealizedOptimal,noChumpsRealizedDifference,noChumpsGradeFirstFrequency,noChumpsGradeTop3Frequency,noChumpsRealizedFirstFrequency,noChumpsRealizedTop3Frequency
+"balanced-primary","5000","20255001","20260000","2471.99","0.163404","0.180111","84.275944","77.00684","1828.147136","1739.671191","88.475945","0.5062","0.85","0.2114","0.4924"
+"fixed-2025-room","250","20265001","20265250","120.769","0.171934","0.189176","84.3297","76.815289","1831.08248","1738.55576","92.52672","0.528","0.84","0.2","0.532"
+"tier-proxy-sensitivity","250","20275001","20275250","124.326","0.162848","0.176795","83.595595","76.877723","1823.00208","1739.017964","83.984116","0.44","0.86","0.192","0.52"
