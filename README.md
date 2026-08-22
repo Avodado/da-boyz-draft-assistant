@@ -1,8 +1,8 @@
 # DA BOYZ Draft Assistant
 
-GitHub Pages deployment candidate for **DA BOYZ Draft Assistant v0.12.9**.
+GitHub Pages deployment candidate for **DA BOYZ Draft Assistant v0.13.0**.
 
-This focused release hardens completed-draft export preparation and adds machine-readable export-build/schema provenance. Completed exports reliably carry the existing decision snapshots and ten-team grade report, and `diagnostics/aggregate_mock_grades.mjs` continues to aggregate them offline. The validated football coefficients, grading weights, full owner-profile catalog, Setup/randomizer behavior, PWA safety, and 331-player pool remain unchanged.
+This controlled data release refreshes the 2026 PPR market snapshot, injury/availability evidence, situation overlays, and six current-market pool entries. The validated football coefficients, grading weights, owner profiles, tier architecture, Setup/randomizer behavior, and PWA safety are unchanged. The audited master pool now contains 337 unique players; season-ending and reserve players remain identifiable rather than being silently removed.
 
 Expected Pages URL: `https://avodado.github.io/da-boyz-draft-assistant/`
 
@@ -14,6 +14,15 @@ Run the repository acceptance checks with:
 python -m unittest discover -s tests -v
 node --test tests/*.test.mjs
 ```
+
+Reproduce the source snapshots and apply the refresh with:
+
+```text
+node diagnostics/v0130-data-refresh.mjs snapshot --source-dir path/to/retrieved-html
+node diagnostics/v0130-data-refresh.mjs apply
+```
+
+The refresh methodology, source URLs, deltas, frozen hashes, and the public Matthew Berry/Fantasy Life comparison are documented under `diagnostics/v0130-*`.
 
 Aggregate completed mock exports offline with:
 

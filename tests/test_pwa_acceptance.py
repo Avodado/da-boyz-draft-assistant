@@ -8,11 +8,11 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_BUILD = "v0.12.9"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.12.9-github-1"
-EXPECTED_DATA_SHA256 = "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a"
+EXPECTED_BUILD = "v0.13.0"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.13.0-github-1"
+EXPECTED_DATA_SHA256 = "c025df9013e3a66a596c3b74541fb7ab599a002e0bc792f583b97475cbea2952"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
-EXPECTED_POOL_SHA256 = "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
+EXPECTED_POOL_SHA256 = "650b3b6eb11f6fe5634cd9863778546f0d490f30985d1674724a65cad0399f0b"
 
 
 def sha256(text: str) -> str:
@@ -59,7 +59,7 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertEqual(sha256(data_span), EXPECTED_DATA_SHA256)
         self.assertEqual(sha256(model_span), EXPECTED_MODEL_SHA256)
 
-    def test_master_pool_remains_exactly_331_unique_players(self) -> None:
+    def test_master_pool_contains_exactly_337_unique_audited_players(self) -> None:
         match = re.search(
             r"const DEFAULT_MASTER_POOL=(\[.*\]);\nfunction freshMasterPool",
             self.html,
@@ -68,15 +68,19 @@ class PwaAcceptanceTests(unittest.TestCase):
         pool = json.loads(match.group(1))
         canonical = json.dumps(pool, ensure_ascii=False, separators=(",", ":"))
         self.assertEqual(sha256(canonical), EXPECTED_POOL_SHA256)
-        self.assertEqual(len(pool), 331)
-        self.assertEqual(len({player["id"] for player in pool}), 331)
-        self.assertEqual(len({player["name"] for player in pool}), 331)
+        self.assertEqual(len(pool), 337)
+        self.assertEqual(len({player["id"] for player in pool}), 337)
+        self.assertEqual(len({player["name"] for player in pool}), 337)
         coverage = {}
         for player in pool:
             key = player.get("model_coverage", "")
             coverage[key] = coverage.get(key, 0) + 1
         self.assertEqual(coverage["DRAFTED_ROOKIE_LOOKUP_ONLY"], 55)
-        self.assertEqual(sum(count for key, count in coverage.items() if key != "DRAFTED_ROOKIE_LOOKUP_ONLY"), 276)
+        self.assertEqual(coverage["CURRENT_MARKET_LOOKUP_ONLY"], 6)
+        self.assertEqual(sum(count for key, count in coverage.items() if key != "DRAFTED_ROOKIE_LOOKUP_ONLY"), 282)
+        required = {"prior_rank", "prior_planning_adp", "prior_market_as_of", "market_refresh_version", "availability_status", "health_score", "injury_summary", "injury_source", "injury_as_of"}
+        self.assertTrue(all(required.issubset(player) for player in pool))
+        self.assertTrue(all(player["market_refresh_version"] == EXPECTED_BUILD for player in pool))
 
     def test_soft_rb_wr_balance_is_a_soft_imbalance_adjustment(self) -> None:
         model = segment(self.html, "function teamForCard", "function renderHistory")

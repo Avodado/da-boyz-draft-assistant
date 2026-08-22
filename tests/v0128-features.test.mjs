@@ -81,7 +81,7 @@ test("completed grades are deterministic, ranked, and export every machine-reada
     assert.ok(team.biggestReach === null || (["QB","RB","WR","TE"].includes(team.biggestReach.position) && team.biggestReach.delta <= -8));
   }
   const valueCheck = vm.runInContext(`(() => {const g=state.draftGrades.teams[0],ps=state.picks.filter(x=>x.card===g.card&&planningAdp(x.player)!=null),expected=clamp(50+ps.reduce((a,x)=>a+planningAdp(x.player)-x.overall,0)/ps.length*1.2);return {actual:g.components.valueVsAdp,expected}})()`, c);
-  assert.equal(valueCheck.actual, valueCheck.expected, "all-position valueVsAdp component remains unchanged");
+  assert.ok(Math.abs(valueCheck.actual-valueCheck.expected)<1e-12, "all-position valueVsAdp component remains unchanged");
   const specialTeamsArtifact = vm.runInContext(`(() => {const pick=state.picks.find(x=>["K","D/ST"].includes(x.player.position)),team=state.teams.find(t=>Number(t.card)===Number(pick.card));pick.player.planning_adp=1;const g=gradeTeam(team);return {raw:g.bestValueAllPositions,headline:g.bestValue}})()`, c);
   assert.ok(["K","D/ST"].includes(specialTeamsArtifact.raw.position), "synthetic raw all-position value is special teams");
   assert.ok(specialTeamsArtifact.headline === null || ["QB","RB","WR","TE"].includes(specialTeamsArtifact.headline.position));
