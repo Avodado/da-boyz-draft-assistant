@@ -1,0 +1,799 @@
+{
+  "generatedAt": "2026-08-22T02:49:46.741Z",
+  "sampleSizePerArm": 2000,
+  "seeds": {
+    "first": 10001,
+    "last": 12000
+  },
+  "baseline": {
+    "sampleSize": 2000,
+    "first6Average": {
+      "QB": 0.395,
+      "RB": 2.455,
+      "WR": 2.5125,
+      "TE": 0.6375,
+      "K": 0,
+      "D/ST": 0
+    },
+    "first8Average": {
+      "QB": 0.901,
+      "RB": 2.8375,
+      "WR": 3.299,
+      "TE": 0.9625,
+      "K": 0,
+      "D/ST": 0
+    },
+    "finalAverage": {
+      "QB": 1.9325,
+      "RB": 5.1515,
+      "WR": 6.07,
+      "TE": 1.789,
+      "K": 1.0415,
+      "D/ST": 1.0155
+    },
+    "firstQbRoundDistribution": {
+      "3": 313,
+      "4": 227,
+      "6": 240,
+      "7": 360,
+      "8": 413,
+      "9": 67,
+      "10": 225,
+      "11": 13,
+      "12": 58,
+      "13": 76,
+      "14": 2,
+      "15": 3,
+      "16": 1,
+      "17": 2
+    },
+    "firstTeRoundDistribution": {
+      "2": 28,
+      "3": 559,
+      "4": 26,
+      "5": 237,
+      "6": 374,
+      "7": 298,
+      "8": 131,
+      "9": 56,
+      "10": 114,
+      "11": 132,
+      "12": 27,
+      "13": 17,
+      "14": 1
+    },
+    "secondQb": {
+      "frequency": 0.917,
+      "averageRound": 11.405125408942203
+    },
+    "secondTe": {
+      "frequency": 0.7865,
+      "averageRound": 11.043865225683408
+    },
+    "rb4ByRound6": 0.076,
+    "wrAfterR6": 2.5125,
+    "wrAfterR8": 3.299,
+    "starterLegality": 1,
+    "averageLargestByeLoad": 4.065,
+    "byeLoadAtLeast3": 0.9995,
+    "recommendationLabels": {
+      "TAKE NOW": 0.5616764705882353,
+      "VALUE CHECK": 0.07102941176470588,
+      "LEAN TAKE": 0.23476470588235296,
+      "LAST FLEX PICK": 0.047117647058823535,
+      "REQUIRED": 0.079,
+      "WAIT LIKELY": 0.006411764705882353
+    },
+    "valueProxies": {
+      "averageSelectedDraftStrength": 61.01559576428725,
+      "averageSelectedIntrinsic": 55.921160329779426,
+      "averageSelectedSituation": 74.98569094117643,
+      "averageSelectedRosterUtility": 59.80939035294116,
+      "averageSelectedSurvival": 20.969233745400178
+    },
+    "topFirst8Sequences": [
+      {
+        "sequence": "RB-RB-TE-WR-WR-RB-WR-QB",
+        "count": 16,
+        "rate": 0.008
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-TE-WR-QB",
+        "count": 7,
+        "rate": 0.0035
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-TE-WR-RB",
+        "count": 6,
+        "rate": 0.003
+      },
+      {
+        "sequence": "RB-RB-TE-WR-WR-WR-QB-RB",
+        "count": 6,
+        "rate": 0.003
+      },
+      {
+        "sequence": "RB-RB-TE-WR-WR-WR-WR-QB",
+        "count": 6,
+        "rate": 0.003
+      },
+      {
+        "sequence": "RB-WR-TE-WR-RB-WR-WR-QB",
+        "count": 5,
+        "rate": 0.0025
+      },
+      {
+        "sequence": "RB-WR-TE-WR-RB-RB-WR-QB",
+        "count": 5,
+        "rate": 0.0025
+      },
+      {
+        "sequence": "WR-RB-WR-RB-WR-TE-WR-QB",
+        "count": 4,
+        "rate": 0.002
+      },
+      {
+        "sequence": "RB-RB-TE-QB-WR-RB-WR-QB",
+        "count": 4,
+        "rate": 0.002
+      },
+      {
+        "sequence": "WR-RB-TE-RB-WR-WR-WR-QB",
+        "count": 4,
+        "rate": 0.002
+      },
+      {
+        "sequence": "WR-RB-WR-RB-WR-TE-QB-RB",
+        "count": 4,
+        "rate": 0.002
+      },
+      {
+        "sequence": "WR-RB-TE-RB-WR-RB-WR-QB",
+        "count": 4,
+        "rate": 0.002
+      }
+    ]
+  },
+  "selfProfileNeutral": {
+    "sampleSize": 2000,
+    "first6Average": {
+      "QB": 0.395,
+      "RB": 2.455,
+      "WR": 2.5125,
+      "TE": 0.6375,
+      "K": 0,
+      "D/ST": 0
+    },
+    "first8Average": {
+      "QB": 0.901,
+      "RB": 2.8375,
+      "WR": 3.299,
+      "TE": 0.9625,
+      "K": 0,
+      "D/ST": 0
+    },
+    "finalAverage": {
+      "QB": 1.9325,
+      "RB": 5.1515,
+      "WR": 6.07,
+      "TE": 1.789,
+      "K": 1.0415,
+      "D/ST": 1.0155
+    },
+    "firstQbRoundDistribution": {
+      "3": 313,
+      "4": 227,
+      "6": 240,
+      "7": 360,
+      "8": 413,
+      "9": 67,
+      "10": 225,
+      "11": 13,
+      "12": 58,
+      "13": 76,
+      "14": 2,
+      "15": 3,
+      "16": 1,
+      "17": 2
+    },
+    "firstTeRoundDistribution": {
+      "2": 28,
+      "3": 559,
+      "4": 26,
+      "5": 237,
+      "6": 374,
+      "7": 298,
+      "8": 131,
+      "9": 56,
+      "10": 114,
+      "11": 132,
+      "12": 27,
+      "13": 17,
+      "14": 1
+    },
+    "secondQb": {
+      "frequency": 0.917,
+      "averageRound": 11.405125408942203
+    },
+    "secondTe": {
+      "frequency": 0.7865,
+      "averageRound": 11.043865225683408
+    },
+    "rb4ByRound6": 0.076,
+    "wrAfterR6": 2.5125,
+    "wrAfterR8": 3.299,
+    "starterLegality": 1,
+    "averageLargestByeLoad": 4.065,
+    "byeLoadAtLeast3": 0.9995,
+    "recommendationLabels": {
+      "TAKE NOW": 0.5616764705882353,
+      "VALUE CHECK": 0.07102941176470588,
+      "LEAN TAKE": 0.23476470588235296,
+      "LAST FLEX PICK": 0.047117647058823535,
+      "REQUIRED": 0.079,
+      "WAIT LIKELY": 0.006411764705882353
+    },
+    "valueProxies": {
+      "averageSelectedDraftStrength": 61.01559576428725,
+      "averageSelectedIntrinsic": 55.921160329779426,
+      "averageSelectedSituation": 74.98569094117643,
+      "averageSelectedRosterUtility": 59.80939035294116,
+      "averageSelectedSurvival": 20.969233745400178
+    },
+    "topFirst8Sequences": [
+      {
+        "sequence": "RB-RB-TE-WR-WR-RB-WR-QB",
+        "count": 16,
+        "rate": 0.008
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-TE-WR-QB",
+        "count": 7,
+        "rate": 0.0035
+      },
+      {
+        "sequence": "RB-RB-WR-WR-WR-TE-WR-RB",
+        "count": 6,
+        "rate": 0.003
+      },
+      {
+        "sequence": "RB-RB-TE-WR-WR-WR-QB-RB",
+        "count": 6,
+        "rate": 0.003
+      },
+      {
+        "sequence": "RB-RB-TE-WR-WR-WR-WR-QB",
+        "count": 6,
+        "rate": 0.003
+      },
+      {
+        "sequence": "RB-WR-TE-WR-RB-WR-WR-QB",
+        "count": 5,
+        "rate": 0.0025
+      },
+      {
+        "sequence": "RB-WR-TE-WR-RB-RB-WR-QB",
+        "count": 5,
+        "rate": 0.0025
+      },
+      {
+        "sequence": "WR-RB-WR-RB-WR-TE-WR-QB",
+        "count": 4,
+        "rate": 0.002
+      },
+      {
+        "sequence": "RB-RB-TE-QB-WR-RB-WR-QB",
+        "count": 4,
+        "rate": 0.002
+      },
+      {
+        "sequence": "WR-RB-TE-RB-WR-WR-WR-QB",
+        "count": 4,
+        "rate": 0.002
+      },
+      {
+        "sequence": "WR-RB-WR-RB-WR-TE-QB-RB",
+        "count": 4,
+        "rate": 0.002
+      },
+      {
+        "sequence": "WR-RB-TE-RB-WR-RB-WR-QB",
+        "count": 4,
+        "rate": 0.002
+      }
+    ]
+  },
+  "pairedSelectionMismatches": 0,
+  "scenario": {
+    "selfProfileActive": {
+      "current": {
+        "overall": 81,
+        "round": 9,
+        "slot": 1,
+        "card": 3,
+        "team": "No Chumps"
+      },
+      "roster": [
+        "Christian McCaffrey",
+        "Jaxon Smith-Njigba",
+        "Trey McBride",
+        "Drake London",
+        "David Montgomery",
+        "RJ Harvey",
+        "Jayden Daniels",
+        "Colston Loveland"
+      ],
+      "ordering": [
+        {
+          "name": "Wan'Dale Robinson",
+          "position": "WR",
+          "tier": "5",
+          "intrinsic": 56.978725000000004,
+          "situation": 64.96000000000001,
+          "rosterUtility": 59,
+          "survival": 0.998034276443742,
+          "tierUrgency": 100,
+          "draftStrength": 62.87702461071383,
+          "label": "TAKE NOW"
+        },
+        {
+          "name": "Rhamondre Stevenson",
+          "position": "RB",
+          "tier": "5",
+          "intrinsic": 58.466575,
+          "situation": 79.92,
+          "rosterUtility": 49.7,
+          "survival": 0.6915315168884512,
+          "tierUrgency": 88.58955304381081,
+          "draftStrength": 62.82215507364535,
+          "label": "TAKE NOW"
+        },
+        {
+          "name": "Jonathon Brooks",
+          "position": "RB",
+          "tier": "5",
+          "intrinsic": 56.2348,
+          "situation": 65.895,
+          "rosterUtility": 59.8,
+          "survival": 1.6460012145656382,
+          "tierUrgency": 88.58955304381081,
+          "draftStrength": 62.2960491569242,
+          "label": "TAKE NOW"
+        },
+        {
+          "name": "Jalen Hurts",
+          "position": "QB",
+          "tier": "3",
+          "intrinsic": 55.490875,
+          "situation": 87.4,
+          "rosterUtility": 47.5,
+          "survival": 0.665630351591696,
+          "tierUrgency": 100,
+          "draftStrength": 61.76854521292744,
+          "label": "TAKE NOW"
+        },
+        {
+          "name": "Chuba Hubbard",
+          "position": "RB",
+          "tier": "5",
+          "intrinsic": 51.027325,
+          "situation": 71.142,
+          "rosterUtility": 54.04,
+          "survival": 5.642311207553362,
+          "tierUrgency": 88.58955304381081,
+          "draftStrength": 58.27757253746414,
+          "label": "LEAN TAKE"
+        },
+        {
+          "name": "D.K. Metcalf",
+          "position": "WR",
+          "tier": "6",
+          "intrinsic": 48.051625,
+          "situation": 72.103,
+          "rosterUtility": 59,
+          "survival": 12.340483693841186,
+          "tierUrgency": 100,
+          "draftStrength": 57.629509005574235,
+          "label": "LEAN TAKE"
+        },
+        {
+          "name": "Caleb Williams",
+          "position": "QB",
+          "tier": "4",
+          "intrinsic": 46.563775,
+          "situation": 86.465,
+          "rosterUtility": 47.5,
+          "survival": 9.706085235107162,
+          "tierUrgency": 52.47085288240308,
+          "draftStrength": 54.32202133201605,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Blake Corum",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 45.81985,
+          "situation": 75.245,
+          "rosterUtility": 55.14,
+          "survival": 22.744789764067704,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 53.530103881553046,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Jaxson Dart",
+          "position": "QB",
+          "tier": "4",
+          "intrinsic": 42.43328749999999,
+          "situation": 77.11500000000001,
+          "rosterUtility": 51.5,
+          "survival": 15.274523953091593,
+          "tierUrgency": 52.47085288240308,
+          "draftStrength": 51.48387367573124,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Kyle Monangai",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 44.6689875,
+          "situation": 64.41499999999999,
+          "rosterUtility": 52.25,
+          "survival": 24.747480197046627,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 51.00110509321366,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Jacory Croskey-Merritt",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 42.84415,
+          "situation": 77.11500000000001,
+          "rosterUtility": 52.69,
+          "survival": 31.0818876565811,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 50.83999834382951,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Rachaad White",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 43.588075,
+          "situation": 60.571,
+          "rosterUtility": 57.01,
+          "survival": 30.15895810350195,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 50.6311011694166,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Kenneth Gainwell",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 40.612375,
+          "situation": 72.44,
+          "rosterUtility": 52.57,
+          "survival": 35.39645186251643,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 48.74176514997249,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Trevor Lawrence",
+          "position": "QB",
+          "tier": "4",
+          "intrinsic": 41.356300000000005,
+          "situation": 80.855,
+          "rosterUtility": 39.65,
+          "survival": 15.988735547829133,
+          "tierUrgency": 52.47085288240308,
+          "draftStrength": 48.58199650793646,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Justin Herbert",
+          "position": "QB",
+          "tier": "4",
+          "intrinsic": 39.124525,
+          "situation": 81.79,
+          "rosterUtility": 39.65,
+          "survival": 26.35776531858373,
+          "tierUrgency": 52.47085288240308,
+          "draftStrength": 46.604969465588354,
+          "label": "VALUE CHECK"
+        }
+      ],
+      "hurts": {
+        "name": "Jalen Hurts",
+        "position": "QB",
+        "tier": "3",
+        "intrinsic": 55.490875,
+        "situation": 87.4,
+        "rosterUtility": 47.5,
+        "survival": 0.665630351591696,
+        "tierUrgency": 100,
+        "draftStrength": 61.76854521292744,
+        "label": "TAKE NOW"
+      },
+      "profilePrediction": {
+        "profileId": "No Chumps",
+        "profileConfidence": 95,
+        "baseDist": {
+          "QB": 0.10211732583416319,
+          "RB": 0.10934402313548931,
+          "WR": 0.7223027153080772,
+          "TE": 0.040681513018202914,
+          "K": 0.007593721647687112,
+          "D/ST": 0.017960701056380174
+        },
+        "chosenProb": 0.10211732583416319,
+        "topPos": "WR",
+        "topProb": 0.7223027153080772,
+        "adherence": 37.600194625777725,
+        "planningAdp": 76.93,
+        "adpDelta": -4.069999999999993,
+        "capturedAt": "2026-08-22T02:49:38.072Z"
+      },
+      "tierCliff": {
+        "candidateTier": 3,
+        "remainingInTier": 1,
+        "nextLowerTier": 4,
+        "nextLowerTierSize": 4,
+        "expectedOpponentDemand": 2.629714076183758,
+        "estimatedDraftStrengthDrop": 7.446523880911393,
+        "denialSignal": 17.915813862556554,
+        "affectsDraftStrength": false
+      }
+    },
+    "selfProfileNeutral": {
+      "current": {
+        "overall": 81,
+        "round": 9,
+        "slot": 1,
+        "card": 3,
+        "team": "No Chumps"
+      },
+      "roster": [
+        "Christian McCaffrey",
+        "Jaxon Smith-Njigba",
+        "Trey McBride",
+        "Drake London",
+        "David Montgomery",
+        "RJ Harvey",
+        "Jayden Daniels",
+        "Colston Loveland"
+      ],
+      "ordering": [
+        {
+          "name": "Wan'Dale Robinson",
+          "position": "WR",
+          "tier": "5",
+          "intrinsic": 56.978725000000004,
+          "situation": 64.96000000000001,
+          "rosterUtility": 59,
+          "survival": 0.998034276443742,
+          "tierUrgency": 100,
+          "draftStrength": 62.87702461071383,
+          "label": "TAKE NOW"
+        },
+        {
+          "name": "Rhamondre Stevenson",
+          "position": "RB",
+          "tier": "5",
+          "intrinsic": 58.466575,
+          "situation": 79.92,
+          "rosterUtility": 49.7,
+          "survival": 0.6915315168884512,
+          "tierUrgency": 88.58955304381081,
+          "draftStrength": 62.82215507364535,
+          "label": "TAKE NOW"
+        },
+        {
+          "name": "Jonathon Brooks",
+          "position": "RB",
+          "tier": "5",
+          "intrinsic": 56.2348,
+          "situation": 65.895,
+          "rosterUtility": 59.8,
+          "survival": 1.6460012145656382,
+          "tierUrgency": 88.58955304381081,
+          "draftStrength": 62.2960491569242,
+          "label": "TAKE NOW"
+        },
+        {
+          "name": "Jalen Hurts",
+          "position": "QB",
+          "tier": "3",
+          "intrinsic": 55.490875,
+          "situation": 87.4,
+          "rosterUtility": 47.5,
+          "survival": 0.665630351591696,
+          "tierUrgency": 100,
+          "draftStrength": 61.76854521292744,
+          "label": "TAKE NOW"
+        },
+        {
+          "name": "Chuba Hubbard",
+          "position": "RB",
+          "tier": "5",
+          "intrinsic": 51.027325,
+          "situation": 71.142,
+          "rosterUtility": 54.04,
+          "survival": 5.642311207553362,
+          "tierUrgency": 88.58955304381081,
+          "draftStrength": 58.27757253746414,
+          "label": "LEAN TAKE"
+        },
+        {
+          "name": "D.K. Metcalf",
+          "position": "WR",
+          "tier": "6",
+          "intrinsic": 48.051625,
+          "situation": 72.103,
+          "rosterUtility": 59,
+          "survival": 12.340483693841186,
+          "tierUrgency": 100,
+          "draftStrength": 57.629509005574235,
+          "label": "LEAN TAKE"
+        },
+        {
+          "name": "Caleb Williams",
+          "position": "QB",
+          "tier": "4",
+          "intrinsic": 46.563775,
+          "situation": 86.465,
+          "rosterUtility": 47.5,
+          "survival": 9.706085235107162,
+          "tierUrgency": 52.47085288240308,
+          "draftStrength": 54.32202133201605,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Blake Corum",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 45.81985,
+          "situation": 75.245,
+          "rosterUtility": 55.14,
+          "survival": 22.744789764067704,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 53.530103881553046,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Jaxson Dart",
+          "position": "QB",
+          "tier": "4",
+          "intrinsic": 42.43328749999999,
+          "situation": 77.11500000000001,
+          "rosterUtility": 51.5,
+          "survival": 15.274523953091593,
+          "tierUrgency": 52.47085288240308,
+          "draftStrength": 51.48387367573124,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Kyle Monangai",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 44.6689875,
+          "situation": 64.41499999999999,
+          "rosterUtility": 52.25,
+          "survival": 24.747480197046627,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 51.00110509321366,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Jacory Croskey-Merritt",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 42.84415,
+          "situation": 77.11500000000001,
+          "rosterUtility": 52.69,
+          "survival": 31.0818876565811,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 50.83999834382951,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Rachaad White",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 43.588075,
+          "situation": 60.571,
+          "rosterUtility": 57.01,
+          "survival": 30.15895810350195,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 50.6311011694166,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Kenneth Gainwell",
+          "position": "RB",
+          "tier": "6",
+          "intrinsic": 40.612375,
+          "situation": 72.44,
+          "rosterUtility": 52.57,
+          "survival": 35.39645186251643,
+          "tierUrgency": 54.813278587462264,
+          "draftStrength": 48.74176514997249,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Trevor Lawrence",
+          "position": "QB",
+          "tier": "4",
+          "intrinsic": 41.356300000000005,
+          "situation": 80.855,
+          "rosterUtility": 39.65,
+          "survival": 15.988735547829133,
+          "tierUrgency": 52.47085288240308,
+          "draftStrength": 48.58199650793646,
+          "label": "VALUE CHECK"
+        },
+        {
+          "name": "Justin Herbert",
+          "position": "QB",
+          "tier": "4",
+          "intrinsic": 39.124525,
+          "situation": 81.79,
+          "rosterUtility": 39.65,
+          "survival": 26.35776531858373,
+          "tierUrgency": 52.47085288240308,
+          "draftStrength": 46.604969465588354,
+          "label": "VALUE CHECK"
+        }
+      ],
+      "hurts": {
+        "name": "Jalen Hurts",
+        "position": "QB",
+        "tier": "3",
+        "intrinsic": 55.490875,
+        "situation": 87.4,
+        "rosterUtility": 47.5,
+        "survival": 0.665630351591696,
+        "tierUrgency": 100,
+        "draftStrength": 61.76854521292744,
+        "label": "TAKE NOW"
+      },
+      "profilePrediction": {
+        "profileId": null,
+        "profileConfidence": 0,
+        "baseDist": {
+          "QB": 0.1428208729664859,
+          "RB": 0.2484824132515483,
+          "WR": 0.38955095267727496,
+          "TE": 0.15538661214330163,
+          "K": 0.018528461789196076,
+          "D/ST": 0.045230687172193085
+        },
+        "chosenProb": 0.1428208729664859,
+        "topPos": "WR",
+        "topProb": 0.38955095267727496,
+        "adherence": 60.54993848356028,
+        "planningAdp": 76.93,
+        "adpDelta": -4.069999999999993,
+        "capturedAt": "2026-08-22T02:49:38.173Z"
+      },
+      "tierCliff": {
+        "candidateTier": 3,
+        "remainingInTier": 1,
+        "nextLowerTier": 4,
+        "nextLowerTierSize": 4,
+        "expectedOpponentDemand": 2.629714076183758,
+        "estimatedDraftStrengthDrop": 7.446523880911393,
+        "denialSignal": 17.915813862556554,
+        "affectsDraftStrength": false
+      }
+    }
+  },
+  "shards": [
+    "diagnostics/v0127-shard-1.json",
+    "diagnostics/v0127-shard-2.json",
+    "diagnostics/v0127-shard-3.json",
+    "diagnostics/v0127-shard-4.json"
+  ]
+}

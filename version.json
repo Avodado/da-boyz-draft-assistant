@@ -1,5 +1,5 @@
 {
-  "build": "v0.12.6",
+  "build": "v0.12.7",
   "published": "2026-08-21",
-  "notes": "Known-team Setup presets derived from existing profiles; independent editable v0.12.5 identity preserved; unchanged football model, player pool, persistence, and update safety."
+  "notes": "Opponent history remains active for simulation and hazards; No Chumps history is diagnostic-only for self strategy; tier-cliff denial reporting is diagnostic-only; football coefficients and player pool unchanged."
 }
