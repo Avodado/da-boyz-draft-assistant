@@ -1,0 +1,1807 @@
+{
+  "metadata": {
+    "productionBuild": "v0.12.9",
+    "productionCommit": "c6576753f6848cf6031baf618cc8d3a6664aae3a",
+    "generatedAt": "2026-08-22T07:58:31.898Z",
+    "analysisOnly": true,
+    "frozenHashes": {
+      "footballData": "20072848f67de32d2448ff896f0c023407b0dedce7082600536f2c92d091c24a",
+      "recommendationModel": "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b",
+      "playerPool": "c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06"
+    },
+    "productionFileHashes": {
+      "app.html.gz": "1d4d7b3d42182dc6925c95051fd7b3b21a92203a3e49a68996d1299e2d3ba7c1",
+      "version.json": "0498397ccf8663956150edc9cd572fd440df5269c9174169aa0645e215e8bae9",
+      "manifest.webmanifest": "8c67b66b9274adccd7bfed8d5878cb6a8a2745ff5356722ce9f4ee7384d2b758"
+    }
+  },
+  "sourceAudit": [
+    {
+      "name": "2025 FantasyPros consensus ADP snapshot dated 2025-08-21",
+      "url": "https://github.com/JoshPB21/fantasy-football-2025/blob/main/FantasyPros_2025_Overall_ADP_Rankings_8_21_2025.csv",
+      "classification": "B — archived historical reconstruction",
+      "use": "selection: identity, position, NFL team, bye, planning ADP",
+      "result": "945 eligible rows; top 331 frozen; SHA-256 f32f71e8c736a37e42c09caecd1786c60355642aaec9839c3f4609d3da82ecad"
+    },
+    {
+      "name": "Embedded ROOM_PROFILES historical_drafts",
+      "classification": "A for nine EXACT_2025 rows; D for Cam + Guy",
+      "use": "actual draft rosters/cards and fixed-room identity",
+      "result": "Nine exact 17-player rosters; Cam + Guy missing; Card 4 inferred by elimination only for fixed-room simulations"
+    },
+    {
+      "name": "Embedded OWNER_PERFORMANCE from schedule PDFs",
+      "classification": "A — exact archived league results",
+      "use": "actual regular-season points/ranks and playoffs",
+      "result": "2025 totals, records, playoff rounds, and URINE TROUBLE championship present"
+    },
+    {
+      "name": "nflverse stats_player_week_2025.csv",
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2025.csv",
+      "classification": "B — reconstructed from official play-by-play",
+      "use": "outcome only: weekly PPR skill/K stats",
+      "result": "17473 regular-season rows; SHA-256 e5e0615b3d96a3eaebfaee91e55afb4a4e7fe0caf057454177bcd7d6ad4bcfc2"
+    },
+    {
+      "name": "nflverse stats_team_week_2025.csv + games.csv",
+      "url": "https://github.com/nflverse/nflverse-data/releases/tag/stats_team",
+      "classification": "B — reconstructed from official play-by-play/results",
+      "use": "outcome only: transparent D/ST proxy",
+      "result": "512 team-week rows, 272 games; hashes 91058a59d894855377b2f39f40c4e7bdbeef96d12144289dc68215209a1c93cb, a0922b31238ec68fff231138850663abce9ccde792c87a9e1c0a29c7cb5cd642"
+    },
+    {
+      "name": "2025 tiers, projections, role/depth context, breakout/bust inputs",
+      "classification": "D — unavailable",
+      "use": "selection/grade",
+      "result": "Neutralized; separate ADP-band tier sensitivity arm"
+    },
+    {
+      "name": "Exact DA BOYZ scoring rules",
+      "classification": "D — unavailable",
+      "use": "realized scoring",
+      "result": "Full-PPR skill scoring plus transparent K/DST proxy; skill-core sensitivity reported"
+    }
+  ],
+  "environment": {
+    "playerPoolSize": 331,
+    "playersWithOutcomeRows": 306,
+    "selectionAsOf": "2025-08-21",
+    "primaryTierPolicy": "neutral/unavailable",
+    "sensitivityTierPolicy": "six-player within-position ADP bands",
+    "neutralizedInputs": [
+      "projected points",
+      "situation/role",
+      "breakout",
+      "bust",
+      "environment",
+      "contingent value"
+    ],
+    "outcomeScoring": {
+      "weeksPrimary": "1-14",
+      "weeksFull": "1-17",
+      "skill": "nflverse fantasy_points_ppr",
+      "kicker": "3 points FG <40, 4 at 40-49, 5 at 50+, 1 PAT; no miss penalty",
+      "dst": "1 sack, 2 takeaway, 6 defensive/special-teams TD, 2 safety, standard points-allowed bands"
+    }
+  },
+  "design": {
+    "primarySeeds": {
+      "first": 20255001,
+      "last": 20260000
+    },
+    "fixedSeeds": {
+      "first": 20265001,
+      "last": 20265250
+    },
+    "sensitivitySeeds": {
+      "first": 20275001,
+      "last": 20275250
+    },
+    "primaryDrafts": 5000,
+    "fixedDrafts": 250,
+    "sensitivityDrafts": 250,
+    "expectedOpponentAppearances": 2500,
+    "rounds": 17,
+    "teams": 10,
+    "balancedOpponentTypes": 18,
+    "currentProfilesUnchanged": true,
+    "nflTeamAffinity": false,
+    "cascadingCounterfactual": {
+      "run": false,
+      "reason": "Complete exact 170-pick order unavailable because Cam + Guy 2025 draft row is missing."
+    }
+  },
+  "arms": {
+    "primary": {
+      "drafts": 5000,
+      "teamRows": 50000,
+      "runtimeSeconds": 2471.99,
+      "appearances": {
+        "Lumber Jack": 2500,
+        "Easy-E Dubs": 2500,
+        "No Chumps": 5000,
+        "Pelota Negro": 2500,
+        "URINE TROUBLE": 2500,
+        "Cam + Guy": 2500,
+        "Pimpin since '99": 2500,
+        "DA BRONCOS": 2500,
+        "Blonx Bombers": 2500,
+        "Jerry-Rigged": 2500,
+        "El Pacifesta": 2500,
+        "SHOW ME YOUR TDS": 2500,
+        "NALGATORZ": 2500,
+        "R Kelly's Golden Showers": 2500,
+        "Dee Tee": 2500,
+        "Go Diego Go!!!": 2500,
+        "Neutral / No History": 2500,
+        "AMERICAS TEAM": 2500,
+        "Kickers Are People Too": 2500
+      },
+      "gradeOutcomeCorrelation": 0.16340402017277292,
+      "gradeWeeklyAverageCorrelation": 0.1634040201727731,
+      "gradeSkillCoreCorrelation": 0.18011072806673248,
+      "componentOutcomeCorrelations": {
+        "starterStrength": 0.16817903825172986,
+        "positionalBalance": 0.16411589378577904,
+        "benchDepth": -0.045734402667276734,
+        "valueVsAdp": -0.196378617295738,
+        "scarcityCaptured": -0.055048681920686446,
+        "upside": null,
+        "byeManagement": 0.048033759392327575,
+        "rosterEfficiency": 0.1847099025807909,
+        "lineupLegality": null,
+        "waiverReadiness": 0.11335508156181197
+      },
+      "deciles": [
+        {
+          "decile": 1,
+          "rosters": 5000,
+          "averageGrade": 67.17378904492905,
+          "averageRealizedOptimalPoints": 1704.9684000000052,
+          "averageWeeklyPoints": 121.78345714285702,
+          "realizedStddev": 148.7054853589469
+        },
+        {
+          "decile": 2,
+          "rosters": 5000,
+          "averageGrade": 71.88163234920582,
+          "averageRealizedOptimalPoints": 1724.0072360000056,
+          "averageWeeklyPoints": 123.1433739999998,
+          "realizedStddev": 147.03720824186067
+        },
+        {
+          "decile": 3,
+          "rosters": 5000,
+          "averageGrade": 74.1267105594032,
+          "averageRealizedOptimalPoints": 1731.4558920000043,
+          "averageWeeklyPoints": 123.67542085714284,
+          "realizedStddev": 146.01802235670888
+        },
+        {
+          "decile": 4,
+          "rosters": 5000,
+          "averageGrade": 75.84723943061603,
+          "averageRealizedOptimalPoints": 1740.374788000008,
+          "averageWeeklyPoints": 124.31248485714286,
+          "realizedStddev": 148.3236119553293
+        },
+        {
+          "decile": 5,
+          "rosters": 5000,
+          "averageGrade": 77.34583847787373,
+          "averageRealizedOptimalPoints": 1747.2161360000018,
+          "averageWeeklyPoints": 124.80115257142852,
+          "realizedStddev": 146.79434654164803
+        },
+        {
+          "decile": 6,
+          "rosters": 5000,
+          "averageGrade": 78.79032065098134,
+          "averageRealizedOptimalPoints": 1750.8435479999941,
+          "averageWeeklyPoints": 125.06025342857104,
+          "realizedStddev": 149.08972841014773
+        },
+        {
+          "decile": 7,
+          "rosters": 5000,
+          "averageGrade": 80.22543269150928,
+          "averageRealizedOptimalPoints": 1758.6263200000037,
+          "averageWeeklyPoints": 125.61616571428611,
+          "realizedStddev": 147.6337355557247
+        },
+        {
+          "decile": 8,
+          "rosters": 5000,
+          "averageGrade": 81.72007265636576,
+          "averageRealizedOptimalPoints": 1760.6984840000055,
+          "averageWeeklyPoints": 125.76417742857141,
+          "realizedStddev": 149.70962441159799
+        },
+        {
+          "decile": 9,
+          "rosters": 5000,
+          "averageGrade": 83.55813611130044,
+          "averageRealizedOptimalPoints": 1774.249211999999,
+          "averageWeeklyPoints": 126.7320865714286,
+          "realizedStddev": 147.67078427969096
+        },
+        {
+          "decile": 10,
+          "rosters": 5000,
+          "averageGrade": 86.66832813097943,
+          "averageRealizedOptimalPoints": 1792.7478399999943,
+          "averageWeeklyPoints": 128.05341714285728,
+          "realizedStddev": 146.16382749385824
+        }
+      ],
+      "topVsBottom": {
+        "topGradeDecileRealized": 1792.7478399999943,
+        "bottomGradeDecileRealized": 1704.9684000000052,
+        "difference": 87.77943999998911
+      },
+      "noChumps": {
+        "averageGrade": 84.2759438283857,
+        "fieldAverageGrade": 77.00683958608688,
+        "averageRealizedOptimalPoints": 1828.147136000006,
+        "fieldAverageRealizedOptimalPoints": 1739.671191111097,
+        "realizedDifference": 88.475944888909,
+        "gradeFirstPlaceFrequency": 0.5062,
+        "gradeTop3Frequency": 0.85,
+        "realizedFirstPlaceFrequency": 0.2114,
+        "realizedTop3Frequency": 0.4924,
+        "realizedTop3WhenGradeTop3": 0.4934117647058823,
+        "realizedFirstWhenGradeFirst": 0.21216910312129594
+      },
+      "owners": {
+        "Lumber Jack": {
+          "appearances": 2500,
+          "averageGrade": 77.22928876774729,
+          "averageGradeRank": 5.8156,
+          "averageRealizedOptimalPoints": 1726.4478879999951,
+          "averageRealizedRank": 5.8864,
+          "realizedFirstPlaceFrequency": 0.0804,
+          "realizedTop3Frequency": 0.2496
+        },
+        "Easy-E Dubs": {
+          "appearances": 2500,
+          "averageGrade": 77.71452296546431,
+          "averageGradeRank": 5.5292,
+          "averageRealizedOptimalPoints": 1736.6510880000003,
+          "averageRealizedRank": 5.7096,
+          "realizedFirstPlaceFrequency": 0.0756,
+          "realizedTop3Frequency": 0.2768
+        },
+        "No Chumps": {
+          "appearances": 5000,
+          "averageGrade": 84.2759438283857,
+          "averageGradeRank": 2.089,
+          "averageRealizedOptimalPoints": 1828.147136000006,
+          "averageRealizedRank": 4.0776,
+          "realizedFirstPlaceFrequency": 0.2114,
+          "realizedTop3Frequency": 0.4924
+        },
+        "Pelota Negro": {
+          "appearances": 2500,
+          "averageGrade": 78.09224415219072,
+          "averageGradeRank": 5.3752,
+          "averageRealizedOptimalPoints": 1739.3118400000035,
+          "averageRealizedRank": 5.632,
+          "realizedFirstPlaceFrequency": 0.0908,
+          "realizedTop3Frequency": 0.2808
+        },
+        "URINE TROUBLE": {
+          "appearances": 2500,
+          "averageGrade": 77.06774478121432,
+          "averageGradeRank": 5.8336,
+          "averageRealizedOptimalPoints": 1760.5491279999994,
+          "averageRealizedRank": 5.2748,
+          "realizedFirstPlaceFrequency": 0.1068,
+          "realizedTop3Frequency": 0.332
+        },
+        "Cam + Guy": {
+          "appearances": 2500,
+          "averageGrade": 77.35012962470712,
+          "averageGradeRank": 5.7248,
+          "averageRealizedOptimalPoints": 1745.3763199999962,
+          "averageRealizedRank": 5.5584,
+          "realizedFirstPlaceFrequency": 0.0956,
+          "realizedTop3Frequency": 0.2936
+        },
+        "Pimpin since '99": {
+          "appearances": 2500,
+          "averageGrade": 76.70780255524033,
+          "averageGradeRank": 6.0432,
+          "averageRealizedOptimalPoints": 1757.050863999999,
+          "averageRealizedRank": 5.3364,
+          "realizedFirstPlaceFrequency": 0.098,
+          "realizedTop3Frequency": 0.3188
+        },
+        "DA BRONCOS": {
+          "appearances": 2500,
+          "averageGrade": 77.84241237953425,
+          "averageGradeRank": 5.472,
+          "averageRealizedOptimalPoints": 1742.6501680000026,
+          "averageRealizedRank": 5.6632,
+          "realizedFirstPlaceFrequency": 0.0852,
+          "realizedTop3Frequency": 0.2732
+        },
+        "Blonx Bombers": {
+          "appearances": 2500,
+          "averageGrade": 75.35762784301723,
+          "averageGradeRank": 6.6876,
+          "averageRealizedOptimalPoints": 1742.4761519999995,
+          "averageRealizedRank": 5.6216,
+          "realizedFirstPlaceFrequency": 0.09,
+          "realizedTop3Frequency": 0.2696
+        },
+        "Jerry-Rigged": {
+          "appearances": 2500,
+          "averageGrade": 74.9148772495865,
+          "averageGradeRank": 6.7548,
+          "averageRealizedOptimalPoints": 1680.207671999998,
+          "averageRealizedRank": 6.6864,
+          "realizedFirstPlaceFrequency": 0.0416,
+          "realizedTop3Frequency": 0.1588
+        },
+        "El Pacifesta": {
+          "appearances": 2500,
+          "averageGrade": 77.94565555417633,
+          "averageGradeRank": 5.424,
+          "averageRealizedOptimalPoints": 1742.4024319999974,
+          "averageRealizedRank": 5.5968,
+          "realizedFirstPlaceFrequency": 0.1056,
+          "realizedTop3Frequency": 0.286
+        },
+        "SHOW ME YOUR TDS": {
+          "appearances": 2500,
+          "averageGrade": 77.64248377586908,
+          "averageGradeRank": 5.57,
+          "averageRealizedOptimalPoints": 1750.5988879999973,
+          "averageRealizedRank": 5.4992,
+          "realizedFirstPlaceFrequency": 0.0924,
+          "realizedTop3Frequency": 0.304
+        },
+        "NALGATORZ": {
+          "appearances": 2500,
+          "averageGrade": 78.09225153160592,
+          "averageGradeRank": 5.376,
+          "averageRealizedOptimalPoints": 1759.7626880000018,
+          "averageRealizedRank": 5.294,
+          "realizedFirstPlaceFrequency": 0.1156,
+          "realizedTop3Frequency": 0.3272
+        },
+        "R Kelly's Golden Showers": {
+          "appearances": 2500,
+          "averageGrade": 77.23139079513626,
+          "averageGradeRank": 5.748,
+          "averageRealizedOptimalPoints": 1753.6459280000006,
+          "averageRealizedRank": 5.4412,
+          "realizedFirstPlaceFrequency": 0.098,
+          "realizedTop3Frequency": 0.306
+        },
+        "Dee Tee": {
+          "appearances": 2500,
+          "averageGrade": 76.15160989030724,
+          "averageGradeRank": 6.3124,
+          "averageRealizedOptimalPoints": 1740.9036720000045,
+          "averageRealizedRank": 5.6376,
+          "realizedFirstPlaceFrequency": 0.0928,
+          "realizedTop3Frequency": 0.2824
+        },
+        "Go Diego Go!!!": {
+          "appearances": 2500,
+          "averageGrade": 76.5943871552375,
+          "averageGradeRank": 6.1256,
+          "averageRealizedOptimalPoints": 1743.981512,
+          "averageRealizedRank": 5.562,
+          "realizedFirstPlaceFrequency": 0.0852,
+          "realizedTop3Frequency": 0.2884
+        },
+        "Neutral / No History": {
+          "appearances": 2500,
+          "averageGrade": 75.93995533491622,
+          "averageGradeRank": 6.3504,
+          "averageRealizedOptimalPoints": 1722.3371280000013,
+          "averageRealizedRank": 5.9572,
+          "realizedFirstPlaceFrequency": 0.0728,
+          "realizedTop3Frequency": 0.2332
+        },
+        "AMERICAS TEAM": {
+          "appearances": 2500,
+          "averageGrade": 77.03879574641302,
+          "averageGradeRank": 5.9,
+          "averageRealizedOptimalPoints": 1738.0872559999987,
+          "averageRealizedRank": 5.6888,
+          "realizedFirstPlaceFrequency": 0.0724,
+          "realizedTop3Frequency": 0.274
+        },
+        "Kickers Are People Too": {
+          "appearances": 2500,
+          "averageGrade": 77.20993244719335,
+          "averageGradeRank": 5.7796,
+          "averageRealizedOptimalPoints": 1731.6408160000012,
+          "averageRealizedRank": 5.7992,
+          "realizedFirstPlaceFrequency": 0.0784,
+          "realizedTop3Frequency": 0.2608
+        }
+      },
+      "constructions": [
+        {
+          "dimension": "QB count",
+          "category": "1 QB",
+          "rosters": 15299,
+          "averagePreDraftGrade": 75.67883241714678,
+          "averageRealizedOptimalPoints": 1730.6407725995134,
+          "realizedStddev": 149.6541743192849,
+          "realizedTopDecileFrequency": 0.08013595659847049
+        },
+        {
+          "dimension": "QB count",
+          "category": "2+ QB",
+          "rosters": 34701,
+          "averagePreDraftGrade": 78.63972344790851,
+          "averageRealizedOptimalPoints": 1756.4008558831135,
+          "realizedStddev": 148.96315050284798,
+          "realizedTopDecileFrequency": 0.10875767268954785
+        },
+        {
+          "dimension": "TE count",
+          "category": "1 TE",
+          "rosters": 19216,
+          "averagePreDraftGrade": 76.02700081168875,
+          "averageRealizedOptimalPoints": 1731.6462042048222,
+          "realizedStddev": 147.5339855169351,
+          "realizedTopDecileFrequency": 0.07727935054121565
+        },
+        {
+          "dimension": "TE count",
+          "category": "2+ TE",
+          "rosters": 30784,
+          "averagePreDraftGrade": 78.79913763378352,
+          "averageRealizedOptimalPoints": 1759.050994672546,
+          "realizedStddev": 149.99109015299518,
+          "realizedTopDecileFrequency": 0.1141826923076923
+        },
+        {
+          "dimension": "RB count",
+          "category": "4 RB",
+          "rosters": 10187,
+          "averagePreDraftGrade": 77.99725061278458,
+          "averageRealizedOptimalPoints": 1746.512665161476,
+          "realizedStddev": 149.1943136929738,
+          "realizedTopDecileFrequency": 0.0993422990085403
+        },
+        {
+          "dimension": "RB count",
+          "category": "5 RB",
+          "rosters": 14045,
+          "averagePreDraftGrade": 81.29017194986888,
+          "averageRealizedOptimalPoints": 1771.1020833036619,
+          "realizedStddev": 148.32591660603322,
+          "realizedTopDecileFrequency": 0.13058027767888927
+        },
+        {
+          "dimension": "RB count",
+          "category": "6+ RB",
+          "rosters": 18343,
+          "averagePreDraftGrade": 76.63746034285951,
+          "averageRealizedOptimalPoints": 1750.3399051409085,
+          "realizedStddev": 146.2041694268501,
+          "realizedTopDecileFrequency": 0.0946955241781606
+        },
+        {
+          "dimension": "WR count",
+          "category": "5 WR",
+          "rosters": 10188,
+          "averagePreDraftGrade": 79.38593982067546,
+          "averageRealizedOptimalPoints": 1765.2792913231262,
+          "realizedStddev": 146.15016945206727,
+          "realizedTopDecileFrequency": 0.11493914409108755
+        },
+        {
+          "dimension": "WR count",
+          "category": "6 WR",
+          "rosters": 14254,
+          "averagePreDraftGrade": 81.07695274309437,
+          "averageRealizedOptimalPoints": 1763.0495930966704,
+          "realizedStddev": 148.25266161819647,
+          "realizedTopDecileFrequency": 0.11863336607268135
+        },
+        {
+          "dimension": "WR count",
+          "category": "7+ WR",
+          "rosters": 15490,
+          "averagePreDraftGrade": 75.27618867946353,
+          "averageRealizedOptimalPoints": 1725.594587475788,
+          "realizedStddev": 151.8345246707817,
+          "realizedTopDecileFrequency": 0.07914783731439638
+        },
+        {
+          "dimension": "K timing",
+          "category": "Rounds 1-14",
+          "rosters": 18731,
+          "averagePreDraftGrade": 77.56960826901437,
+          "averageRealizedOptimalPoints": 1767.3828989375872,
+          "realizedStddev": 145.2436168802627,
+          "realizedTopDecileFrequency": 0.12049543537451284
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 15",
+          "rosters": 4371,
+          "averagePreDraftGrade": 77.22210430881313,
+          "averageRealizedOptimalPoints": 1759.815795012585,
+          "realizedStddev": 143.37605815558405,
+          "realizedTopDecileFrequency": 0.10386639212994737
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 16",
+          "rosters": 8223,
+          "averagePreDraftGrade": 77.00216655494974,
+          "averageRealizedOptimalPoints": 1745.0637382950308,
+          "realizedStddev": 151.50791715070181,
+          "realizedTopDecileFrequency": 0.09826097531314605
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 17",
+          "rosters": 18675,
+          "averagePreDraftGrade": 78.34026958574208,
+          "averageRealizedOptimalPoints": 1728.475300669331,
+          "realizedStddev": 151.9400009425241,
+          "realizedTopDecileFrequency": 0.07930388219544846
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Rounds 1-14",
+          "rosters": 28087,
+          "averagePreDraftGrade": 77.96036788374046,
+          "averageRealizedOptimalPoints": 1742.6920062662307,
+          "realizedStddev": 149.1939532417861,
+          "realizedTopDecileFrequency": 0.09242710150603482
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 15",
+          "rosters": 2487,
+          "averagePreDraftGrade": 77.5912227937454,
+          "averageRealizedOptimalPoints": 1745.1260233212708,
+          "realizedStddev": 147.73190980181448,
+          "realizedTopDecileFrequency": 0.08242862887012464
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 16",
+          "rosters": 6304,
+          "averagePreDraftGrade": 77.78536961872065,
+          "averageRealizedOptimalPoints": 1735.7856598984865,
+          "realizedStddev": 147.1322611906279,
+          "realizedTopDecileFrequency": 0.08328045685279188
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 17",
+          "rosters": 13122,
+          "averagePreDraftGrade": 77.25089975619115,
+          "averageRealizedOptimalPoints": 1767.7509282121534,
+          "realizedStddev": 150.42377795072431,
+          "realizedTopDecileFrequency": 0.12757201646090535
+        },
+        {
+          "dimension": "Common construction",
+          "category": "2/5/6/2/1/1",
+          "rosters": 3269,
+          "averagePreDraftGrade": 85.46132780954792,
+          "averageRealizedOptimalPoints": 1818.8590578158423,
+          "realizedStddev": 140.92740250686487,
+          "realizedTopDecileFrequency": 0.19914346895074947
+        }
+      ]
+    },
+    "fixed2025Room": {
+      "drafts": 250,
+      "teamRows": 2500,
+      "runtimeSeconds": 120.769,
+      "appearances": {
+        "No Chumps": 250,
+        "Kickers Are People Too": 250,
+        "Cam + Guy": 250,
+        "Pelota Negro": 250,
+        "R Kelly's Golden Showers": 250,
+        "Jerry-Rigged": 250,
+        "El Pacifesta": 250,
+        "URINE TROUBLE": 250,
+        "Pimpin since '99": 250,
+        "DA BRONCOS": 250
+      },
+      "gradeOutcomeCorrelation": 0.17193391741573236,
+      "gradeWeeklyAverageCorrelation": 0.1719339174157325,
+      "gradeSkillCoreCorrelation": 0.18917616374164872,
+      "componentOutcomeCorrelations": {
+        "starterStrength": 0.19541976033373118,
+        "positionalBalance": 0.1820916696929544,
+        "benchDepth": -0.056853111201191055,
+        "valueVsAdp": -0.20819035518643209,
+        "scarcityCaptured": -0.05972415413798196,
+        "upside": null,
+        "byeManagement": 0.016670301185795825,
+        "rosterEfficiency": 0.2054419122498647,
+        "lineupLegality": null,
+        "waiverReadiness": 0.14712928202970119
+      },
+      "deciles": [
+        {
+          "decile": 1,
+          "rosters": 250,
+          "averageGrade": 66.65624011245711,
+          "averageRealizedOptimalPoints": 1702.4656800000005,
+          "averageWeeklyPoints": 121.60469142857137,
+          "realizedStddev": 152.91559251213596
+        },
+        {
+          "decile": 2,
+          "rosters": 250,
+          "averageGrade": 71.44328153650196,
+          "averageRealizedOptimalPoints": 1717.6380799999997,
+          "averageWeeklyPoints": 122.68843428571431,
+          "realizedStddev": 145.92479825277675
+        },
+        {
+          "decile": 3,
+          "rosters": 250,
+          "averageGrade": 73.85581671905882,
+          "averageRealizedOptimalPoints": 1720.1930400000006,
+          "averageWeeklyPoints": 122.87093142857154,
+          "realizedStddev": 147.49038370130575
+        },
+        {
+          "decile": 4,
+          "rosters": 250,
+          "averageGrade": 75.73166084248736,
+          "averageRealizedOptimalPoints": 1722.4184799999994,
+          "averageWeeklyPoints": 123.02989142857146,
+          "realizedStddev": 151.4372425082073
+        },
+        {
+          "decile": 5,
+          "rosters": 250,
+          "averageGrade": 77.20170302182186,
+          "averageRealizedOptimalPoints": 1770.4118399999986,
+          "averageWeeklyPoints": 126.45798857142867,
+          "realizedStddev": 153.71435650522167
+        },
+        {
+          "decile": 6,
+          "rosters": 250,
+          "averageGrade": 78.80170231061514,
+          "averageRealizedOptimalPoints": 1765.4799200000002,
+          "averageWeeklyPoints": 126.10570857142865,
+          "realizedStddev": 154.86333164953405
+        },
+        {
+          "decile": 7,
+          "rosters": 250,
+          "averageGrade": 80.22897240900842,
+          "averageRealizedOptimalPoints": 1765.7331199999992,
+          "averageWeeklyPoints": 126.12379428571433,
+          "realizedStddev": 154.07243451008878
+        },
+        {
+          "decile": 8,
+          "rosters": 250,
+          "averageGrade": 81.69032262206382,
+          "averageRealizedOptimalPoints": 1753.08952,
+          "averageWeeklyPoints": 125.22067999999992,
+          "realizedStddev": 149.74388745778438
+        },
+        {
+          "decile": 9,
+          "rosters": 250,
+          "averageGrade": 83.44562034812769,
+          "averageRealizedOptimalPoints": 1774.8156000000001,
+          "averageWeeklyPoints": 126.7725428571429,
+          "realizedStddev": 143.09334056286474
+        },
+        {
+          "decile": 10,
+          "rosters": 250,
+          "averageGrade": 86.6119771023059,
+          "averageRealizedOptimalPoints": 1785.8390399999996,
+          "averageWeeklyPoints": 127.55993142857135,
+          "realizedStddev": 150.94563684412478
+        }
+      ],
+      "topVsBottom": {
+        "topGradeDecileRealized": 1785.8390399999996,
+        "bottomGradeDecileRealized": 1702.4656800000005,
+        "difference": 83.37335999999914
+      },
+      "noChumps": {
+        "averageGrade": 84.32970013741179,
+        "fieldAverageGrade": 76.81528854300417,
+        "averageRealizedOptimalPoints": 1831.0824799999996,
+        "fieldAverageRealizedOptimalPoints": 1738.5557599999997,
+        "realizedDifference": 92.52671999999984,
+        "gradeFirstPlaceFrequency": 0.528,
+        "gradeTop3Frequency": 0.84,
+        "realizedFirstPlaceFrequency": 0.2,
+        "realizedTop3Frequency": 0.532,
+        "realizedTop3WhenGradeTop3": 0.5238095238095238,
+        "realizedFirstWhenGradeFirst": 0.19696969696969696
+      },
+      "owners": {
+        "No Chumps": {
+          "appearances": 250,
+          "averageGrade": 84.32970013741179,
+          "averageGradeRank": 2.056,
+          "averageRealizedOptimalPoints": 1831.0824799999996,
+          "averageRealizedRank": 4.048,
+          "realizedFirstPlaceFrequency": 0.2,
+          "realizedTop3Frequency": 0.532
+        },
+        "Kickers Are People Too": {
+          "appearances": 250,
+          "averageGrade": 77.3411229229714,
+          "averageGradeRank": 5.592,
+          "averageRealizedOptimalPoints": 1728.3813599999999,
+          "averageRealizedRank": 5.796,
+          "realizedFirstPlaceFrequency": 0.1,
+          "realizedTop3Frequency": 0.26
+        },
+        "Cam + Guy": {
+          "appearances": 250,
+          "averageGrade": 77.28129367567061,
+          "averageGradeRank": 5.696,
+          "averageRealizedOptimalPoints": 1737.275359999999,
+          "averageRealizedRank": 5.72,
+          "realizedFirstPlaceFrequency": 0.112,
+          "realizedTop3Frequency": 0.28
+        },
+        "Pelota Negro": {
+          "appearances": 250,
+          "averageGrade": 78.21890388567843,
+          "averageGradeRank": 5.252,
+          "averageRealizedOptimalPoints": 1746.9590399999986,
+          "averageRealizedRank": 5.568,
+          "realizedFirstPlaceFrequency": 0.096,
+          "realizedTop3Frequency": 0.276
+        },
+        "R Kelly's Golden Showers": {
+          "appearances": 250,
+          "averageGrade": 76.75287619140843,
+          "averageGradeRank": 5.9,
+          "averageRealizedOptimalPoints": 1745.3832799999993,
+          "averageRealizedRank": 5.516,
+          "realizedFirstPlaceFrequency": 0.088,
+          "realizedTop3Frequency": 0.28
+        },
+        "Jerry-Rigged": {
+          "appearances": 250,
+          "averageGrade": 73.44007594880004,
+          "averageGradeRank": 7.34,
+          "averageRealizedOptimalPoints": 1680.49232,
+          "averageRealizedRank": 6.672,
+          "realizedFirstPlaceFrequency": 0.04,
+          "realizedTop3Frequency": 0.16
+        },
+        "El Pacifesta": {
+          "appearances": 250,
+          "averageGrade": 78.28231599091096,
+          "averageGradeRank": 5.144,
+          "averageRealizedOptimalPoints": 1740.5306400000009,
+          "averageRealizedRank": 5.6,
+          "realizedFirstPlaceFrequency": 0.092,
+          "realizedTop3Frequency": 0.292
+        },
+        "URINE TROUBLE": {
+          "appearances": 250,
+          "averageGrade": 76.20050315579162,
+          "averageGradeRank": 6.228,
+          "averageRealizedOptimalPoints": 1762.3445600000007,
+          "averageRealizedRank": 5.22,
+          "realizedFirstPlaceFrequency": 0.088,
+          "realizedTop3Frequency": 0.304
+        },
+        "Pimpin since '99": {
+          "appearances": 250,
+          "averageGrade": 76.13957218312605,
+          "averageGradeRank": 6.256,
+          "averageRealizedOptimalPoints": 1750.41224,
+          "averageRealizedRank": 5.456,
+          "realizedFirstPlaceFrequency": 0.072,
+          "realizedTop3Frequency": 0.308
+        },
+        "DA BRONCOS": {
+          "appearances": 250,
+          "averageGrade": 77.680932932679,
+          "averageGradeRank": 5.536,
+          "averageRealizedOptimalPoints": 1755.2230399999999,
+          "averageRealizedRank": 5.404,
+          "realizedFirstPlaceFrequency": 0.112,
+          "realizedTop3Frequency": 0.308
+        }
+      },
+      "constructions": [
+        {
+          "dimension": "QB count",
+          "category": "1 QB",
+          "rosters": 750,
+          "averagePreDraftGrade": 75.36744530334121,
+          "averageRealizedOptimalPoints": 1717.2798133333322,
+          "realizedStddev": 156.24735147909482,
+          "realizedTopDecileFrequency": 0.07866666666666666
+        },
+        {
+          "dimension": "QB count",
+          "category": "2+ QB",
+          "rosters": 1750,
+          "averagePreDraftGrade": 78.5092801592034,
+          "averageRealizedOptimalPoints": 1760.892125714287,
+          "realizedStddev": 149.7064086573495,
+          "realizedTopDecileFrequency": 0.10914285714285714
+        },
+        {
+          "dimension": "TE count",
+          "category": "1 TE",
+          "rosters": 968,
+          "averagePreDraftGrade": 76.01992835809432,
+          "averageRealizedOptimalPoints": 1731.2485743801635,
+          "realizedStddev": 152.97219298042475,
+          "realizedTopDecileFrequency": 0.08057851239669421
+        },
+        {
+          "dimension": "TE count",
+          "category": "2+ TE",
+          "rosters": 1532,
+          "averagePreDraftGrade": 78.54408198790907,
+          "averageRealizedOptimalPoints": 1758.271840731069,
+          "realizedStddev": 152.10586996329405,
+          "realizedTopDecileFrequency": 0.1122715404699739
+        },
+        {
+          "dimension": "RB count",
+          "category": "4 RB",
+          "rosters": 465,
+          "averagePreDraftGrade": 77.95186703663146,
+          "averageRealizedOptimalPoints": 1751.8616774193545,
+          "realizedStddev": 145.79952665005402,
+          "realizedTopDecileFrequency": 0.09247311827956989
+        },
+        {
+          "dimension": "RB count",
+          "category": "5 RB",
+          "rosters": 678,
+          "averagePreDraftGrade": 81.40362237792823,
+          "averageRealizedOptimalPoints": 1770.5349262536847,
+          "realizedStddev": 153.8103407235356,
+          "realizedTopDecileFrequency": 0.13421828908554573
+        },
+        {
+          "dimension": "RB count",
+          "category": "6+ RB",
+          "rosters": 947,
+          "averagePreDraftGrade": 76.7365818556964,
+          "averageRealizedOptimalPoints": 1751.2230834213287,
+          "realizedStddev": 151.7740074209444,
+          "realizedTopDecileFrequency": 0.1003167898627244
+        },
+        {
+          "dimension": "WR count",
+          "category": "5 WR",
+          "rosters": 523,
+          "averagePreDraftGrade": 79.27602631664126,
+          "averageRealizedOptimalPoints": 1764.476214149139,
+          "realizedStddev": 154.45427873301833,
+          "realizedTopDecileFrequency": 0.124282982791587
+        },
+        {
+          "dimension": "WR count",
+          "category": "6 WR",
+          "rosters": 721,
+          "averagePreDraftGrade": 81.18669815131652,
+          "averageRealizedOptimalPoints": 1759.9627184466008,
+          "realizedStddev": 147.4087286641083,
+          "realizedTopDecileFrequency": 0.10957004160887657
+        },
+        {
+          "dimension": "WR count",
+          "category": "7+ WR",
+          "rosters": 757,
+          "averagePreDraftGrade": 74.67859986410764,
+          "averageRealizedOptimalPoints": 1722.4618494055474,
+          "realizedStddev": 156.72251313683208,
+          "realizedTopDecileFrequency": 0.07529722589167767
+        },
+        {
+          "dimension": "K timing",
+          "category": "Rounds 1-14",
+          "rosters": 969,
+          "averagePreDraftGrade": 77.64030002094508,
+          "averageRealizedOptimalPoints": 1766.69104231166,
+          "realizedStddev": 150.1181372936916,
+          "realizedTopDecileFrequency": 0.12693498452012383
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 15",
+          "rosters": 203,
+          "averagePreDraftGrade": 77.29355019295446,
+          "averageRealizedOptimalPoints": 1765.8711330049266,
+          "realizedStddev": 151.45669247271783,
+          "realizedTopDecileFrequency": 0.11822660098522167
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 16",
+          "rosters": 400,
+          "averagePreDraftGrade": 76.22962768606159,
+          "averageRealizedOptimalPoints": 1737.7477500000005,
+          "realizedStddev": 150.25256201788207,
+          "realizedTopDecileFrequency": 0.085
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 17",
+          "rosters": 928,
+          "averagePreDraftGrade": 78.12600406489425,
+          "averageRealizedOptimalPoints": 1728.4768534482766,
+          "realizedStddev": 154.69190859552674,
+          "realizedTopDecileFrequency": 0.07435344827586207
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Rounds 1-14",
+          "rosters": 1426,
+          "averagePreDraftGrade": 77.61071572782998,
+          "averageRealizedOptimalPoints": 1742.8366058906038,
+          "realizedStddev": 153.94298469429074,
+          "realizedTopDecileFrequency": 0.09186535764375876
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 15",
+          "rosters": 108,
+          "averagePreDraftGrade": 77.40891054889511,
+          "averageRealizedOptimalPoints": 1754.6309259259262,
+          "realizedStddev": 142.99441134855738,
+          "realizedTopDecileFrequency": 0.12037037037037036
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 16",
+          "rosters": 312,
+          "averagePreDraftGrade": 78.2061053774618,
+          "averageRealizedOptimalPoints": 1739.521858974358,
+          "realizedStddev": 148.68466896424047,
+          "realizedTopDecileFrequency": 0.08653846153846154
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 17",
+          "rosters": 654,
+          "averagePreDraftGrade": 77.1918599559291,
+          "averageRealizedOptimalPoints": 1761.4757186544334,
+          "realizedStddev": 153.68024355373177,
+          "realizedTopDecileFrequency": 0.12079510703363915
+        },
+        {
+          "dimension": "Common construction",
+          "category": "2/5/6/2/1/1",
+          "rosters": 175,
+          "averagePreDraftGrade": 85.46082113344538,
+          "averageRealizedOptimalPoints": 1820.6569142857138,
+          "realizedStddev": 133.08717946054796,
+          "realizedTopDecileFrequency": 0.18285714285714286
+        }
+      ]
+    },
+    "tierSensitivity": {
+      "drafts": 250,
+      "teamRows": 2500,
+      "runtimeSeconds": 124.326,
+      "appearances": {
+        "No Chumps": 250,
+        "URINE TROUBLE": 125,
+        "DA BRONCOS": 125,
+        "Jerry-Rigged": 125,
+        "Cam + Guy": 125,
+        "Pelota Negro": 125,
+        "Pimpin since '99": 125,
+        "Easy-E Dubs": 125,
+        "Lumber Jack": 125,
+        "Blonx Bombers": 125,
+        "Kickers Are People Too": 125,
+        "SHOW ME YOUR TDS": 125,
+        "R Kelly's Golden Showers": 125,
+        "Go Diego Go!!!": 125,
+        "El Pacifesta": 125,
+        "Dee Tee": 125,
+        "NALGATORZ": 125,
+        "AMERICAS TEAM": 125,
+        "Neutral / No History": 125
+      },
+      "gradeOutcomeCorrelation": 0.16284800694493248,
+      "gradeWeeklyAverageCorrelation": 0.16284800694493215,
+      "gradeSkillCoreCorrelation": 0.17679460563037164,
+      "componentOutcomeCorrelations": {
+        "starterStrength": 0.15637441001737676,
+        "positionalBalance": 0.1796009922811313,
+        "benchDepth": -0.053617161349300876,
+        "valueVsAdp": -0.15788522827267082,
+        "scarcityCaptured": -0.09785364473150497,
+        "upside": null,
+        "byeManagement": 0.022808746591966262,
+        "rosterEfficiency": 0.2092523191887037,
+        "lineupLegality": null,
+        "waiverReadiness": 0.11165198193495085
+      },
+      "deciles": [
+        {
+          "decile": 1,
+          "rosters": 250,
+          "averageGrade": 67.12292020903084,
+          "averageRealizedOptimalPoints": 1688.2631199999994,
+          "averageWeeklyPoints": 120.59022285714286,
+          "realizedStddev": 143.5613985271305
+        },
+        {
+          "decile": 2,
+          "rosters": 250,
+          "averageGrade": 71.75019506785883,
+          "averageRealizedOptimalPoints": 1733.9205599999998,
+          "averageWeeklyPoints": 123.85146857142858,
+          "realizedStddev": 140.59458072517018
+        },
+        {
+          "decile": 3,
+          "rosters": 250,
+          "averageGrade": 73.90800334612439,
+          "averageRealizedOptimalPoints": 1734.5150399999998,
+          "averageWeeklyPoints": 123.89393142857139,
+          "realizedStddev": 142.82724731996487
+        },
+        {
+          "decile": 4,
+          "rosters": 250,
+          "averageGrade": 75.64125043753951,
+          "averageRealizedOptimalPoints": 1750.5275200000005,
+          "averageWeeklyPoints": 125.03768000000002,
+          "realizedStddev": 152.33658736708531
+        },
+        {
+          "decile": 5,
+          "rosters": 250,
+          "averageGrade": 77.2384117128068,
+          "averageRealizedOptimalPoints": 1740.9796800000004,
+          "averageWeeklyPoints": 124.35569142857146,
+          "realizedStddev": 144.6343437717944
+        },
+        {
+          "decile": 6,
+          "rosters": 250,
+          "averageGrade": 78.63892825121346,
+          "averageRealizedOptimalPoints": 1760.0347199999994,
+          "averageWeeklyPoints": 125.71676571428567,
+          "realizedStddev": 150.88885064484256
+        },
+        {
+          "decile": 7,
+          "rosters": 250,
+          "averageGrade": 80.08648460176136,
+          "averageRealizedOptimalPoints": 1758.7024000000008,
+          "averageWeeklyPoints": 125.62159999999993,
+          "realizedStddev": 145.97382480102385
+        },
+        {
+          "decile": 8,
+          "rosters": 250,
+          "averageGrade": 81.5111521588706,
+          "averageRealizedOptimalPoints": 1753.4632800000004,
+          "averageWeeklyPoints": 125.24737714285716,
+          "realizedStddev": 136.56093839323742
+        },
+        {
+          "decile": 9,
+          "rosters": 250,
+          "averageGrade": 83.25713362231933,
+          "averageRealizedOptimalPoints": 1764.1092000000012,
+          "averageWeeklyPoints": 126.00779999999997,
+          "realizedStddev": 148.0130118177453
+        },
+        {
+          "decile": 10,
+          "rosters": 250,
+          "averageGrade": 86.34061903435294,
+          "averageRealizedOptimalPoints": 1789.6482400000002,
+          "averageWeeklyPoints": 127.83201714285723,
+          "realizedStddev": 155.44628914999035
+        }
+      ],
+      "topVsBottom": {
+        "topGradeDecileRealized": 1789.6482400000002,
+        "bottomGradeDecileRealized": 1688.2631199999994,
+        "difference": 101.38512000000082
+      },
+      "noChumps": {
+        "averageGrade": 83.59559497185877,
+        "fieldAverageGrade": 76.87772260777986,
+        "averageRealizedOptimalPoints": 1823.0020800000002,
+        "fieldAverageRealizedOptimalPoints": 1739.017964444441,
+        "realizedDifference": 83.98411555555913,
+        "gradeFirstPlaceFrequency": 0.44,
+        "gradeTop3Frequency": 0.86,
+        "realizedFirstPlaceFrequency": 0.192,
+        "realizedTop3Frequency": 0.52,
+        "realizedTop3WhenGradeTop3": 0.5162790697674419,
+        "realizedFirstWhenGradeFirst": 0.2
+      },
+      "owners": {
+        "No Chumps": {
+          "appearances": 250,
+          "averageGrade": 83.59559497185877,
+          "averageGradeRank": 2.22,
+          "averageRealizedOptimalPoints": 1823.0020800000002,
+          "averageRealizedRank": 4.084,
+          "realizedFirstPlaceFrequency": 0.192,
+          "realizedTop3Frequency": 0.52
+        },
+        "URINE TROUBLE": {
+          "appearances": 125,
+          "averageGrade": 75.67697194315295,
+          "averageGradeRank": 6.336,
+          "averageRealizedOptimalPoints": 1761.9422400000005,
+          "averageRealizedRank": 5.184,
+          "realizedFirstPlaceFrequency": 0.136,
+          "realizedTop3Frequency": 0.344
+        },
+        "DA BRONCOS": {
+          "appearances": 125,
+          "averageGrade": 78.02438653891765,
+          "averageGradeRank": 5.176,
+          "averageRealizedOptimalPoints": 1750.9768000000004,
+          "averageRealizedRank": 5.376,
+          "realizedFirstPlaceFrequency": 0.104,
+          "realizedTop3Frequency": 0.352
+        },
+        "Jerry-Rigged": {
+          "appearances": 125,
+          "averageGrade": 75.76406221047395,
+          "averageGradeRank": 6.392,
+          "averageRealizedOptimalPoints": 1682.2779200000007,
+          "averageRealizedRank": 6.672,
+          "realizedFirstPlaceFrequency": 0.032,
+          "realizedTop3Frequency": 0.144
+        },
+        "Cam + Guy": {
+          "appearances": 125,
+          "averageGrade": 76.92260813509913,
+          "averageGradeRank": 6.048,
+          "averageRealizedOptimalPoints": 1729.2057599999996,
+          "averageRealizedRank": 5.944,
+          "realizedFirstPlaceFrequency": 0.088,
+          "realizedTop3Frequency": 0.224
+        },
+        "Pelota Negro": {
+          "appearances": 125,
+          "averageGrade": 77.46186908651207,
+          "averageGradeRank": 5.464,
+          "averageRealizedOptimalPoints": 1734.8555200000008,
+          "averageRealizedRank": 5.856,
+          "realizedFirstPlaceFrequency": 0.08,
+          "realizedTop3Frequency": 0.192
+        },
+        "Pimpin since '99": {
+          "appearances": 125,
+          "averageGrade": 77.31342018452438,
+          "averageGradeRank": 5.664,
+          "averageRealizedOptimalPoints": 1755.8200000000004,
+          "averageRealizedRank": 5.504,
+          "realizedFirstPlaceFrequency": 0.088,
+          "realizedTop3Frequency": 0.256
+        },
+        "Easy-E Dubs": {
+          "appearances": 125,
+          "averageGrade": 77.44370921185886,
+          "averageGradeRank": 5.672,
+          "averageRealizedOptimalPoints": 1729.3716800000004,
+          "averageRealizedRank": 5.744,
+          "realizedFirstPlaceFrequency": 0.112,
+          "realizedTop3Frequency": 0.28
+        },
+        "Lumber Jack": {
+          "appearances": 125,
+          "averageGrade": 76.7766626904202,
+          "averageGradeRank": 5.984,
+          "averageRealizedOptimalPoints": 1727.1820800000012,
+          "averageRealizedRank": 5.88,
+          "realizedFirstPlaceFrequency": 0.048,
+          "realizedTop3Frequency": 0.224
+        },
+        "Blonx Bombers": {
+          "appearances": 125,
+          "averageGrade": 75.30440220601005,
+          "averageGradeRank": 6.536,
+          "averageRealizedOptimalPoints": 1745.0105599999988,
+          "averageRealizedRank": 5.544,
+          "realizedFirstPlaceFrequency": 0.08,
+          "realizedTop3Frequency": 0.304
+        },
+        "Kickers Are People Too": {
+          "appearances": 125,
+          "averageGrade": 77.24479165042014,
+          "averageGradeRank": 6,
+          "averageRealizedOptimalPoints": 1734.330399999999,
+          "averageRealizedRank": 5.688,
+          "realizedFirstPlaceFrequency": 0.056,
+          "realizedTop3Frequency": 0.24
+        },
+        "SHOW ME YOUR TDS": {
+          "appearances": 125,
+          "averageGrade": 77.37294970600337,
+          "averageGradeRank": 5.456,
+          "averageRealizedOptimalPoints": 1729.6748799999996,
+          "averageRealizedRank": 5.792,
+          "realizedFirstPlaceFrequency": 0.088,
+          "realizedTop3Frequency": 0.256
+        },
+        "R Kelly's Golden Showers": {
+          "appearances": 125,
+          "averageGrade": 77.65095070117648,
+          "averageGradeRank": 5.376,
+          "averageRealizedOptimalPoints": 1759.7275199999997,
+          "averageRealizedRank": 5.192,
+          "realizedFirstPlaceFrequency": 0.096,
+          "realizedTop3Frequency": 0.392
+        },
+        "Go Diego Go!!!": {
+          "appearances": 125,
+          "averageGrade": 76.85220027751264,
+          "averageGradeRank": 5.888,
+          "averageRealizedOptimalPoints": 1736.3087999999993,
+          "averageRealizedRank": 5.816,
+          "realizedFirstPlaceFrequency": 0.096,
+          "realizedTop3Frequency": 0.272
+        },
+        "El Pacifesta": {
+          "appearances": 125,
+          "averageGrade": 77.71594596463866,
+          "averageGradeRank": 5.48,
+          "averageRealizedOptimalPoints": 1740.85504,
+          "averageRealizedRank": 5.72,
+          "realizedFirstPlaceFrequency": 0.096,
+          "realizedTop3Frequency": 0.272
+        },
+        "Dee Tee": {
+          "appearances": 125,
+          "averageGrade": 75.99627245875628,
+          "averageGradeRank": 6.336,
+          "averageRealizedOptimalPoints": 1749.9633600000006,
+          "averageRealizedRank": 5.216,
+          "realizedFirstPlaceFrequency": 0.096,
+          "realizedTop3Frequency": 0.336
+        },
+        "NALGATORZ": {
+          "appearances": 125,
+          "averageGrade": 77.72830380746223,
+          "averageGradeRank": 5.512,
+          "averageRealizedOptimalPoints": 1786.3761600000005,
+          "averageRealizedRank": 4.832,
+          "realizedFirstPlaceFrequency": 0.168,
+          "realizedTop3Frequency": 0.384
+        },
+        "AMERICAS TEAM": {
+          "appearances": 125,
+          "averageGrade": 76.95146799058823,
+          "averageGradeRank": 5.8,
+          "averageRealizedOptimalPoints": 1744.1076799999987,
+          "averageRealizedRank": 5.6,
+          "realizedFirstPlaceFrequency": 0.088,
+          "realizedTop3Frequency": 0.264
+        },
+        "Neutral / No History": {
+          "appearances": 125,
+          "averageGrade": 75.59803217651094,
+          "averageGradeRank": 6.44,
+          "averageRealizedOptimalPoints": 1704.3369600000008,
+          "averageRealizedRank": 6.272,
+          "realizedFirstPlaceFrequency": 0.064,
+          "realizedTop3Frequency": 0.224
+        }
+      },
+      "constructions": [
+        {
+          "dimension": "QB count",
+          "category": "1 QB",
+          "rosters": 784,
+          "averagePreDraftGrade": 75.83725971896753,
+          "averageRealizedOptimalPoints": 1731.9533673469382,
+          "realizedStddev": 153.09380580015397,
+          "realizedTopDecileFrequency": 0.08290816326530612
+        },
+        {
+          "dimension": "QB count",
+          "category": "2+ QB",
+          "rosters": 1716,
+          "averagePreDraftGrade": 78.3317966146846,
+          "averageRealizedOptimalPoints": 1754.4810606060596,
+          "realizedStddev": 145.53825450232563,
+          "realizedTopDecileFrequency": 0.10780885780885781
+        },
+        {
+          "dimension": "TE count",
+          "category": "1 TE",
+          "rosters": 951,
+          "averagePreDraftGrade": 75.85289427322331,
+          "averageRealizedOptimalPoints": 1729.8674868559422,
+          "realizedStddev": 146.96537509730183,
+          "realizedTopDecileFrequency": 0.07676130389064142
+        },
+        {
+          "dimension": "TE count",
+          "category": "2+ TE",
+          "rosters": 1549,
+          "averagePreDraftGrade": 78.59113760918916,
+          "averageRealizedOptimalPoints": 1758.1904196255646,
+          "realizedStddev": 148.11569671656318,
+          "realizedTopDecileFrequency": 0.11426726920593931
+        },
+        {
+          "dimension": "RB count",
+          "category": "4 RB",
+          "rosters": 487,
+          "averagePreDraftGrade": 77.8914665890221,
+          "averageRealizedOptimalPoints": 1739.5527720739199,
+          "realizedStddev": 145.7091822857337,
+          "realizedTopDecileFrequency": 0.09240246406570841
+        },
+        {
+          "dimension": "RB count",
+          "category": "5 RB",
+          "rosters": 686,
+          "averagePreDraftGrade": 81.14989455428874,
+          "averageRealizedOptimalPoints": 1773.619008746355,
+          "realizedStddev": 147.07788534322518,
+          "realizedTopDecileFrequency": 0.13119533527696792
+        },
+        {
+          "dimension": "RB count",
+          "category": "6+ RB",
+          "rosters": 929,
+          "averagePreDraftGrade": 76.401498017458,
+          "averageRealizedOptimalPoints": 1747.2745963401503,
+          "realizedStddev": 145.94643746856957,
+          "realizedTopDecileFrequency": 0.08826695371367062
+        },
+        {
+          "dimension": "WR count",
+          "category": "5 WR",
+          "rosters": 504,
+          "averagePreDraftGrade": 79.15506074197678,
+          "averageRealizedOptimalPoints": 1761.4336507936519,
+          "realizedStddev": 141.03818699711655,
+          "realizedTopDecileFrequency": 0.0992063492063492
+        },
+        {
+          "dimension": "WR count",
+          "category": "6 WR",
+          "rosters": 699,
+          "averagePreDraftGrade": 80.82551891615638,
+          "averageRealizedOptimalPoints": 1767.5174535050085,
+          "realizedStddev": 148.7374848135172,
+          "realizedTopDecileFrequency": 0.13304721030042918
+        },
+        {
+          "dimension": "WR count",
+          "category": "7+ WR",
+          "rosters": 790,
+          "averagePreDraftGrade": 75.33119039773645,
+          "averageRealizedOptimalPoints": 1723.0552151898753,
+          "realizedStddev": 149.5865294141451,
+          "realizedTopDecileFrequency": 0.0759493670886076
+        },
+        {
+          "dimension": "K timing",
+          "category": "Rounds 1-14",
+          "rosters": 947,
+          "averagePreDraftGrade": 77.34056476954089,
+          "averageRealizedOptimalPoints": 1761.6719112988396,
+          "realizedStddev": 141.2002097992425,
+          "realizedTopDecileFrequency": 0.10876451953537487
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 15",
+          "rosters": 214,
+          "averagePreDraftGrade": 77.1509372675724,
+          "averageRealizedOptimalPoints": 1775.0966355140188,
+          "realizedStddev": 154.04325919873315,
+          "realizedTopDecileFrequency": 0.1542056074766355
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 16",
+          "rosters": 435,
+          "averagePreDraftGrade": 77.15206997664062,
+          "averageRealizedOptimalPoints": 1763.6434482758627,
+          "realizedStddev": 149.9034412342042,
+          "realizedTopDecileFrequency": 0.12183908045977011
+        },
+        {
+          "dimension": "K timing",
+          "category": "Round 17",
+          "rosters": 904,
+          "averagePreDraftGrade": 78.05399198961854,
+          "averageRealizedOptimalPoints": 1718.1217477876107,
+          "realizedStddev": 148.79673940799128,
+          "realizedTopDecileFrequency": 0.06747787610619468
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Rounds 1-14",
+          "rosters": 1400,
+          "averagePreDraftGrade": 77.98364491763732,
+          "averageRealizedOptimalPoints": 1742.5004714285685,
+          "realizedStddev": 149.28601943940868,
+          "realizedTopDecileFrequency": 0.09285714285714286
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 15",
+          "rosters": 130,
+          "averagePreDraftGrade": 77.12698441256626,
+          "averageRealizedOptimalPoints": 1749.0941538461539,
+          "realizedStddev": 144.21264710240928,
+          "realizedTopDecileFrequency": 0.1076923076923077
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 16",
+          "rosters": 280,
+          "averagePreDraftGrade": 76.55602623755104,
+          "averageRealizedOptimalPoints": 1724.6587857142868,
+          "realizedStddev": 140.8792646405722,
+          "realizedTopDecileFrequency": 0.060714285714285714
+        },
+        {
+          "dimension": "D/ST timing",
+          "category": "Round 17",
+          "rosters": 690,
+          "averagePreDraftGrade": 77.1514150806219,
+          "averageRealizedOptimalPoints": 1766.309536231884,
+          "realizedStddev": 147.97363310788597,
+          "realizedTopDecileFrequency": 0.1289855072463768
+        },
+        {
+          "dimension": "Common construction",
+          "category": "2/5/6/2/1/1",
+          "rosters": 143,
+          "averagePreDraftGrade": 85.630748047717,
+          "averageRealizedOptimalPoints": 1828.3762237762242,
+          "realizedStddev": 137.49372025738361,
+          "realizedTopDecileFrequency": 0.2097902097902098
+        }
+      ]
+    }
+  },
+  "actualValidation": {
+    "exactTeams": 9,
+    "missingExactRoster": [
+      "Cam + Guy"
+    ],
+    "rows": [
+      {
+        "profileId": "No Chumps",
+        "ownerName": "Rick Dauven",
+        "teamName": "No Chumps",
+        "card": 10,
+        "exactDraftRoster": true,
+        "preDraftGrade": 82.85076188235297,
+        "letterGrade": "B-",
+        "preDraftGradeRankAmongExactTeams": 3,
+        "realizedOptimalLineupPoints": 1787.6599999999999,
+        "realizedOptimalWeeklyAverage": 127.68999999999998,
+        "actualRegularSeasonTotalPoints": 1863.94,
+        "actualPointsRank": 4,
+        "wins": 6,
+        "losses": 8,
+        "ties": 0,
+        "playoffQualified": false,
+        "playoffRound": "missed playoffs",
+        "champion": false,
+        "simulatedAverageGrade": 84.2759438283857,
+        "simulatedAverageRealizedOptimalPoints": 1828.147136000006,
+        "actualGradeVsSimulatedAverage": -1.4251819460327368,
+        "actualOptimalVsSimulatedAverage": -40.4871360000061,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      },
+      {
+        "profileId": "Kickers Are People Too",
+        "ownerName": "Lane Ewton",
+        "teamName": "Kickers Are People Too",
+        "card": 2,
+        "exactDraftRoster": true,
+        "preDraftGrade": 89.45030023529414,
+        "letterGrade": "B+",
+        "preDraftGradeRankAmongExactTeams": 1,
+        "realizedOptimalLineupPoints": 1845.4,
+        "realizedOptimalWeeklyAverage": 131.81428571428572,
+        "actualRegularSeasonTotalPoints": 1713.8,
+        "actualPointsRank": 7,
+        "wins": 3,
+        "losses": 11,
+        "ties": 0,
+        "playoffQualified": false,
+        "playoffRound": "missed playoffs",
+        "champion": false,
+        "simulatedAverageGrade": 77.20993244719335,
+        "simulatedAverageRealizedOptimalPoints": 1731.6408160000012,
+        "actualGradeVsSimulatedAverage": 12.240367788100784,
+        "actualOptimalVsSimulatedAverage": 113.75918399999887,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      },
+      {
+        "profileId": "Jerry-Rigged",
+        "ownerName": "Andrew Morales",
+        "teamName": "Jerry-Rigged",
+        "card": 8,
+        "exactDraftRoster": true,
+        "preDraftGrade": 77.82778541176472,
+        "letterGrade": "C+",
+        "preDraftGradeRankAmongExactTeams": 7,
+        "realizedOptimalLineupPoints": 1595.0199999999998,
+        "realizedOptimalWeeklyAverage": 113.92999999999998,
+        "actualRegularSeasonTotalPoints": 1666.56,
+        "actualPointsRank": 8,
+        "wins": 5,
+        "losses": 9,
+        "ties": 0,
+        "playoffQualified": false,
+        "playoffRound": "missed playoffs",
+        "champion": false,
+        "simulatedAverageGrade": 74.9148772495865,
+        "simulatedAverageRealizedOptimalPoints": 1680.207671999998,
+        "actualGradeVsSimulatedAverage": 2.9129081621782262,
+        "actualOptimalVsSimulatedAverage": -85.1876719999982,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      },
+      {
+        "profileId": "DA BRONCOS",
+        "ownerName": "Al McGirl",
+        "teamName": "DA BRONCOS",
+        "card": 6,
+        "exactDraftRoster": true,
+        "preDraftGrade": 86.3981345882353,
+        "letterGrade": "B",
+        "preDraftGradeRankAmongExactTeams": 2,
+        "realizedOptimalLineupPoints": 1637.02,
+        "realizedOptimalWeeklyAverage": 116.92999999999999,
+        "actualRegularSeasonTotalPoints": 1631.74,
+        "actualPointsRank": 9,
+        "wins": 6,
+        "losses": 8,
+        "ties": 0,
+        "playoffQualified": false,
+        "playoffRound": "missed playoffs",
+        "champion": false,
+        "simulatedAverageGrade": 77.84241237953425,
+        "simulatedAverageRealizedOptimalPoints": 1742.6501680000026,
+        "actualGradeVsSimulatedAverage": 8.555722208701042,
+        "actualOptimalVsSimulatedAverage": -105.63016800000264,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      },
+      {
+        "profileId": "El Pacifesta",
+        "ownerName": "Jesse Herrera",
+        "teamName": "El Pacifesta",
+        "card": 3,
+        "exactDraftRoster": true,
+        "preDraftGrade": 79.31133835294116,
+        "letterGrade": "C+",
+        "preDraftGradeRankAmongExactTeams": 6,
+        "realizedOptimalLineupPoints": 1966.3,
+        "realizedOptimalWeeklyAverage": 140.45,
+        "actualRegularSeasonTotalPoints": 1998.98,
+        "actualPointsRank": 2,
+        "wins": 11,
+        "losses": 3,
+        "ties": 0,
+        "playoffQualified": true,
+        "playoffRound": "playoff week 1",
+        "champion": false,
+        "simulatedAverageGrade": 77.94565555417633,
+        "simulatedAverageRealizedOptimalPoints": 1742.4024319999974,
+        "actualGradeVsSimulatedAverage": 1.365682798764837,
+        "actualOptimalVsSimulatedAverage": 223.8975680000026,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      },
+      {
+        "profileId": "Pimpin since '99",
+        "ownerName": "Dylan Walker",
+        "teamName": "Pimpin since '99",
+        "card": 5,
+        "exactDraftRoster": true,
+        "preDraftGrade": 75.50234352941179,
+        "letterGrade": "C",
+        "preDraftGradeRankAmongExactTeams": 8,
+        "realizedOptimalLineupPoints": 1984.1000000000004,
+        "realizedOptimalWeeklyAverage": 141.7214285714286,
+        "actualRegularSeasonTotalPoints": 2051.56,
+        "actualPointsRank": 1,
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "playoffQualified": true,
+        "playoffRound": "playoff week 2",
+        "champion": false,
+        "simulatedAverageGrade": 76.70780255524033,
+        "simulatedAverageRealizedOptimalPoints": 1757.050863999999,
+        "actualGradeVsSimulatedAverage": -1.2054590258285458,
+        "actualOptimalVsSimulatedAverage": 227.04913600000145,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      },
+      {
+        "profileId": "Pelota Negro",
+        "ownerName": "Daniel",
+        "teamName": "Pelota Negro",
+        "card": 1,
+        "exactDraftRoster": true,
+        "preDraftGrade": 82.53562917647058,
+        "letterGrade": "B-",
+        "preDraftGradeRankAmongExactTeams": 4,
+        "realizedOptimalLineupPoints": 1708.18,
+        "realizedOptimalWeeklyAverage": 122.01285714285714,
+        "actualRegularSeasonTotalPoints": 1618.12,
+        "actualPointsRank": 10,
+        "wins": 3,
+        "losses": 10,
+        "ties": 1,
+        "playoffQualified": false,
+        "playoffRound": "missed playoffs",
+        "champion": false,
+        "simulatedAverageGrade": 78.09224415219072,
+        "simulatedAverageRealizedOptimalPoints": 1739.3118400000035,
+        "actualGradeVsSimulatedAverage": 4.443385024279863,
+        "actualOptimalVsSimulatedAverage": -31.13184000000342,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      },
+      {
+        "profileId": "R Kelly's Golden Showers",
+        "ownerName": "Kelly Hoffman",
+        "teamName": "R Kelly's Golden Showers",
+        "card": 9,
+        "exactDraftRoster": true,
+        "preDraftGrade": 70.78260094117647,
+        "letterGrade": "C-",
+        "preDraftGradeRankAmongExactTeams": 9,
+        "realizedOptimalLineupPoints": 1651.9599999999998,
+        "realizedOptimalWeeklyAverage": 117.99714285714285,
+        "actualRegularSeasonTotalPoints": 1720.84,
+        "actualPointsRank": 6,
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "playoffQualified": false,
+        "playoffRound": "missed playoffs",
+        "champion": false,
+        "simulatedAverageGrade": 77.23139079513626,
+        "simulatedAverageRealizedOptimalPoints": 1753.6459280000006,
+        "actualGradeVsSimulatedAverage": -6.448789853959795,
+        "actualOptimalVsSimulatedAverage": -101.68592800000079,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      },
+      {
+        "profileId": "URINE TROUBLE",
+        "ownerName": "Todd Lopezi",
+        "teamName": "URINE TROUBLE",
+        "card": 7,
+        "exactDraftRoster": true,
+        "preDraftGrade": 81.3762094117647,
+        "letterGrade": "B-",
+        "preDraftGradeRankAmongExactTeams": 5,
+        "realizedOptimalLineupPoints": 1964.56,
+        "realizedOptimalWeeklyAverage": 140.32571428571427,
+        "actualRegularSeasonTotalPoints": 1880.7,
+        "actualPointsRank": 3,
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "playoffQualified": true,
+        "playoffRound": "championship game",
+        "champion": true,
+        "simulatedAverageGrade": 77.06774478121432,
+        "simulatedAverageRealizedOptimalPoints": 1760.5491279999994,
+        "actualGradeVsSimulatedAverage": 4.3084646305503895,
+        "actualOptimalVsSimulatedAverage": 204.01087200000052,
+        "adpMatchedPlayers": 17,
+        "rosterPlayers": 17
+      }
+    ],
+    "gradeVsDraftedRosterOptimalCorrelation": 0.03642010326695531,
+    "gradeRankVsActualPointsRankCorrelation": -0.3986463582160496,
+    "draftedRosterOptimalVsActualLeaguePointsCorrelation": 0.8647484129937651,
+    "champion": {
+      "profileId": "URINE TROUBLE",
+      "ownerName": "Todd Lopezi",
+      "teamName": "URINE TROUBLE",
+      "card": 7,
+      "exactDraftRoster": true,
+      "preDraftGrade": 81.3762094117647,
+      "letterGrade": "B-",
+      "preDraftGradeRankAmongExactTeams": 5,
+      "realizedOptimalLineupPoints": 1964.56,
+      "realizedOptimalWeeklyAverage": 140.32571428571427,
+      "actualRegularSeasonTotalPoints": 1880.7,
+      "actualPointsRank": 3,
+      "wins": 10,
+      "losses": 4,
+      "ties": 0,
+      "playoffQualified": true,
+      "playoffRound": "championship game",
+      "champion": true,
+      "simulatedAverageGrade": 77.06774478121432,
+      "simulatedAverageRealizedOptimalPoints": 1760.5491279999994,
+      "actualGradeVsSimulatedAverage": 4.3084646305503895,
+      "actualOptimalVsSimulatedAverage": 204.01087200000052,
+      "adpMatchedPlayers": 17,
+      "rosterPlayers": 17
+    },
+    "noChumps": {
+      "profileId": "No Chumps",
+      "ownerName": "Rick Dauven",
+      "teamName": "No Chumps",
+      "card": 10,
+      "exactDraftRoster": true,
+      "preDraftGrade": 82.85076188235297,
+      "letterGrade": "B-",
+      "preDraftGradeRankAmongExactTeams": 3,
+      "realizedOptimalLineupPoints": 1787.6599999999999,
+      "realizedOptimalWeeklyAverage": 127.68999999999998,
+      "actualRegularSeasonTotalPoints": 1863.94,
+      "actualPointsRank": 4,
+      "wins": 6,
+      "losses": 8,
+      "ties": 0,
+      "playoffQualified": false,
+      "playoffRound": "missed playoffs",
+      "champion": false,
+      "simulatedAverageGrade": 84.2759438283857,
+      "simulatedAverageRealizedOptimalPoints": 1828.147136000006,
+      "actualGradeVsSimulatedAverage": -1.4251819460327368,
+      "actualOptimalVsSimulatedAverage": -40.4871360000061,
+      "adpMatchedPlayers": 17,
+      "rosterPlayers": 17,
+      "simulatedGradePercentile": 0.3226,
+      "simulatedOptimalPercentile": 0.3862
+    }
+  },
+  "biasSafeguards": {
+    "selectionContextContainsOutcomeMap": false,
+    "outcomeScoringGatePick": 170,
+    "productionHashesBefore": {
+      "app.html.gz": "1d4d7b3d42182dc6925c95051fd7b3b21a92203a3e49a68996d1299e2d3ba7c1",
+      "version.json": "0498397ccf8663956150edc9cd572fd440df5269c9174169aa0645e215e8bae9",
+      "manifest.webmanifest": "8c67b66b9274adccd7bfed8d5878cb6a8a2745ff5356722ce9f4ee7384d2b758"
+    },
+    "productionHashesAfter": {
+      "app.html.gz": "1d4d7b3d42182dc6925c95051fd7b3b21a92203a3e49a68996d1299e2d3ba7c1",
+      "version.json": "0498397ccf8663956150edc9cd572fd440df5269c9174169aa0645e215e8bae9",
+      "manifest.webmanifest": "8c67b66b9274adccd7bfed8d5878cb6a8a2745ff5356722ce9f4ee7384d2b758"
+    },
+    "assertions": [
+      "weekly realized player outcomes are absent from the model VM",
+      "selection and grade function source contains no realized-outcome reference",
+      "every outcome score is calculated only after a 170-pick completion assertion",
+      "production file hashes are identical before and after the study"
+    ]
+  },
+  "conclusion": "The reconstructed preseason grade has little relationship with actual 2025 drafted-roster scoring. Do not retune production from this study alone; recover stronger point-in-time inputs and exact scoring first."
+}
