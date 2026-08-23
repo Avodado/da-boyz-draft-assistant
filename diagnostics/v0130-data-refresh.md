@@ -1,0 +1,119 @@
+# v0.13.0 2026 market, injury, and situation refresh
+
+Generated 2026-08-22T17:30:00Z. This is a data-only refresh. Draft Strength, RB/WR balance, TE scarcity, bye, contingent-RB, owner hazard/profile, tier architecture, grading, and NFL-affinity code are byte-identical.
+
+## Source policy
+
+- FantasyPros PPR composite (https://www.fantasypros.com/nfl/adp/ppr-overall.php), retrieved Aug. 22; public table exposed five rows and five current sources, so it is preferred only where actually available.
+- FantasyData PPR (https://fantasydata.com/nfl/ppr-adp), retrieved Aug. 22; 100 public rows.
+- Fantasy Football Calculator PPR (https://fantasyfootballcalculator.com/adp/ppr), retrieved Aug. 22; 266 public rows based on recent mocks.
+- Sleeper PPR via Hashtag Football (https://hashtagfootball.com/fantasy-football-adp-sleeper), page updated Aug. 22; stale/invalid 999 entries excluded.
+- CBS (https://www.cbssports.com/nfl/injuries/) and NFFC (https://nfc.shgn.com/sportinjuries/football) public injury pages, retrieved Aug. 22; official NFL sources override aggregators for named cases.
+- The first NFFC column is explicitly **Return Date**, not publication/update date. NFFC never creates a downgrade by itself; CBS must independently show a status with an Updated date no later than retrieval, or a named current source must corroborate the case. IR is retained as INJURED_RESERVE rather than inferred to mean out for the full season.
+
+Planning ADP is the median of currently matched PPR sources. Prior planning/rank/timestamp values are retained in explicit prior_* fields. A no-match player retains the v0.12.9 planning ADP and receives LOW confidence.
+
+## Pool audit
+
+- Old/new size: 331 → 337.
+- Additions: 6; removals: 0. Season-ending/reserve players remain identifiable.
+- Duplicate names/IDs: 0 after validation.
+- Brandon Aiyuk is identity-only unavailable: RESERVE_LEFT_SQUAD is preserved and fresh pools mark him unavailable rather than treating him as a normal healthy WR.
+- Single-source/low-confidence candidates are documented in v0130-pool-watchlist.csv instead of being added automatically.
+
+| Player | Pos | Team | Planning ADP | Availability |
+|---|---|---|---|---|
+| Rashod Bateman | WR | BAL | 191.1 | NO_CURRENT_INJURY_FLAG |
+| Brandon Aiyuk | WR | SF | 204.1 | RESERVE_LEFT_SQUAD |
+| Troy Franklin | WR | DEN | 211 | NO_CURRENT_INJURY_FLAG |
+| Blake Grupe | K | IND | 164.1 | NO_CURRENT_INJURY_FLAG |
+| Cincinnati Bengals | D/ST | CIN | 170.8 | NO_CURRENT_INJURY_FLAG |
+| Atlanta Falcons | D/ST | ATL | 177.1 | NO_CURRENT_INJURY_FLAG |
+
+## Top 50 absolute ADP movers
+
+Positive delta means earlier than v0.12.9; negative means later.
+
+| Player | Pos | Old | New | Δ | Old rank | New rank |
+|---|---|---|---|---|---|---|
+| Jaylin Noel | WR | 292.55 | 188.6 | 103.95 | 275 | 231 |
+| Brashard Smith | RB | 312.8 | 226.3 | 86.5 | 276 | 271 |
+| Detroit Lions | D/ST | 210.4 | 129.4 | 81 | 255 | 133 |
+| Pat Bryant | WR | 276.59 | 198.35 | 78.24 | 274 | 246 |
+| Minnesota Vikings | D/ST | 173.52 | 108.2 | 65.32 | 171 | 113 |
+| Charlie Smyth | K | 204.73 | 269 | -64.27 | 238 | 289 |
+| Oronde Gadsden II | TE | 196.13 | 132.2 | 63.93 | 209 | 137 |
+| Seattle Seahawks | D/ST | 146.75 | 82.9 | 63.85 | 145 | 85 |
+| San Francisco 49ers | D/ST | 213.5 | 153.9 | 59.6 | 266 | 162 |
+| Denver Broncos | D/ST | 143.15 | 87.9 | 55.25 | 142 | 88 |
+| Jordan James | RB | 198.09 | 144.2 | 53.89 | 213 | 147 |
+| Sean Tucker | RB | 191.56 | 243.9 | -52.34 | 197 | 283 |
+| Chris Boswell | K | 208.22 | 156.9 | 51.32 | 246 | 169 |
+| Cleveland Browns | D/ST | 208.7 | 160 | 48.7 | 250 | 174 |
+| Jaylen Wright | RB | 200.18 | 247.9 | -47.72 | 223 | 284 |
+| Kansas City Chiefs | D/ST | 212.83 | 167 | 45.83 | 265 | 189 |
+| New England Patriots | D/ST | 171.08 | 126.2 | 44.88 | 166 | 132 |
+| Pittsburgh Steelers | D/ST | 178 | 133.3 | 44.7 | 177 | 138 |
+| Woody Marks | RB | 111.41 | 155.65 | -44.24 | 109 | 165 |
+| Buffalo Bills | D/ST | 202.89 | 159.7 | 43.19 | 233 | 173 |
+| Demond Claiborne | RB | 199.05 | 242 | -42.95 | 218 | 282 |
+| Travis Hunter | WR | 206.56 | 164.2 | 42.36 | 243 | 181 |
+| Kaytron Allen | RB | 198.34 | 240.6 | -42.26 | 216 | 277 |
+| Chicago Bears | D/ST | 210.95 | 169 | 41.95 | 258 | 195 |
+| Kimani Vidal | RB | 199.59 | 241.3 | -41.71 | 221 | 279 |
+| Tennessee Titans | D/ST | 214.3 | 172.6 | 41.7 | 268 | 208 |
+| Trey Smack | K | 211.55 | 252.85 | -41.3 | 260 | 288 |
+| Keon Coleman | WR | 207.49 | 166.7 | 40.79 | 244 | 186 |
+| Darnell Mooney | WR | 208.6 | 249.2 | -40.6 | 249 | 286 |
+| Khalil Shakir | WR | 159.95 | 119.4 | 40.55 | 158 | 125 |
+| Calvin Ridley | WR | 158.85 | 198.95 | -40.1 | 156 | 248 |
+| Tyrone Tracy Jr. | RB | 116.63 | 156 | -39.37 | 114 | 166 |
+| J.J. McCarthy | QB | 263.04 | 224.2 | 38.84 | 273 | 270 |
+| New Orleans Saints | D/ST | 211.3 | 172.8 | 38.5 | 259 | 210 |
+| Emanuel Wilson | RB | 212.31 | 250.3 | -37.99 | 261 | 287 |
+| Los Angeles Chargers | D/ST | 180.95 | 143 | 37.95 | 181 | 145 |
+| Jordan Mason | RB | 82.2 | 119.4 | -37.2 | 83 | 124 |
+| AJ Barner | TE | 208.27 | 171.45 | 36.82 | 247 | 206 |
+| New York Giants | D/ST | 204.63 | 168 | 36.63 | 237 | 192 |
+| Kaelon Black | RB | 192.82 | 156.8 | 36.02 | 203 | 168 |
+| Fernando Mendoza | QB | 203.58 | 167.85 | 35.73 | 234 | 190 |
+| Will Reichard | K | 202.44 | 166.75 | 35.69 | 232 | 188 |
+| Harrison Butker | K | 205.21 | 170.3 | 34.91 | 239 | 199 |
+| Isiah Pacheco | RB | 136.93 | 171.4 | -34.47 | 136 | 205 |
+| Baltimore Ravens | D/ST | 196.54 | 162.7 | 33.84 | 210 | 176 |
+| Keaton Mitchell | RB | 137.14 | 170.9 | -33.76 | 137 | 203 |
+| David Njoku | TE | 173.85 | 207.5 | -33.65 | 172 | 263 |
+| Jake Tonges | TE | 207.85 | 241.4 | -33.55 | 245 | 280 |
+| Green Bay Packers | D/ST | 188.12 | 154.6 | 33.52 | 189 | 164 |
+| Dallas Cowboys | D/ST | 198.28 | 164.9 | 33.38 | 214 | 182 |
+
+## Important current cases
+
+| Player | Availability | Health | Situation | Sourced summary |
+|---|---|---|---|---|
+| Breece Hall | QUESTIONABLE | 68 | 69 | Groin injury remains listed as questionable for Week 1; uncertainty is preserved. |
+| Tyler Warren | EXPECTED_WEEK1_READY | 82 | 74 | Short-term groin/abductor strain; public reporting expects a return in roughly a week and does not indicate a Week 1 threat. |
+| Sam LaPorta | QUESTIONABLE | 64 | 74 | Hip injury remains listed as questionable for Week 1; no firmer recovery claim is made. |
+| Jayden Higgins | OUT_SEASON | 5 | 14 | Confirmed torn ACL; out for the 2026 season and retained for identity/history. |
+| Keon Coleman | QUESTIONABLE | 68 | 73 | Foot injury remains listed as questionable for Week 1. |
+
+## Injury date-semantics audit
+
+- NFFC rows with Return Date after retrieval: 42.
+- Future-return rows independently corroborated by current CBS or named sources: 41.
+- Future-return rows ignored as uncorroborated: 1 (Tyreek Hill).
+- NFFC return dates, projected availability horizons, and sentinel dates are retained only as non-publication metadata.
+
+## Injury and situation deltas
+
+- Availability/health changes: 22; full rows are in v0130-injury-changes.csv.
+- Material situation changes (absolute score delta ≥5): 18; full rows are in v0130-situation-changes.csv.
+- Players with no current independently corroborated listing are explicitly marked NO_CURRENT_INJURY_FLAG rather than medically declared healthy.
+
+## Frozen hashes
+
+| Span | Before | After |
+|---|---|---|
+| Player pool JSON | c46dffa9c92c851957ad52f4b9543b9028d05e1e63fdc09fffbd5690ffac6b06 | e3321e205d4a35df456d1d066848bf4cda0033ac91245f33b9b8af951ac18dcf |
+| Football model (teamForCard→renderHistory) | 4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b | 4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b |
+| Recommendation coefficients (draftStrength→recommendation) | b4dcff8e16c61870c49f36983a5dac929824494ad741f77b8f7d8c4c4af0e24f | b4dcff8e16c61870c49f36983a5dac929824494ad741f77b8f7d8c4c4af0e24f |
