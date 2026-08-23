@@ -51,6 +51,7 @@ assert.equal(discovery.topSelectionTeams[0].team,'DEN');
 assert.equal(discovery.topSelectionTeams[0].selections,2);
 assert.equal(discovery.teams.find(x=>x.team==='DEN').strongOpportunities,2);
 assert.equal(discovery.teams.find(x=>x.team==='NO').plausibleOpportunities,2);
+assert.equal(discovery.teams.find(x=>x.team==='KC').strongOpportunities,1);
 
 const index=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
 assert.match(index,/interpretation-layer\.js/);
@@ -61,6 +62,7 @@ const source=fs.readFileSync(new URL('../affinity-tracker.js',import.meta.url),'
 assert.match(source,/affectsSurvival:false/);
 assert.match(source,/PASSIVE_ALL_TEAM_DISCOVERY/);
 assert.match(source,/Passive discovery watches all 32 NFL teams/);
+assert.match(source,/explicit hypotheses are observation labels, not fandom claims/);
 assert.doesNotMatch(source,/survivalProbability\s*=|ownerHazard\s*=|draftStrength\s*=|recommendation\s*=/);
 
 console.log('affinity tracker tests passed');
