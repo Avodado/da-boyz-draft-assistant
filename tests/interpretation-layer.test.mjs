@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+await import('../interpretation-layer.js');
+const I=globalThis.DABOYZ_INTERPRETATION;
+assert.ok(I);
+const c=(name,position,ds,extra={})=>({name,position,draftStrength:ds,rosterUtility:50,byeAdjustment:0,byeSame:0,contingentScore:50,...extra});
+let r=I.interpretationAdvice({round:16,counts:{QB:1,RB:4,WR:6,TE:2,K:1,'D/ST':1},candidates:[c('Kyler','QB',59.6,{byeAdjustment:-6}),c('Love','QB',59.4,{byeAdjustment:3.35}),c('Shough','QB',57.3,{byeAdjustment:5})]});
+assert.equal(r.status,'LEAN_ALT');assert.equal(r.alternative.name,'Love');
+r=I.interpretationAdvice({round:10,counts:{QB:1,RB:4,WR:5,TE:0,K:0,'D/ST':0},candidates:[c('Godwin','WR',57.3),c('Dobbins','RB',56),c('Kelce','TE',55.5)]});
+assert.equal(r.status,'LEAN_ALT');assert.equal(r.alternative.name,'Kelce');
+r=I.interpretationAdvice({round:15,counts:{QB:2,RB:4,WR:6,TE:2,K:0,'D/ST':0},candidates:[c('Coker','WR',56.4),c('Charbonnet','RB',55.3,{contingentScore:70}),c('Little','K',55.3)]});
+assert.equal(r.status,'LEAN_ALT');assert.equal(r.alternative.name,'Charbonnet');
+r=I.interpretationAdvice({round:5,counts:{QB:0,RB:2,WR:2,TE:0,K:0,'D/ST':0},candidates:[c('A','WR',66),c('B','RB',62)]});
+assert.equal(r.status,'CLEAR');
+console.log('interpretation layer tests passed');
