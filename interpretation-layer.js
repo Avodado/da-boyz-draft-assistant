@@ -15,6 +15,7 @@ function scoreAlternative(ctx,top,alt){
   const round=n(ctx.round,1);
   const gap=n(top.draftStrength)-n(alt.draftStrength);
   if(gap<0||gap>NEAR_TIE)return {score:0,reasons:[]};
+  if(SKILL.has(top.position)&&SPECIALIST.has(alt.position))return {score:0,reasons:[]};
 
   if((counts.TE||0)===0&&round>=9&&alt.position==='TE'&&top.position!=='TE'){
     reasons.push(reason('TE is still empty this late; taking the near-tied TE reduces scarcity/lineup risk.',5));
@@ -36,12 +37,8 @@ function scoreAlternative(ctx,top,alt){
     if(byeGain>=5)reasons.push(reason(`${alt.name} gives materially better ${top.position} bye coverage (${byeGain.toFixed(1)} utility points).`,5));
   }
   const byeGain=n(alt.byeAdjustment)-n(top.byeAdjustment);
-  if(n(top.byeSame)>=3&&byeGain>=5){
+  if(round>=9&&n(top.byeSame)>=3&&byeGain>=5){
     reasons.push(reason(`The #1 choice would deepen Bye ${top.byeWeek??'?'} concentration; ${alt.name} improves bye fit by ${byeGain.toFixed(1)}.`,4));
-  }
-  const utilityGain=n(alt.rosterUtility)-n(top.rosterUtility);
-  if(utilityGain>=12){
-    reasons.push(reason(`${alt.name} has a ${utilityGain.toFixed(1)}-point roster-utility advantage despite the small Draft Strength gap.`,3));
   }
   const score=reasons.reduce((s,r)=>s+r.weight,0);
   return {score,reasons:reasons.map(r=>r.text)};
