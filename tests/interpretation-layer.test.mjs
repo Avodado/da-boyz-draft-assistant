@@ -123,9 +123,10 @@ test('absence or failure of the layer leaves the byte-identical core app present
   assert.match(layer,/catch\(e\).*Interpretation unavailable; core recommendations are unchanged\./s);
 });
 
-test('index loader does not terminate itself while injecting the optional layer',()=>{
+test('index loader does not terminate itself while injecting optional layers',()=>{
   const index=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   const outerScript=index.match(/<script>([\s\S]*?)<\/script>/)?.[1]||'';
-  assert.match(outerScript,/const layer='<script src="\.\/interpretation-layer\.js"><\/scr'\+'ipt>'/);
+  assert.match(outerScript,/const layers='<script src="\.\/interpretation-layer\.js"><\/scr'\+'ipt><script src="\.\/affinity-tracker\.js"><\/scr'\+'ipt>'/);
+  assert.ok(outerScript.indexOf('interpretation-layer.js')<outerScript.indexOf('affinity-tracker.js'));
   assert.match(outerScript,/document\.write\(enhanced\)/);
 });
