@@ -5,6 +5,7 @@ await import('../affinity-tracker.js');
 const A=globalThis.DABOYZ_AFFINITY_TRACKER;
 assert.ok(A);
 
+assert.equal(A.version,4);
 assert.equal(A.affectsSurvival,false);
 assert.deepEqual(A.enabledTeamsFor('URINE TROUBLE',{}),['DEN']);
 assert.deepEqual(new Set(A.enabledTeamsFor('Cam + Guy',{})),new Set(['TB','BAL']));
@@ -24,8 +25,16 @@ assert.equal(A.opportunityBand(108,100),'STRONG');
 assert.equal(A.opportunityBand(108.01,100),'PLAUSIBLE');
 assert.equal(A.opportunityBand(120,100),'PLAUSIBLE');
 assert.equal(A.opportunityBand(120.01,100),'DEEP');
+assert.equal(A.opportunityBand('',100),'NONE');
+assert.equal(A.opportunityBand(null,100),'NONE');
+assert.equal(A.marketDistance('',100),null);
+assert.equal(A.marketDistance(null,100),null);
 assert.equal(A.marketDistance(85,100),-15);
 assert.equal(A.marketDistance(120,100),20);
+assert.equal(A.withinDiscoveryWindow({planning_adp:''},100),false);
+assert.equal(A.withinDiscoveryWindow({planning_adp:null},100),false);
+assert.equal(A.withinDiscoveryWindow({planning_adp:'120'},100),true);
+assert.equal(A.withinDiscoveryWindow({planning_adp:'120.01'},100),false);
 
 const summary=A.summarizeShadowRows([
   {affinityShadow:{profileId:'URINE TROUBLE',selectedIsAffinity:true,strongOpportunity:true,plausibleOpportunity:true,passedStrongOpportunity:false,selectedReachVsAdp:12}},
@@ -63,6 +72,7 @@ assert.match(source,/affectsSurvival:false/);
 assert.match(source,/PASSIVE_ALL_TEAM_DISCOVERY/);
 assert.match(source,/Passive discovery watches all 32 NFL teams/);
 assert.match(source,/explicit hypotheses are observation labels, not fandom claims/);
+assert.match(source,/withinDiscoveryWindow/);
 assert.doesNotMatch(source,/survivalProbability\s*=|ownerHazard\s*=|draftStrength\s*=|recommendation\s*=/);
 
 console.log('affinity tracker tests passed');
