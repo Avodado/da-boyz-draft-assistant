@@ -60,8 +60,9 @@ function payload(requestId="request-1"){const draftState=stateFixture(170);retur
 function response(body,status=200){return new Response(JSON.stringify(body),{status,headers:{"Content-Type":"application/json"}})}
 
 test("successful gateway archive atomically writes immutable state, event, and aggregate index",async()=>{
-  const env={GITHUB_APP_ID:"1",GITHUB_APP_PRIVATE_KEY:await privateKeyPem(),GITHUB_INSTALLATION_ID:"2",GITHUB_REPOSITORY_OWNER:"Avodado",GITHUB_REPOSITORY_NAME:"da-boyz-draft-assistant",GITHUB_ARCHIVE_BRANCH:"main"},blobBodies=[],treeBodies=[];let blob=0;
+  const env={GITHUB_APP_ID:"1",GITHUB_APP_PRIVATE_KEY:await privateKeyPem(),GITHUB_INSTALLATION_ID:"2",GITHUB_REPOSITORY_OWNER:"Avodado",GITHUB_REPOSITORY_NAME:"da-boyz-draft-assistant",GITHUB_ARCHIVE_BRANCH:"main"},blobBodies=[],treeBodies=[],githubHeaders=[];let blob=0;
   const fetcher=async(url,options={})=>{
+    githubHeaders.push(options.headers);
     const method=options.method||"GET";
     if(url.includes("/access_tokens"))return response({token:"installation-token"});
     if(url.includes("/contents/draft-archive/index.json"))return response({message:"Not Found"},404);
@@ -74,7 +75,7 @@ test("successful gateway archive atomically writes immutable state, event, and a
     if(url.includes("/git/refs/heads/")&&method==="PATCH")return response({object:{sha:"new-commit"}});
     throw new Error(`Unexpected ${method} ${url}`);
   };
-  const result=await archiveToGithub(payload(),"Avodado",env,fetcher);assert.equal(result.indexed,true);assert.equal(result.duplicate,false);assert.equal(blobBodies.length,3);assert.equal(treeBodies[0].tree.length,3);assert.ok(treeBodies[0].tree.some(row=>row.path===result.path));assert.ok(treeBodies[0].tree.some(row=>row.path==="draft-archive/index.json"));
+  const result=await archiveToGithub(payload(),"Avodado",env,fetcher);assert.equal(result.indexed,true);assert.equal(result.duplicate,false);assert.equal(blobBodies.length,3);assert.equal(treeBodies[0].tree.length,3);assert.ok(treeBodies[0].tree.some(row=>row.path===result.path));assert.ok(treeBodies[0].tree.some(row=>row.path==="draft-archive/index.json"));assert.ok(githubHeaders.every(headers=>headers["User-Agent"]==="da-boyz-draft-archive-worker"));
   const documents=blobBodies.map(row=>JSON.parse(row.content)),index=documents.find(row=>Array.isArray(row.entries)),event=documents.find(row=>row.schemaVersion===1&&row.path);assert.equal(index.entries[0].draftId,"draft-9");assert.equal(index.entries[0].pickCount,170);assert.equal(index.entries[0].completed,true);assert.equal(event.requestId,"request-1");
 });
 
