@@ -22,10 +22,24 @@ test('opponent variance is tightly market-anchored early and widens later',()=>{
 
 test('calibration is limited to the legacy opponent-noise call',()=>{
   const source=fs.readFileSync(new URL('../simulation-calibration.js',import.meta.url),'utf8');
+  const html=zlib.gunzipSync(fs.readFileSync(new URL('../app.html.gz',import.meta.url))).toString('utf8');
+  const legacyCalls=[...html.matchAll(/simNoise\(30(?:\.0)?\)/g)];
+  assert.equal(legacyCalls.length,1);
+  const chooser=html.slice(html.indexOf('function chooseOpponentSimulatedPlayer'),html.indexOf('function chooseMyTeamSimulatedPlayer'));
+  assert.match(chooser,/simNoise\(30\.0\)/);
   assert.match(source,/LEGACY_OPPONENT_NOISE_SCALE=30/);
   assert.match(source,/const baseSimNoise=simNoise/);
   assert.match(source,/simNoise=function/);
   assert.doesNotMatch(source,/chooseOpponentSimulatedPlayer\s*=|ownerPickDistribution\s*=|draftStrength\s*=|survivalProbability\s*=|recommendation\s*=/);
+});
+
+test('index loads simulation calibration before interpretation and affinity layers',()=>{
+  const index=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+  assert.match(index,/simulation-calibration\.js/);
+  assert.match(index,/interpretation-layer\.js/);
+  assert.match(index,/affinity-tracker\.js/);
+  assert.ok(index.indexOf('simulation-calibration.js')<index.indexOf('interpretation-layer.js'));
+  assert.ok(index.indexOf('interpretation-layer.js')<index.indexOf('affinity-tracker.js'));
 });
 
 test('known Card-9 failure seeds no longer leave Jahmyr Gibbs available at 1.09',()=>{
