@@ -8,7 +8,9 @@ Deploy the Worker and configure these environment values:
 
 - `APP_ORIGIN`: exact production PWA origin, with no trailing slash.
 - `ALLOWED_GITHUB_LOGINS`: comma-separated GitHub logins permitted to archive.
-- `GITHUB_OAUTH_CLIENT_ID` and secret `GITHUB_OAUTH_CLIENT_SECRET`.
+- `GITHUB_OAUTH_CLIENT_ID` and secret `GITHUB_OAUTH_CLIENT_SECRET`. These can be
+  the client credentials of the same GitHub App used for repository writes; a
+  separate OAuth App is not required.
 - `GITHUB_APP_ID`, `GITHUB_INSTALLATION_ID`, and secret `GITHUB_APP_PRIVATE_KEY`.
 - Secret `SESSION_SIGNING_SECRET`, generated with at least 32 random bytes.
 - `GITHUB_REPOSITORY_OWNER`, `GITHUB_REPOSITORY_NAME`, and `GITHUB_ARCHIVE_BRANCH` (normally `main`).

@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "da-boyz-draft-archive",
+  "main": "draft-archive-worker.mjs",
+  "compatibility_date": "2026-08-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "GITHUB_REPOSITORY_OWNER": "Avodado",
+    "GITHUB_REPOSITORY_NAME": "da-boyz-draft-assistant",
+    "GITHUB_ARCHIVE_BRANCH": "main"
+  }
+  // APP_ORIGIN, GitHub OAuth/App identifiers, the allowed GitHub login list,
+  // and all secrets are deployment settings. Do not commit them here.
+}
