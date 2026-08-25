@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-25T23:56:54.976Z",
+  "entries": [
+    {
+      "requestId": "live-smoke-686e2a6e-da32-4020-aa5b-abb2621b37aa",
+      "draftId": "deployment-smoke-test",
+      "timestamp": "2026-08-25T23:56:54.976Z",
+      "card": 9,
+      "draftType": "mock",
+      "archiveKind": "snapshot",
+      "appVersion": "v0.13.0",
+      "modelVersion": "deployment-smoke",
+      "buildVersion": "v0.13.0",
+      "pickCount": 0,
+      "completed": false,
+      "path": "draft-archive/2026/mocks/deployment-smoke-test/20260825T235654Z_card9_snapshot_p0_deployment-smoke-test_5ec1dd159f.json",
+      "mockSeed": null,
+      "teamName": "No Chumps",
+      "ownerName": "deployment-smoke",
+      "profileId": "deployment-smoke",
+      "dataSha256": null,
+      "modelSha256": null,
+      "poolSha256": null,
+      "archivedBy": "Avodado"
+    }
+  ]
+}
