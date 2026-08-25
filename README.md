@@ -33,4 +33,6 @@ node diagnostics/aggregate_mock_grades.mjs path/to/exports --actual path/to/actu
 
 The utility keys known owners by historical profile first, then preset, and only falls back to normalized owner name. Team names remain display metadata, so a rename does not split a known owner's history. It reads completed v1 grade reports and never writes back to source exports.
 
+Draft archival is an independent, opt-in online path. **Export Draft State** remains the unchanged local fail-safe; **Archive Snapshot** creates a manual immutable repository snapshot, and the archive layer submits a completed draft automatically when pick 170 is recorded. The browser authenticates through a short-lived GitHub OAuth session and never contains repository credentials. Deploy and configure the server-side GitHub App gateway using [the archive deployment guide](docs/draft-archive-deployment.md).
+
 TV casting is intentionally out of scope for this candidate.

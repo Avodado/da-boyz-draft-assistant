@@ -128,6 +128,11 @@ test("install precaches the complete v0.13.0-github-1 release", async () => {
     "./icon-512.png",
     "./icon-192.svg",
     "./icon-512.svg",
+    "./simulation-calibration.js",
+    "./interpretation-layer.js",
+    "./affinity-tracker.js",
+    "./archive-config.js",
+    "./archive-client.js",
   ]);
   assert.equal(harness.skipWaitingCount, 1);
 });
