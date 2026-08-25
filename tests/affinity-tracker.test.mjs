@@ -5,7 +5,7 @@ await import('../affinity-tracker.js');
 const A=globalThis.DABOYZ_AFFINITY_TRACKER;
 assert.ok(A);
 
-assert.equal(A.version,4);
+assert.equal(A.version,5);
 assert.equal(A.affectsSurvival,false);
 assert.deepEqual(A.enabledTeamsFor('URINE TROUBLE',{}),['DEN']);
 assert.deepEqual(new Set(A.enabledTeamsFor('Cam + Guy',{})),new Set(['TB','BAL']));
@@ -73,6 +73,8 @@ assert.match(source,/PASSIVE_ALL_TEAM_DISCOVERY/);
 assert.match(source,/Passive discovery watches all 32 NFL teams/);
 assert.match(source,/explicit hypotheses are observation labels, not fandom claims/);
 assert.match(source,/withinDiscoveryWindow/);
+assert.match(source,/out\.length===5/);
+assert.doesNotMatch(source,/intrinsicScore/);
 assert.doesNotMatch(source,/survivalProbability\s*=|ownerHazard\s*=|draftStrength\s*=|recommendation\s*=/);
 
 console.log('affinity tracker tests passed');
