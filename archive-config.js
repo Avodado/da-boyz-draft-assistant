@@ -1,4 +1,3 @@
 globalThis.DABOYZ_ARCHIVE_CONFIG=Object.freeze({
-  // Set this to the deployed Worker URL before enabling production archival.
-  endpoint:""
+  endpoint:"https://da-boyz-draft-archive.avodado.workers.dev"
 });

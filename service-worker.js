@@ -1,5 +1,5 @@
 const CACHE_PREFIX='daboyz-draft-assistant-';
-const CACHE='daboyz-draft-assistant-v0.13.0-github-1';
+const CACHE='daboyz-draft-assistant-v0.13.0-github-2';
 const INDEX=new URL('./index.html',self.registration.scope).href;
 const ASSETS=['./','./index.html','./app.html.gz','./version.json','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-192.svg','./icon-512.svg','./simulation-calibration.js','./interpretation-layer.js','./affinity-tracker.js','./archive-config.js','./archive-client.js'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()))});

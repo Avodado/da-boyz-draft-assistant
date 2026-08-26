@@ -112,12 +112,12 @@ function makeWorkerHarness() {
 }
 
 
-test("install precaches the complete v0.13.0-github-1 release", async () => {
+test("install precaches the complete v0.13.0-github-2 release", async () => {
   const harness = makeWorkerHarness();
   let installed;
   harness.listeners.install({ waitUntil(promise) { installed = promise; } });
   await installed;
-  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.13.0-github-1");
+  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.13.0-github-2");
   assert.deepEqual(harness.added, [
     "./",
     "./index.html",

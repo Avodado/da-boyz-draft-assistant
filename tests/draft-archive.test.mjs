@@ -90,5 +90,5 @@ test("origin-bound session tokens expire and cannot be forged",async()=>{
 });
 
 test("the public client and config contain no GitHub write credential",()=>{
-  const configSource=fs.readFileSync(new URL("../archive-config.js",import.meta.url),"utf8"),publicSource=clientSource+configSource;for(const token of ["GITHUB_APP_PRIVATE_KEY","GITHUB_OAUTH_CLIENT_SECRET","GITHUB_INSTALLATION_ID","ghp_","github_pat_"])assert.doesNotMatch(publicSource,new RegExp(token));assert.match(configSource,/endpoint:\s*""/);
+  const configSource=fs.readFileSync(new URL("../archive-config.js",import.meta.url),"utf8"),publicSource=clientSource+configSource;for(const token of ["GITHUB_APP_PRIVATE_KEY","GITHUB_OAUTH_CLIENT_SECRET","GITHUB_INSTALLATION_ID","ghp_","github_pat_"])assert.doesNotMatch(publicSource,new RegExp(token));assert.match(configSource,/endpoint:\s*"https:\/\/da-boyz-draft-archive\.avodado\.workers\.dev"/);
 });
