@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "requestId": "fa1c2e05-7026-489f-94f8-cc0d7ca85475",
+  "draftId": "draft-2026-165-1787703275011",
+  "timestamp": "2026-08-26T00:41:33.729Z",
+  "card": 8,
+  "draftType": "mock",
+  "archiveKind": "snapshot",
+  "appVersion": "v0.13.0",
+  "modelVersion": "model-sha256:4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b",
+  "buildVersion": "v0.13.0",
+  "pickCount": 170,
+  "completed": true,
+  "path": "draft-archive/2026/mocks/draft-2026-165-1787703275011/20260826T004133Z_card8_snapshot_p170_draft-2026-165-1787703275011_db76a8f7d0.json",
+  "mockSeed": 2026,
+  "teamName": "No Chumps",
+  "ownerName": "Rick Dauven",
+  "profileId": "No Chumps",
+  "dataSha256": "1c5e95623b0aed0ba266758928f6e87f65d6522b1b205dba2d6537f729d371a5",
+  "modelSha256": "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b",
+  "poolSha256": "e3321e205d4a35df456d1d066848bf4cda0033ac91245f33b9b8af951ac18dcf",
+  "archivedBy": "Avodado"
+}
