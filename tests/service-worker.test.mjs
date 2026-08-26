@@ -112,12 +112,12 @@ function makeWorkerHarness() {
 }
 
 
-test("install precaches the complete v0.13.0-github-2 release", async () => {
+test("install precaches the complete mock-toolbar release", async () => {
   const harness = makeWorkerHarness();
   let installed;
   harness.listeners.install({ waitUntil(promise) { installed = promise; } });
   await installed;
-  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.13.0-github-2");
+  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.13.0-mock-toolbar-1");
   assert.deepEqual(harness.added, [
     "./",
     "./index.html",
@@ -133,6 +133,7 @@ test("install precaches the complete v0.13.0-github-2 release", async () => {
     "./affinity-tracker.js",
     "./archive-config.js",
     "./archive-client.js",
+    "./mock-toolbar.js",
   ]);
   assert.equal(harness.skipWaitingCount, 1);
 });

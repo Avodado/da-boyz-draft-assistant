@@ -48,7 +48,7 @@ test("duplicate-safe names are append-only and preserve draft hierarchy",()=>{
 });
 
 test("loader keeps archive hooks after simulation and observational layers",()=>{
-  const index=fs.readFileSync(new URL("../index.html",import.meta.url),"utf8"),names=["simulation-calibration.js","interpretation-layer.js","affinity-tracker.js","archive-config.js","archive-client.js"],offsets=names.map(name=>index.indexOf(name));assert.ok(offsets.every(offset=>offset>=0));assert.deepEqual(offsets,[...offsets].sort((a,b)=>a-b));
+  const index=fs.readFileSync(new URL("../index.html",import.meta.url),"utf8"),names=["simulation-calibration.js","interpretation-layer.js","affinity-tracker.js","archive-config.js","archive-client.js","mock-toolbar.js"],offsets=names.map(name=>index.indexOf(name));assert.ok(offsets.every(offset=>offset>=0));assert.deepEqual(offsets,[...offsets].sort((a,b)=>a-b));
 });
 
 test("the core draft ID separates otherwise identical draft sessions",()=>{
