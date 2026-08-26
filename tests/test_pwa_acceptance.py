@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_BUILD = "v0.13.0"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.13.0-github-1"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.13.0-github-2"
 EXPECTED_DATA_SHA256 = "1c5e95623b0aed0ba266758928f6e87f65d6522b1b205dba2d6537f729d371a5"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "e3321e205d4a35df456d1d066848bf4cda0033ac91245f33b9b8af951ac18dcf"
