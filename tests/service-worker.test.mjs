@@ -112,12 +112,12 @@ function makeWorkerHarness() {
 }
 
 
-test("install precaches the complete mock-toolbar release", async () => {
+test("install precaches the complete draft-day release", async () => {
   const harness = makeWorkerHarness();
   let installed;
   harness.listeners.install({ waitUntil(promise) { installed = promise; } });
   await installed;
-  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.13.0-mock-toolbar-1");
+  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.13.1-draft-day-1");
   assert.deepEqual(harness.added, [
     "./",
     "./index.html",
@@ -129,6 +129,7 @@ test("install precaches the complete mock-toolbar release", async () => {
     "./icon-192.svg",
     "./icon-512.svg",
     "./simulation-calibration.js",
+    "./draft-day-overlay.js",
     "./interpretation-layer.js",
     "./affinity-tracker.js",
     "./archive-config.js",
@@ -193,7 +194,7 @@ test("activate removes only obsolete DA BOYZ caches", async () => {
 });
 
 
-test("v0.12.9 cache upgrades to v0.13.0 and remains offline-usable", async () => {
+test("v0.12.9 cache upgrades to v0.13.1 and remains offline-usable", async () => {
   const harness = makeWorkerHarness();
   const current = vm.runInContext("CACHE", harness.context);
   const old = "daboyz-draft-assistant-v0.12.9-github-1";
@@ -202,7 +203,7 @@ test("v0.12.9 cache upgrades to v0.13.0 and remains offline-usable", async () =>
   harness.listeners.install({ waitUntil(promise) { installed = promise; } });
   await installed;
   assert.equal(harness.stores.has(current), true);
-  await (await harness.caches.open(current)).put("https://example.test/draft/index.html", new FakeResponse(200, "v0.13.0-index"));
+  await (await harness.caches.open(current)).put("https://example.test/draft/index.html", new FakeResponse(200, "v0.13.1-index"));
   let activated;
   harness.listeners.activate({ waitUntil(promise) { activated = promise; } });
   await activated;
@@ -211,7 +212,7 @@ test("v0.12.9 cache upgrades to v0.13.0 and remains offline-usable", async () =>
   harness.setFetch(async () => { throw new Error("offline"); });
   const networkFirst = vm.runInContext("networkFirst", harness.context);
   const response = await networkFirst({ url: "https://example.test/draft/index.html" }, { url: "https://example.test/draft/index.html" });
-  assert.equal(response.body, "v0.13.0-index");
+  assert.equal(response.body, "v0.13.1-index");
 });
 
 
@@ -250,17 +251,17 @@ function hostedUpdateHarness(meta, currentBuild = "v0.12.7") {
     async fetch() { return { ok: true, async json() { return meta; } }; },
     document: { getElementById(id) { return boxes[id] || null; } },
   });
-  const source = appHtml.slice(start, end).replace('const CURRENT_BUILD="v0.13.0"', `const CURRENT_BUILD="${currentBuild}"`);
+  const source = appHtml.slice(start, end).replace('const CURRENT_BUILD="v0.13.1"', `const CURRENT_BUILD="${currentBuild}"`);
   vm.runInContext(source, context);
   return { checkHostedUpdate: vm.runInContext("checkHostedUpdate", context), boxes };
 }
 
 
-test("hosted v0.13.0 metadata visibly announces an update from v0.12.7", async () => {
-  const harness = hostedUpdateHarness({ build: "v0.13.0" });
+test("hosted v0.13.1 metadata visibly announces an update from v0.12.7", async () => {
+  const harness = hostedUpdateHarness({ build: "v0.13.1" });
   await harness.checkHostedUpdate();
   assert.equal(harness.boxes.updateNotice.style.display, "block");
-  assert.equal(harness.boxes.updateNoticeTitle.textContent, "Update available • v0.13.0");
+  assert.equal(harness.boxes.updateNoticeTitle.textContent, "Update available • v0.13.1");
   assert.match(harness.boxes.updateNoticeText.textContent, /Running v0\.12\.7/);
 });
 
@@ -339,7 +340,7 @@ test("update handler saves, updates only its registration, and reloads without d
 });
 
 
-test("v0.12.7 draft state is saved intact before the v0.13.0 reload", async () => {
+test("v0.12.7 draft state is saved intact before the v0.13.1 reload", async () => {
   const draftState = {
     teams: [{ name: "No Chumps", card: 6, my: true }],
     picks: [{ overall: 1, player: { name: "Jahmyr Gibbs", position: "RB" } }],

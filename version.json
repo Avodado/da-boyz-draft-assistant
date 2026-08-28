@@ -1,5 +1,5 @@
 {
-  "build": "v0.13.0",
-  "published": "2026-08-22",
-  "notes": "Refreshes current 2026 PPR market, injury, availability, and situation data while preserving all validated football coefficients, grading logic, owner models, and tier architecture."
+  "build": "v0.13.1",
+  "published": "2026-08-28",
+  "notes": "Applies the Aug. 28 draft-day ADP and availability overlay to fresh and saved drafts while preserving validated model, grading, owner, and simulation behavior."
 }
