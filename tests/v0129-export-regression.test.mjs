@@ -63,7 +63,7 @@ test("full 17-round export contains diagnostics and grades, round-trips, and agg
   assert.equal(exported.draftGrades.teams.length, 10);
   assert.equal(exported.draftGrades.teams.filter(t => t.my && t.profileId === "No Chumps").length, 1);
   assert.equal(exported.exportMetadata.exportSchemaVersion, 1);
-  assert.equal(exported.exportMetadata.exportedByBuild, "v0.13.0");
+  assert.equal(exported.exportMetadata.exportedByBuild, "v0.13.1");
   assert.equal(exported.exportMetadata.diagnosticsVersion, 1);
   assert.equal(exported.exportMetadata.gradesVersion, 1);
   c.__imported = structuredClone(exported);

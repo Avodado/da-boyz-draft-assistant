@@ -1,14 +1,14 @@
 {
   "id": "./",
-  "name": "DA BOYZ Draft Assistant v0.13.0",
-  "short_name": "DA BOYZ v0.13.0",
+  "name": "DA BOYZ Draft Assistant v0.13.1",
+  "short_name": "DA BOYZ v0.13.1",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#0e1118",
   "theme_color": "#0b0e14",
-  "description": "Phone-first DA BOYZ draft assistant v0.13.0 with refreshed 2026 market, injury, and situation data; verified exports, autosave recovery, and offline PWA support.",
+  "description": "Phone-first DA BOYZ draft assistant v0.13.1 with the Aug. 28 draft-day ADP and availability overlay; verified exports, autosave recovery, and offline PWA support.",
   "categories": ["sports", "utilities"],
   "icons": [
     {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},

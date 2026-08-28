@@ -8,8 +8,9 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_BUILD = "v0.13.0"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.13.0-mock-toolbar-1"
+EXPECTED_BUILD = "v0.13.1"
+EXPECTED_DATA_BUILD = "v0.13.0"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.13.1-draft-day-1"
 EXPECTED_DATA_SHA256 = "1c5e95623b0aed0ba266758928f6e87f65d6522b1b205dba2d6537f729d371a5"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "e3321e205d4a35df456d1d066848bf4cda0033ac91245f33b9b8af951ac18dcf"
@@ -80,7 +81,7 @@ class PwaAcceptanceTests(unittest.TestCase):
         self.assertEqual(sum(count for key, count in coverage.items() if key != "DRAFTED_ROOKIE_LOOKUP_ONLY"), 282)
         required = {"prior_rank", "prior_planning_adp", "prior_market_as_of", "market_refresh_version", "availability_status", "health_score", "injury_summary", "injury_source", "injury_as_of", "nffc_return_date", "nffc_date_semantics", "nffc_evidence_use", "cbs_updated"}
         self.assertTrue(all(required.issubset(player) for player in pool))
-        self.assertTrue(all(player["market_refresh_version"] == EXPECTED_BUILD for player in pool))
+        self.assertTrue(all(player["market_refresh_version"] == EXPECTED_DATA_BUILD for player in pool))
 
     def test_soft_rb_wr_balance_is_a_soft_imbalance_adjustment(self) -> None:
         model = segment(self.html, "function teamForCard", "function renderHistory")

@@ -1,8 +1,8 @@
 # DA BOYZ Draft Assistant
 
-GitHub Pages deployment candidate for **DA BOYZ Draft Assistant v0.13.0**.
+GitHub Pages deployment candidate for **DA BOYZ Draft Assistant v0.13.1**.
 
-This controlled data release refreshes the 2026 PPR market snapshot, injury/availability evidence, situation overlays, and six current-market pool entries. The validated football coefficients, grading weights, owner profiles, tier architecture, Setup/randomizer behavior, and PWA safety are unchanged. The audited master pool now contains 337 unique players; season-ending and reserve players remain identifiable rather than being silently removed.
+This draft-day release applies an Aug. 28 ADP and availability overlay to both fresh pools and locally saved draft state. The validated football coefficients, grading weights, owner profiles, tier architecture, simulation calibration, Setup/randomizer behavior, and PWA safety are unchanged. The audited master pool remains 337 unique players; season-ending and reserve players remain identifiable and unavailable rather than being silently removed.
 
 Expected Pages URL: `https://avodado.github.io/da-boyz-draft-assistant/`
 
