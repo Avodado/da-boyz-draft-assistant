@@ -25,7 +25,11 @@ function harness() {
 
 test("Randomize Setup uses ten unique default 2026 presets and cards while preserving No Chumps as My Team", () => {
   const c = harness();
-  assert.deepEqual([...vm.runInContext("DEFAULT_2026_ROOM_PRESET_IDS", c)], ["No Chumps","Kickers Are People Too","Jerry-Rigged","Cam + Guy","DA BRONCOS","El Pacifesta","Pimpin since '99","Pelota Negro","R Kelly's Golden Showers","URINE TROUBLE"]);
+  assert.deepEqual([...vm.runInContext("DEFAULT_2026_ROOM_PRESET_IDS", c)], ["No Chumps","Kickers Are People Too","Jerry-Rigged","Go Diego Go!!!","NALGATORZ","El Pacifesta","Pimpin since '99","Dee Tee","Vatos Locos","URINE TROUBLE"]);
+  assert.equal(vm.runInContext('profileOwnerName("Vatos Locos")', c), "Roy Dominguez");
+  assert.equal(vm.runInContext('ROOM_PROFILES["Vatos Locos"].seasons', c), 0);
+  assert.equal(vm.runInContext('inferProfileId("Alex #2")', c), "Vatos Locos");
+  assert.equal(vm.runInContext('inferProfileId("TBD")', c), "Jerry-Rigged");
   assert.equal(vm.runInContext("Object.isFrozen(DEFAULT_2026_ROOM_PRESET_IDS)", c), true);
   vm.runInContext("v128Reset(); randomizeSetup(()=>.314159)", c);
   const result = vm.runInContext("({presets:state.teams.map(t=>t.presetId),cards:state.teams.map(t=>t.card),my:state.teams.filter(t=>t.my).map(t=>t.presetId)})", c);
