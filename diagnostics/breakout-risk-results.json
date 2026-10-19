@@ -1,0 +1,921 @@
+{
+  "schemaVersion": 1,
+  "mode": "SHADOW",
+  "weightsChanged": false,
+  "historicalValidation": {
+    "scope": "Selected historical availability cases; not a representative performance backtest",
+    "seasons": [
+      2023,
+      2024
+    ],
+    "cases": [
+      {
+        "season": 2023,
+        "name": "Jonathan Taylor",
+        "actualGames": 10,
+        "outcomeSource": "https://www.nfl.com/players/jonathan-taylor/stats/situational/2023/",
+        "version": "1.0",
+        "mode": "SHADOW",
+        "affectsStrategy": false,
+        "cutoff": "2023-09-01",
+        "breakoutScore": null,
+        "roleSecurity": "unknown",
+        "eligibility": "unavailable",
+        "bustRisk": "FLAGGED",
+        "riskFlags": [
+          "ROLE_UNVERIFIED",
+          "KNOWN_UNAVAILABILITY"
+        ],
+        "missingEvidence": [
+          "role",
+          "competition",
+          "production"
+        ],
+        "rejectedEvidence": [],
+        "evidenceCoverage": 0.25,
+        "verifiedEvidenceCoverage": 0.25,
+        "confidence": "INCOMPLETE",
+        "existingBreakoutAdjustment": 0,
+        "sources": {
+          "health": {
+            "value": "unavailable",
+            "publishedAt": "2023-08-29",
+            "source": "https://apnews.com/article/b9f36baa4aca97ae1868c592b6bb8ca2"
+          }
+        }
+      },
+      {
+        "season": 2023,
+        "name": "Kyler Murray",
+        "actualGames": 8,
+        "outcomeSource": "https://www.nfl.com/players/kyler-murray/stats/splits/2023/",
+        "version": "1.0",
+        "mode": "SHADOW",
+        "affectsStrategy": false,
+        "cutoff": "2023-09-01",
+        "breakoutScore": null,
+        "roleSecurity": "unknown",
+        "eligibility": "unavailable",
+        "bustRisk": "FLAGGED",
+        "riskFlags": [
+          "ROLE_UNVERIFIED",
+          "KNOWN_UNAVAILABILITY"
+        ],
+        "missingEvidence": [
+          "role",
+          "competition",
+          "production"
+        ],
+        "rejectedEvidence": [],
+        "evidenceCoverage": 0.25,
+        "verifiedEvidenceCoverage": 0.25,
+        "confidence": "INCOMPLETE",
+        "existingBreakoutAdjustment": 0,
+        "sources": {
+          "health": {
+            "value": "unavailable",
+            "publishedAt": "2023-08-29",
+            "source": "https://www.azcardinals.com/news/kyler-murray-expected-to-start-season-on-pup-list"
+          }
+        }
+      },
+      {
+        "season": 2023,
+        "name": "Jaxon Smith-Njigba",
+        "actualGames": 17,
+        "outcomeSource": "https://www.seahawks.com/team/players-roster/jaxon-smith-njigba/",
+        "version": "1.0",
+        "mode": "SHADOW",
+        "affectsStrategy": false,
+        "cutoff": "2023-08-28",
+        "breakoutScore": null,
+        "roleSecurity": "unknown",
+        "eligibility": "unverified",
+        "bustRisk": "FLAGGED",
+        "riskFlags": [
+          "ROLE_UNVERIFIED",
+          "RECOVERY_OR_LIMITED_PREPARATION"
+        ],
+        "missingEvidence": [
+          "role",
+          "competition",
+          "production"
+        ],
+        "rejectedEvidence": [],
+        "evidenceCoverage": 0.25,
+        "verifiedEvidenceCoverage": 0.25,
+        "confidence": "INCOMPLETE",
+        "existingBreakoutAdjustment": 0,
+        "sources": {
+          "health": {
+            "value": "recovering",
+            "publishedAt": "2023-08-22",
+            "source": "https://www.seahawks.com/news/jaxon-smith-njigba-to-have-surgery-on-slight-fracture-in-wrist"
+          }
+        }
+      },
+      {
+        "season": 2024,
+        "name": "Nick Chubb",
+        "actualGames": 8,
+        "outcomeSource": "https://www.pro-football-reference.com/players/C/ChubNi00.htm",
+        "version": "1.0",
+        "mode": "SHADOW",
+        "affectsStrategy": false,
+        "cutoff": "2024-08-28",
+        "breakoutScore": null,
+        "roleSecurity": "unknown",
+        "eligibility": "unavailable",
+        "bustRisk": "FLAGGED",
+        "riskFlags": [
+          "ROLE_UNVERIFIED",
+          "KNOWN_UNAVAILABILITY"
+        ],
+        "missingEvidence": [
+          "role",
+          "competition",
+          "production"
+        ],
+        "rejectedEvidence": [],
+        "evidenceCoverage": 0.25,
+        "verifiedEvidenceCoverage": 0.25,
+        "confidence": "INCOMPLETE",
+        "existingBreakoutAdjustment": 0,
+        "sources": {
+          "health": {
+            "value": "unavailable",
+            "publishedAt": "2024-08-26",
+            "source": "https://amp.nfl.com/news/browns-rb-nick-chubb-knee-to-start-2024-season-on-pup-list-miss-at-least-first-four-games"
+          }
+        }
+      },
+      {
+        "season": 2024,
+        "name": "J.J. McCarthy",
+        "actualGames": 0,
+        "outcomeSource": "https://www.vikings.com/news/jj-mccarthy-sidelining-quarterback-plans-adjust",
+        "version": "1.0",
+        "mode": "SHADOW",
+        "affectsStrategy": false,
+        "cutoff": "2024-08-28",
+        "breakoutScore": null,
+        "roleSecurity": "unknown",
+        "eligibility": "unavailable",
+        "bustRisk": "FLAGGED",
+        "riskFlags": [
+          "ROLE_UNVERIFIED",
+          "KNOWN_UNAVAILABILITY"
+        ],
+        "missingEvidence": [
+          "role",
+          "competition",
+          "production"
+        ],
+        "rejectedEvidence": [],
+        "evidenceCoverage": 0.25,
+        "verifiedEvidenceCoverage": 0.25,
+        "confidence": "INCOMPLETE",
+        "existingBreakoutAdjustment": 0,
+        "sources": {
+          "health": {
+            "value": "unavailable",
+            "publishedAt": "2024-08-14",
+            "source": "https://www.vikings.com/news/jj-mccarthy-sidelining-quarterback-plans-adjust"
+          }
+        }
+      },
+      {
+        "season": 2024,
+        "name": "Sam Darnold",
+        "actualGames": 17,
+        "outcomeSource": "https://www.vikings.com/team/players-roster/sam-darnold/",
+        "version": "1.0",
+        "mode": "SHADOW",
+        "affectsStrategy": false,
+        "cutoff": "2024-08-28",
+        "breakoutScore": null,
+        "roleSecurity": "starter",
+        "eligibility": "candidate",
+        "bustRisk": "UNKNOWN",
+        "riskFlags": [],
+        "missingEvidence": [
+          "competition",
+          "health",
+          "production"
+        ],
+        "rejectedEvidence": [],
+        "evidenceCoverage": 0.25,
+        "verifiedEvidenceCoverage": 0.25,
+        "confidence": "INCOMPLETE",
+        "existingBreakoutAdjustment": 0,
+        "sources": {
+          "role": {
+            "value": "starter",
+            "publishedAt": "2024-08-14",
+            "source": "https://www.vikings.com/news/jj-mccarthy-sidelining-quarterback-plans-adjust"
+          }
+        }
+      }
+    ],
+    "limitations": [
+      "Cases selected retrospectively; selection bias prevents performance claims.",
+      "Games played are outcomes only and are never passed into the evaluator.",
+      "A recovery flag is uncertainty, not a prediction of missed games or a bust.",
+      "No historical frozen breakout scores, full role histories, matching ADP snapshots, or complete cohort supplied."
+    ],
+    "performanceBacktest": {
+      "status": "NOT_RUN_MISSING_AS_OF_COHORT",
+      "existingModel": null,
+      "proposedModel": null,
+      "adpBaseline": null
+    }
+  },
+  "currentCandidates": [
+    {
+      "name": "Omarion Hampton",
+      "position": "RB",
+      "planningAdp": "15.5",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 88,
+      "roleSecurity": "committee",
+      "eligibility": "candidate",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "SHARED_WORKLOAD",
+        "ROLE_COMPETITION"
+      ],
+      "missingEvidence": [
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "health"
+      ],
+      "evidenceCoverage": 0.5,
+      "verifiedEvidenceCoverage": 0.5,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 3.8000000000000003,
+      "sources": {
+        "role": {
+          "value": "committee",
+          "publishedAt": "2026-07-09",
+          "source": "https://www.chargers.com/news/training-camp-preview-omarion-hampton-fantasy",
+          "quality": "reported"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-07-09",
+          "source": "https://www.chargers.com/news/training-camp-preview-omarion-hampton-fantasy",
+          "quality": "reported"
+        }
+      }
+    },
+    {
+      "name": "Cam Skattebo",
+      "position": "RB",
+      "planningAdp": "41",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 72,
+      "roleSecurity": "committee",
+      "eligibility": "candidate",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "SHARED_WORKLOAD",
+        "ROLE_COMPETITION",
+        "RECOVERY_OR_LIMITED_PREPARATION"
+      ],
+      "missingEvidence": [
+        "production"
+      ],
+      "rejectedEvidence": [],
+      "evidenceCoverage": 0.75,
+      "verifiedEvidenceCoverage": 0.25,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 2.2,
+      "sources": {
+        "role": {
+          "value": "committee",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-18",
+          "source": "https://www.draftsharks.com/fantasy-football-news/82268/najee-harris-to-giants-is-more-about-cam-skattebo-than-harris",
+          "quality": "reported"
+        },
+        "health": {
+          "value": "recovering",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Quinshon Judkins",
+      "position": "RB",
+      "planningAdp": "51.1",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 75,
+      "roleSecurity": "starter",
+      "eligibility": "candidate",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "RECOVERY_OR_LIMITED_PREPARATION"
+      ],
+      "missingEvidence": [
+        "competition",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "competition"
+      ],
+      "evidenceCoverage": 0.5,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 2.5,
+      "sources": {
+        "role": {
+          "value": "starter",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "health": {
+          "value": "recovering",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Luther Burden III",
+      "position": "WR",
+      "planningAdp": "50.1",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 79,
+      "roleSecurity": "starter",
+      "eligibility": "candidate",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "ROLE_COMPETITION",
+        "RECOVERY_OR_LIMITED_PREPARATION"
+      ],
+      "missingEvidence": [
+        "production"
+      ],
+      "rejectedEvidence": [],
+      "evidenceCoverage": 0.75,
+      "verifiedEvidenceCoverage": 0.25,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 2.9000000000000004,
+      "sources": {
+        "role": {
+          "value": "starter",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "health": {
+          "value": "recovering",
+          "publishedAt": "2026-08-16",
+          "source": "https://www.dailyherald.com/20260816/chicago-bears/bears-camp-report-trapilo-returns-to-practice-monangai-hurt/",
+          "quality": "reported"
+        }
+      }
+    },
+    {
+      "name": "Bhayshul Tuten",
+      "position": "RB",
+      "planningAdp": "59",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 65,
+      "roleSecurity": "committee",
+      "eligibility": "candidate",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "SHARED_WORKLOAD",
+        "ROLE_COMPETITION"
+      ],
+      "missingEvidence": [
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "health"
+      ],
+      "evidenceCoverage": 0.5,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 1.5,
+      "sources": {
+        "role": {
+          "value": "committee",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Kyle Monangai",
+      "position": "RB",
+      "planningAdp": "96",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 65,
+      "roleSecurity": "backup",
+      "eligibility": "contingent",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "NO_CONFIRMED_WEEKLY_ROLE",
+        "ROLE_COMPETITION",
+        "RECOVERY_OR_LIMITED_PREPARATION"
+      ],
+      "missingEvidence": [
+        "production"
+      ],
+      "rejectedEvidence": [],
+      "evidenceCoverage": 0.75,
+      "verifiedEvidenceCoverage": 0.25,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 1.5,
+      "sources": {
+        "role": {
+          "value": "backup",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "health": {
+          "value": "recovering",
+          "publishedAt": "2026-08-16",
+          "source": "https://www.dailyherald.com/20260816/chicago-bears/bears-camp-report-trapilo-returns-to-practice-monangai-hurt/",
+          "quality": "reported"
+        }
+      }
+    },
+    {
+      "name": "Jaxson Dart",
+      "position": "QB",
+      "planningAdp": "97",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 88,
+      "roleSecurity": "starter",
+      "eligibility": "candidate",
+      "bustRisk": "UNKNOWN",
+      "riskFlags": [],
+      "missingEvidence": [
+        "competition",
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "competition",
+        "health"
+      ],
+      "evidenceCoverage": 0.25,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 3.8000000000000003,
+      "sources": {
+        "role": {
+          "value": "starter",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Matthew Golden",
+      "position": "WR",
+      "planningAdp": "118.6",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 66,
+      "roleSecurity": "committee",
+      "eligibility": "candidate",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "SHARED_WORKLOAD",
+        "ROLE_COMPETITION"
+      ],
+      "missingEvidence": [
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "health"
+      ],
+      "evidenceCoverage": 0.5,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 1.6,
+      "sources": {
+        "role": {
+          "value": "committee",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Cam Ward",
+      "position": "QB",
+      "planningAdp": "189.9",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 70,
+      "roleSecurity": "starter",
+      "eligibility": "candidate",
+      "bustRisk": "UNKNOWN",
+      "riskFlags": [],
+      "missingEvidence": [
+        "competition",
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "competition",
+        "health"
+      ],
+      "evidenceCoverage": 0.25,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 2,
+      "sources": {
+        "role": {
+          "value": "starter",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Adonai Mitchell",
+      "position": "WR",
+      "planningAdp": "199.5",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 73,
+      "roleSecurity": "committee",
+      "eligibility": "candidate",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "SHARED_WORKLOAD",
+        "ROLE_COMPETITION"
+      ],
+      "missingEvidence": [
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "health"
+      ],
+      "evidenceCoverage": 0.5,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 2.3000000000000003,
+      "sources": {
+        "role": {
+          "value": "committee",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Travis Hunter",
+      "position": "WR",
+      "planningAdp": "164.2",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 76,
+      "roleSecurity": "specialist",
+      "eligibility": "contingent",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "NO_CONFIRMED_WEEKLY_ROLE",
+        "ROLE_COMPETITION"
+      ],
+      "missingEvidence": [
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "health"
+      ],
+      "evidenceCoverage": 0.5,
+      "verifiedEvidenceCoverage": 0.25,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 2.6,
+      "sources": {
+        "role": {
+          "value": "specialist",
+          "publishedAt": "2026-02-13",
+          "source": "https://amp.nfl.com/news/jaguars-still-plan-to-utilize-travis-hunter-as-two-way-player-but-could-flip-usage-to-full-time-cb",
+          "quality": "reported"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Tre' Harris",
+      "position": "WR",
+      "planningAdp": "189.5",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 67,
+      "roleSecurity": "committee",
+      "eligibility": "candidate",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "SHARED_WORKLOAD",
+        "ROLE_COMPETITION",
+        "RECOVERY_OR_LIMITED_PREPARATION"
+      ],
+      "missingEvidence": [
+        "production"
+      ],
+      "rejectedEvidence": [],
+      "evidenceCoverage": 0.75,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 1.7000000000000002,
+      "sources": {
+        "role": {
+          "value": "committee",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "health": {
+          "value": "recovering",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "J.J. McCarthy",
+      "position": "QB",
+      "planningAdp": "224.2",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 71,
+      "roleSecurity": "backup",
+      "eligibility": "contingent",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "NO_CONFIRMED_WEEKLY_ROLE",
+        "ROLE_COMPETITION",
+        "RECOVERY_OR_LIMITED_PREPARATION"
+      ],
+      "missingEvidence": [
+        "production"
+      ],
+      "rejectedEvidence": [],
+      "evidenceCoverage": 0.75,
+      "verifiedEvidenceCoverage": 0.25,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 2.1,
+      "sources": {
+        "role": {
+          "value": "backup",
+          "publishedAt": "2026-08-11",
+          "source": "https://www.vikings.com/sitemap/html/articles/2026/8",
+          "quality": "reported"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "health": {
+          "value": "recovering",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Pat Bryant",
+      "position": "WR",
+      "planningAdp": "198.35",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 69,
+      "roleSecurity": "unknown",
+      "eligibility": "unverified",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "ROLE_UNVERIFIED",
+        "ROLE_COMPETITION"
+      ],
+      "missingEvidence": [
+        "role",
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "role",
+        "health"
+      ],
+      "evidenceCoverage": 0.25,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 1.9000000000000001,
+      "sources": {
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    },
+    {
+      "name": "Jaylin Noel",
+      "position": "WR",
+      "planningAdp": "188.6",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 73,
+      "roleSecurity": "reserve",
+      "eligibility": "contingent",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "NO_CONFIRMED_WEEKLY_ROLE",
+        "ROLE_COMPETITION",
+        "RECOVERY_OR_LIMITED_PREPARATION"
+      ],
+      "missingEvidence": [
+        "production"
+      ],
+      "rejectedEvidence": [],
+      "evidenceCoverage": 0.75,
+      "verifiedEvidenceCoverage": 0.25,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 2.3000000000000003,
+      "sources": {
+        "role": {
+          "value": "reserve",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "health": {
+          "value": "recovering",
+          "publishedAt": "2026-08-17",
+          "source": "https://podcasts.apple.com/gb/podcast/houston-texans-ol-finally-turning-the-corner-ed/id1156158142?i=1000783864306",
+          "quality": "reported"
+        }
+      }
+    },
+    {
+      "name": "Brashard Smith",
+      "position": "RB",
+      "planningAdp": "226.3",
+      "version": "1.0",
+      "mode": "SHADOW",
+      "affectsStrategy": false,
+      "cutoff": "2026-08-28",
+      "breakoutScore": 64,
+      "roleSecurity": "reserve",
+      "eligibility": "contingent",
+      "bustRisk": "FLAGGED",
+      "riskFlags": [
+        "NO_CONFIRMED_WEEKLY_ROLE",
+        "ROLE_COMPETITION"
+      ],
+      "missingEvidence": [
+        "health",
+        "production"
+      ],
+      "rejectedEvidence": [
+        "health"
+      ],
+      "evidenceCoverage": 0.5,
+      "verifiedEvidenceCoverage": 0,
+      "confidence": "INCOMPLETE",
+      "existingBreakoutAdjustment": 1.4000000000000001,
+      "sources": {
+        "role": {
+          "value": "reserve",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        },
+        "competition": {
+          "value": "contested",
+          "publishedAt": "2026-08-22",
+          "source": "repository:app.html.gz@8baf033 (Aug. 22 preseason situation inputs; unverified prior)",
+          "quality": "prior"
+        }
+      }
+    }
+  ],
+  "promotionGate": {
+    "passed": false,
+    "required": [
+      "Frozen pre-draft inputs for every eligible player in each historical season",
+      "Timestamped role, competition, health and production evidence",
+      "Matched preseason ADP and final weekly PPR outcomes",
+      "Walk-forward comparisons by position and draft cost against old model and ADP baseline",
+      "Calibration, missed breakouts, costly busts and uncertainty intervals on held-out seasons"
+    ]
+  }
+}

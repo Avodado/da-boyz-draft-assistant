@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_BUILD = "v0.13.1"
 EXPECTED_DATA_BUILD = "v0.13.0"
-EXPECTED_CACHE = "daboyz-draft-assistant-v0.13.1-draft-day-1"
+EXPECTED_CACHE = "daboyz-draft-assistant-v0.13.1-role-risk-1"
 EXPECTED_DATA_SHA256 = "9354c001bb0259776c0e66641deb5062df4147c88279406b587bafe8cd71e099"
 EXPECTED_MODEL_SHA256 = "4580193cce84afbf9f4782fd21829969d6e39cb08cdc348d62643122f223a40b"
 EXPECTED_POOL_SHA256 = "e3321e205d4a35df456d1d066848bf4cda0033ac91245f33b9b8af951ac18dcf"

@@ -1,0 +1,11 @@
+{
+  "scope": "Selected historical availability cases; not a representative performance backtest",
+  "cases": [
+    {"season":2023,"name":"Jonathan Taylor","cutoff":"2023-09-01","evidence":{"health":{"value":"unavailable","publishedAt":"2023-08-29","source":"https://apnews.com/article/b9f36baa4aca97ae1868c592b6bb8ca2"}},"outcome":{"games":10,"source":"https://www.nfl.com/players/jonathan-taylor/stats/situational/2023/"}},
+    {"season":2023,"name":"Kyler Murray","cutoff":"2023-09-01","evidence":{"health":{"value":"unavailable","publishedAt":"2023-08-29","source":"https://www.azcardinals.com/news/kyler-murray-expected-to-start-season-on-pup-list"}},"outcome":{"games":8,"source":"https://www.nfl.com/players/kyler-murray/stats/splits/2023/"}},
+    {"season":2023,"name":"Jaxon Smith-Njigba","cutoff":"2023-08-28","evidence":{"health":{"value":"recovering","publishedAt":"2023-08-22","source":"https://www.seahawks.com/news/jaxon-smith-njigba-to-have-surgery-on-slight-fracture-in-wrist"}},"outcome":{"games":17,"source":"https://www.seahawks.com/team/players-roster/jaxon-smith-njigba/"}},
+    {"season":2024,"name":"Nick Chubb","cutoff":"2024-08-28","evidence":{"health":{"value":"unavailable","publishedAt":"2024-08-26","source":"https://amp.nfl.com/news/browns-rb-nick-chubb-knee-to-start-2024-season-on-pup-list-miss-at-least-first-four-games"}},"outcome":{"games":8,"source":"https://www.pro-football-reference.com/players/C/ChubNi00.htm"}},
+    {"season":2024,"name":"J.J. McCarthy","cutoff":"2024-08-28","evidence":{"health":{"value":"unavailable","publishedAt":"2024-08-14","source":"https://www.vikings.com/news/jj-mccarthy-sidelining-quarterback-plans-adjust"}},"outcome":{"games":0,"source":"https://www.vikings.com/news/jj-mccarthy-sidelining-quarterback-plans-adjust"}},
+    {"season":2024,"name":"Sam Darnold","cutoff":"2024-08-28","evidence":{"role":{"value":"starter","publishedAt":"2024-08-14","source":"https://www.vikings.com/news/jj-mccarthy-sidelining-quarterback-plans-adjust"}},"outcome":{"games":17,"source":"https://www.vikings.com/team/players-roster/sam-darnold/"}}
+  ]
+}

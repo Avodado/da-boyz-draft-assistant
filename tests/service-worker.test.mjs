@@ -117,7 +117,7 @@ test("install precaches the complete draft-day release", async () => {
   let installed;
   harness.listeners.install({ waitUntil(promise) { installed = promise; } });
   await installed;
-  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.13.1-draft-day-1");
+  assert.equal(vm.runInContext("CACHE", harness.context), "daboyz-draft-assistant-v0.13.1-role-risk-1");
   assert.deepEqual(harness.added, [
     "./",
     "./index.html",
@@ -135,6 +135,9 @@ test("install precaches the complete draft-day release", async () => {
     "./archive-config.js",
     "./archive-client.js",
     "./mock-toolbar.js",
+    "./breakout-risk.js?v=2026-10-18.1",
+    "./breakout-evidence.js?v=2026-10-18.1",
+    "./breakout-review.js?v=2026-10-18.1",
   ]);
   assert.equal(harness.skipWaitingCount, 1);
 });

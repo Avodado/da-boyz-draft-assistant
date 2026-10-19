@@ -1,7 +1,8 @@
 const CACHE_PREFIX='daboyz-draft-assistant-';
-const CACHE='daboyz-draft-assistant-v0.13.1-draft-day-1';
+const CACHE='daboyz-draft-assistant-v0.13.1-role-risk-1';
 const INDEX=new URL('./index.html',self.registration.scope).href;
 const ASSETS=['./','./index.html','./app.html.gz','./version.json','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-192.svg','./icon-512.svg','./simulation-calibration.js','./draft-day-overlay.js','./interpretation-layer.js','./affinity-tracker.js','./archive-config.js','./archive-client.js','./mock-toolbar.js'];
+ASSETS.push('./breakout-risk.js?v=2026-10-18.1','./breakout-evidence.js?v=2026-10-18.1','./breakout-review.js?v=2026-10-18.1');
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(CACHE_PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('message',event=>{if(event.data==='SKIP_WAITING')self.skipWaiting()});
